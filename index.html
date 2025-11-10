@@ -8,30 +8,82 @@
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>Serendib Escapes Travel</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tours.html">Tours</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">Serendib Escapes</div>
+
+      <!-- Hamburger menu icon -->
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="tours.html">Tours</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero">
-    <h2>Discover the Beauty of Sri Lanka</h2>
-    <p>Your gateway to paradise – tailored for UK & Europe travellers.</p>
-    <a href="tours.html" class="btn">Explore Tours</a>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Discover the Beauty of Sri Lanka</h2>
+      <p>From golden beaches to misty hills — a journey crafted for explorers from the UK & Europe.</p>
+      <a href="tours.html" class="btn">Explore Tours</a>
+    </div>
   </section>
 
-  <!-- Footer Section -->
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <h2>Why Travel with Serendib Escapes?</h2>
+      <p>We specialize in personalized holidays to Sri Lanka, designed with comfort, culture, and authenticity in mind. Our local expertise and European service standards ensure a seamless experience from arrival to departure.</p>
+    </div>
+  </section>
+
+  <!-- Popular Tours Section -->
+  <section class="tours">
+    <div class="container">
+      <h2>Popular Tours</h2>
+      <div class="tour-grid">
+        <div class="tour-card">
+          <img src="images/sigiriya.jpg" alt="Sigiriya Rock Fortress">
+          <h3>Cultural Triangle Tour</h3>
+          <p>Explore the ancient wonders of Anuradhapura, Polonnaruwa, and Sigiriya — a journey into Sri Lanka’s royal heritage.</p>
+        </div>
+        <div class="tour-card">
+          <img src="images/kandy.jpg" alt="Temple of the Tooth in Kandy">
+          <h3>Hill Country Escape</h3>
+          <p>Witness breathtaking landscapes, tea plantations, and waterfalls across Kandy, Nuwara Eliya, and Ella.</p>
+        </div>
+        <div class="tour-card">
+          <img src="images/beach.jpg" alt="Sri Lanka beaches">
+          <h3>Coastal Paradise Tour</h3>
+          <p>Relax on Sri Lanka’s golden beaches, surf the waves of Arugam Bay, and explore the southern coast’s colonial charm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="contact-cta">
+    <h2>Ready to Plan Your Dream Holiday?</h2>
+    <a href="contact.html" class="btn">Contact Us</a>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Serendib Escapes Travel | All Rights Reserved</p>
+    <p>© 2025 Serendib Escapes Travel | Designed with ❤️ in Sri Lanka</p>
   </footer>
 
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
 </html>
