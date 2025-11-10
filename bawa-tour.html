@@ -5,117 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Courtyards & Verandahs – Geoffrey Bawa Tour | Serendib Escapes</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Additional tour page styles */
-    .tour-hero {
-      position: relative;
-      background: url('images/bawa-tour.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-    }
-    .tour-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-    }
-    .tour-hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-    }
-    .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.2rem;
-      color: #333;
-    }
-    .tour-overview p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
-    .tour-highlights, .tour-activities {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .timeline-item {
-      background: #f9f9f9;
-      padding: 20px;
-      border-left: 4px solid #ff6f61;
-      border-radius: 5px;
-    }
-    .timeline-item h3 {
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .contact-cta {
-      background: #ff6f61;
-      color: #fff;
-      padding: 50px 20px;
-      text-align: center;
-      border-radius: 10px;
-      margin: 60px 0;
-    }
-    .contact-cta a {
-      background: #fff;
-      color: #ff6f61;
-      padding: 15px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .contact-cta a:hover {
-      background: #ff4f3f;
-      color: #fff;
-    }
-  </style>
 </head>
 <body>
 
@@ -123,11 +12,6 @@
   <header class="navbar">
     <div class="container">
       <div class="logo">Serendib Escapes</div>
-      <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
       <nav>
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
@@ -169,36 +53,36 @@
   <section class="section">
     <h2>Itinerary</h2>
     <div class="timeline">
-      <div class="timeline-item">
-        <h3>Day 1: Airport – Negombo</h3>
+      <div class="timeline-item" data-day="Day 1">
+        <h3>Airport – Negombo</h3>
         <p>Arrival and transfer to Negombo, 25 minutes.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 2: Negombo – Anuradhapura – Kandalama</h3>
+      <div class="timeline-item" data-day="Day 2">
+        <h3>Negombo – Anuradhapura – Kandalama</h3>
         <p>Travel 4.5 hours exploring cultural triangle and historic sites.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 3: Kandalama – Sigiriya – Polonnaruwa – Kandalama</h3>
+      <div class="timeline-item" data-day="Day 3">
+        <h3>Kandalama – Sigiriya – Polonnaruwa – Kandalama</h3>
         <p>3.5 hours visiting ancient architecture and heritage sites.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 4: Dambulla – Matale – Kandy</h3>
+      <div class="timeline-item" data-day="Day 4">
+        <h3>Dambulla – Matale – Kandy</h3>
         <p>3 hours exploring temples and local culture.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 5: Kandy – Bandarawela – Ella</h3>
+      <div class="timeline-item" data-day="Day 5">
+        <h3>Kandy – Bandarawela – Ella</h3>
         <p>4.5 hours with scenic train rides and mountain stops.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 6: Ella – Galle</h3>
+      <div class="timeline-item" data-day="Day 6">
+        <h3>Ella – Galle</h3>
         <p>5.5 hours traveling to the coastal region.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 7: Galle – Colombo</h3>
+      <div class="timeline-item" data-day="Day 7">
+        <h3>Galle – Colombo</h3>
         <p>2.5 hours exploring Galle Fort and city highlights.</p>
       </div>
-      <div class="timeline-item">
-        <h3>Day 8: Colombo – Airport</h3>
+      <div class="timeline-item" data-day="Day 8">
+        <h3>Colombo – Airport</h3>
         <p>1 hour transfer to airport for departure.</p>
       </div>
     </div>
