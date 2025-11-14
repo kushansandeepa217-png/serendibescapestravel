@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - Serendibe Escapes</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact - Serendibe Escapes</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="site-header container">
-  <div class="logo">Serendibe Escapes</div>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="site-header container">
+    <div class="logo">Serendibe Escapes</div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="hero" style="background: url('images/contact-hero.jpg') center/cover no-repeat;">
-  <div class="hero-overlay">
-    <h1>Contact Us</h1>
-    <p>We’re here to help you plan your dream Sri Lanka experience.</p>
-  </div>
-</section>
+  <section class="hero" style="background-image:url('images/hero.jpg');">
+    <div class="hero-overlay">
+      <h1>Contact Us</h1>
+      <p>Questions? Custom requests? We’re here to help — reach out and we’ll tailor your trip.</p>
+    </div>
+  </section>
 
-<section class="container content-section">
-  <h2 class="section-title">Get in Touch</h2>
-  <form id="contact-form" action="#" method="post">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+  <main class="container">
+    <section class="tour-section">
+      <div class="tour-box">
+        <h2 class="section-title">Get in touch</h2>
+        <form id="contact-form">
+          <label for="name" style="display:block;margin-bottom:6px;color:var(--muted)">Name</label>
+          <input id="name" name="name" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+          <label for="email" style="display:block;margin-bottom:6px;color:var(--muted)">Email</label>
+          <input id="email" name="email" type="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+          <label for="message" style="display:block;margin-bottom:6px;color:var(--muted)">Message</label>
+          <textarea id="message" name="message" rows="6" style="width:100%;padding:12px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required></textarea>
 
-    <button type="submit" class="btn">Send Message</button>
-  </form>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
 
-  <h2 class="section-title">Our Contact Info</h2>
-  <p>Email: info@serendibescapes.com</p>
-  <p>Phone: +94 77 123 4567</p>
-  <p>Address: Colombo, Sri Lanka</p>
-</section>
+      <div class="tour-box" style="margin-top:18px;">
+        <h2 class="section-title">Contact Info</h2>
+        <p style="color:var(--muted)">Tour Advisor: +447950781227<br>Email: kushansandeepa217@gmail.com<br>Office: Colombo, Sri Lanka</p>
+      </div>
+    </section>
+  </main>
 
-<footer class="site-footer container">
-  <p>&copy; 2025 Serendibe Escapes. All Rights Reserved.</p>
-</footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Serendibe Escapes · All Rights Reserved</p>
+    </div>
+  </footer>
 
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
