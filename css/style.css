@@ -1,214 +1,211 @@
-/* === Global Styles === */
+/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+  background: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: #fff;
+  border-bottom: 2px solid #eee;
 }
 
-/* === Header === */
-header {
-    background: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #2c3e50;
 }
 
-header .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1a73e8;
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-nav {
-    display: flex;
-    gap: 20px;
+.main-nav a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-nav a {
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
+.main-nav a.active,
+.main-nav a:hover {
+  color: #e67e22;
 }
 
-nav a:hover {
-    color: #1a73e8;
-}
-
-/* === Hero Section === */
+/* Hero */
 .hero {
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.hero-content {
-    position: relative;
-    max-width: 800px;
+.hero-overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 8px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  font-size: 2.8em;
+  margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
-/* === Buttons === */
 .btn {
-    display: inline-block;
-    background: #1a73e8;
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
+  display: inline-block;
+  padding: 12px 25px;
+  background: #e67e22;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
 .btn:hover {
-    background: #0b59c1;
+  background: #d35400;
 }
 
-/* === Tour Grid === */
+/* Tours Grid */
 .tour-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 50px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px 0;
 }
 
 .tour-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.tour-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
 .tour-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
 .tour-card h3 {
-    margin: 20px;
-    font-size: 1.4rem;
+  padding: 15px;
+  font-size: 1.4em;
+  color: #2c3e50;
 }
 
 .tour-card p {
-    margin: 0 20px 20px;
-    font-size: 0.95rem;
-    color: #666;
+  padding: 0 15px 15px 15px;
+  color: #555;
+  font-size: 0.95em;
 }
 
-/* === Tour Detail Page === */
-.tour-detail {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 20px;
+.tour-card .btn {
+  margin: 0 15px 15px 15px;
+  text-align: center;
 }
 
-.tour-detail h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+/* Timeline for Tour Pages */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 40px;
+  margin-top: 30px;
 }
 
-.tour-detail p {
-    margin-bottom: 20px;
-    font-size: 1rem;
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #e67e22;
 }
 
-.tour-hero {
-    height: 50vh;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    margin-bottom: 40px;
+.timeline li {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 
-.inclusions, .itinerary {
-    margin-bottom: 40px;
+.timeline li::before {
+  content: attr(data-day);
+  position: absolute;
+  left: -55px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e67e22;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.85em;
 }
 
-.inclusions ul, .itinerary ul {
-    list-style: disc inside;
+.timeline li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.itinerary .day {
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border-left: 3px solid #1a73e8;
+/* Footer */
+.site-footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
 }
 
-/* === Footer === */
-footer {
-    background: #1a73e8;
-    color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-}
+/* Responsive */
+@media(max-width: 768px){
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-footer a {
-    color: #fff;
-    text-decoration: underline;
-}
+  .hero h1 {
+    font-size: 2em;
+  }
 
-/* === Responsive === */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
+  .hero p {
+    font-size: 1em;
+  }
 
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .tour-card img {
-        height: 180px;
-    }
+  .timeline li::before {
+    left: -50px;
+    font-size: 0.75em;
+    padding: 8px;
+  }
 }

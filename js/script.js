@@ -1,8 +1,15 @@
-// Mobile Menu Toggle
-const menu = document.querySelector('#mobile-menu');
-const nav = document.querySelector('nav');
+// Simple contact form validation
+document.getElementById('contact-form')?.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-menu.addEventListener('click', () => {
-  nav.classList.toggle('active');
-  menu.classList.toggle('open');
+    if(!name || !email || !message){
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    alert('Thank you for contacting us! We will get back to you shortly.');
+    this.reset();
 });
