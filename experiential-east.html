@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Experiential East</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiential East - Serendib Escapes</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header container">
-    <div class="logo">Serendibe Escapes</div>
+    <div class="logo">Serendib Escapes</div>
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -19,37 +20,44 @@
     </nav>
   </header>
 
-  <section class="hero" style="background-image:url('images/experiential-east.jpg');">
+  <!-- Hero Section -->
+  <section class="hero" style="background: url('images/experiential-east.jpg') center/cover no-repeat;">
     <div class="hero-overlay">
       <h1>Experiential East</h1>
-      <p>Immerse yourself in the vibrant hues of East Sri Lanka — ancient ruins, pristine beaches and untold stories.</p>
-      <a class="btn" href="tours.html">Back to Tours</a>
+      <p>Explore Sri Lanka’s eastern treasures, pristine beaches, hidden cultural gems, and unforgettable local experiences.</p>
+      <a href="tours.html" class="btn">Back to Tours</a>
     </div>
   </section>
 
-  <main class="container">
-    <section class="tour-section">
-      <div class="tour-box">
-        <h2 class="section-title">Overview</h2>
-        <p>From Polonnaruwa to Arugam Bay and Gal Oya, enjoy untouched beauty, local communities and optional water-sports and wildlife.</p>
-      </div>
+  <!-- Itinerary Section -->
+  <section class="container tour-section">
+    <h2 class="section-title">Itinerary</h2>
+    <ul class="timeline">
+      <li data-day="Day 1"><strong>Airport → Trincomalee</strong> (4 hours)</li>
+      <li data-day="Day 2"><strong>Trincomalee</strong></li>
+      <li data-day="Day 3"><strong>Trincomalee → Passikudah</strong> (2 hours)</li>
+      <li data-day="Day 4"><strong>Passikudah</strong></li>
+      <li data-day="Day 5"><strong>Passikudah → Koddiyar Bay</strong> (1.5 hours)</li>
+      <li data-day="Day 6"><strong>Koddiyar Bay → Colombo</strong> (6.5 hours)</li>
+    </ul>
+  </section>
 
-      <div class="tour-box">
-        <h2 class="section-title">Itinerary</h2>
-        <ul class="timeline">
-          <li data-day="Day 1"><strong>Airport → Negombo</strong> (40 minutes)</li>
-          <li data-day="Day 2"><strong>Negombo → Wellawaya</strong> (5 hours)</li>
-          <li data-day="Day 3"><strong>Wellawaya → Pottuvil Point</strong> (2.5 hours)</li>
-          <li data-day="Day 4"><strong>Pottuvil Point — beach & exploring</strong></li>
-          <li data-day="Day 5"><strong>Pottuvil Point → Yala</strong> (2.5 hours)</li>
-          <li data-day="Day 6"><strong>Yala → Tangalle</strong> (1.5 hours)</li>
-          <li data-day="Day 7"><strong>Tangalle → Weligama</strong> (1 hour)</li>
-          <li data-day="Day 8"><strong>Weligama → Airport</strong> (2.5 hours)</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <!-- Inclusions -->
+  <section class="container tour-section">
+    <h2 class="section-title">Inclusions</h2>
+    <div class="tour-inclusions">
+      <p><strong>Meals:</strong> Tailored to Your Preference</p>
+      <p><strong>Transport:</strong> Private Air-Conditioned Vehicle for Transfers and Sightseeing</p>
+      <p><strong>Accommodation:</strong> Hotel (6 nights)</p>
+      <p><strong>Activities Included:</strong> Trincomalee Beaches, Pigeon Island Snorkeling, Koneswaram Temple, Local Village Tours</p>
+    </div>
+  </section>
 
-  <footer class="site-footer"><div class="container"><p>© 2025 Serendibe Escapes · All Rights Reserved</p></div></footer>
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <p>&copy; 2025 Serendib Escapes. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

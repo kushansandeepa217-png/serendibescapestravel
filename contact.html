@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact - Serendibe Escapes</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Serendib Escapes Travel</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header container">
-    <div class="logo">Serendibe Escapes</div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tours.html">Tours</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="site-header container">
+  <div class="logo">Serendib Escapes</div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tours.html">Tours</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <section class="hero" style="background-image:url('images/hero.jpg');">
-    <div class="hero-overlay">
-      <h1>Contact Us</h1>
-      <p>Questions? Custom requests? We’re here to help — reach out and we’ll tailor your trip.</p>
-    </div>
-  </section>
+<section class="hero" style="background: url('images/hero.jpg') center/cover no-repeat;">
+  <div class="hero-overlay">
+    <h1>Get in Touch</h1>
+    <p>We’re here to help you plan the perfect Sri Lanka journey.</p>
+  </div>
+</section>
 
-  <main class="container">
-    <section class="tour-section">
-      <div class="tour-box">
-        <h2 class="section-title">Get in touch</h2>
-        <form id="contact-form">
-          <label for="name" style="display:block;margin-bottom:6px;color:var(--muted)">Name</label>
-          <input id="name" name="name" type="text" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required>
+<section class="container contact-content">
+  <h2 class="section-title">Contact Information</h2>
+  <p>You can reach us via email, phone, or by filling out the contact form below. Our team will respond promptly to help plan your dream travel experience in Sri Lanka.</p>
+  
+  <div class="contact-info">
+    <p><strong>Email:</strong> info@serendibescapes.com</p>
+    <p><strong>Phone:</strong> +94 11 123 4567</p>
+    <p><strong>Address:</strong> 123 Colombo Street, Colombo, Sri Lanka</p>
+  </div>
 
-          <label for="email" style="display:block;margin-bottom:6px;color:var(--muted)">Email</label>
-          <input id="email" name="email" type="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required>
+  <h2 class="section-title">Send Us a Message</h2>
+  <form class="contact-form" action="#" method="POST">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required>
 
-          <label for="message" style="display:block;margin-bottom:6px;color:var(--muted)">Message</label>
-          <textarea id="message" name="message" rows="6" style="width:100%;padding:12px;border-radius:8px;border:1px solid #e6eef8;margin-bottom:12px" required></textarea>
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Your email address" required>
 
-          <button class="btn" type="submit">Send Message</button>
-        </form>
-      </div>
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" placeholder="Subject" required>
 
-      <div class="tour-box" style="margin-top:18px;">
-        <h2 class="section-title">Contact Info</h2>
-        <p style="color:var(--muted)">Tour Advisor: +447950781227<br>Email: kushansandeepa217@gmail.com<br>Office: Colombo, Sri Lanka</p>
-      </div>
-    </section>
-  </main>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Serendibe Escapes · All Rights Reserved</p>
-    </div>
-  </footer>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
 
-  <script src="js/script.js"></script>
+<footer class="site-footer container">
+  <p>&copy; 2025 Serendib Escapes Travel. All Rights Reserved.</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
