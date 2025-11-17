@@ -1,57 +1,60 @@
-/* Reset */
+/* ===================== Reset & Base ===================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: #333;
+  background-color: #f8f8f8;
 }
 
-/* Header */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===================== Header ===================== */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 20px 40px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
 }
 
 .site-header .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #2C3E50;
+  color: #007b6a;
 }
 
-.site-header .main-nav ul {
+.main-nav ul {
   display: flex;
   list-style: none;
+  gap: 25px;
 }
 
-.site-header .main-nav ul li {
-  margin-left: 2rem;
-}
-
-.site-header .main-nav ul li a {
-  text-decoration: none;
-  color: #2C3E50;
+.main-nav a {
   font-weight: 500;
-  transition: color 0.3s;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
-.site-header .main-nav ul li a.active,
-.site-header .main-nav ul li a:hover {
-  color: #E67E22;
+.main-nav a:hover,
+.main-nav a.active {
+  color: #007b6a;
+  border-bottom: 2px solid #007b6a;
 }
 
-/* Hero */
+/* ===================== Hero Section ===================== */
 .hero {
   position: relative;
   height: 80vh;
@@ -63,94 +66,230 @@ body {
 }
 
 .hero-overlay {
-  background: rgba(0,0,0,0.5);
-  padding: 2rem;
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
   border-radius: 10px;
 }
 
-.hero-overlay h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-.hero-overlay p {
+.hero p {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
 }
 
-.btn {
+.hero .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: #E67E22;
+  background: #007b6a;
   color: #fff;
-  text-decoration: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.btn:hover {
-  background: #d76d1c;
+.hero .btn:hover {
+  background: #004d40;
 }
 
-/* Tours Grid */
-.tours-grid {
+/* ===================== Section Titles ===================== */
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 50px 0 30px;
+  color: #007b6a;
+  font-weight: 700;
+}
+
+/* ===================== Tour / Destinations Grid ===================== */
+.tours-grid,
+.destinations-grid,
+.attractions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 3rem 2rem;
+  gap: 25px;
+  margin: 0 auto;
 }
 
-.tour-card {
+.tour-card,
+.destination-card,
+.attraction {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tour-card img {
+.tour-card:hover,
+.destination-card:hover,
+.attraction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.tour-card img,
+.destination-card img,
+.attraction img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-.tour-card h3 {
-  font-size: 1.5rem;
-  margin: 1rem;
+.tour-card h3,
+.destination-card h3 {
+  font-size: 1.4rem;
+  margin: 15px;
+  color: #007b6a;
 }
 
-.tour-card p {
-  flex-grow: 1;
-  margin: 0 1rem 1rem;
+.tour-card p,
+.destination-card p,
+.attraction p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #555;
 }
 
-.tour-card .btn {
-  margin: 0 1rem 1rem;
+.tour-card .btn,
+.destination-card .btn {
+  display: block;
+  margin: 0 15px 15px;
   text-align: center;
-}
-
-/* Footer */
-.site-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #2C3E50;
+  padding: 8px 0;
+  background: #007b6a;
   color: #fff;
-  margin-top: 2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-/* Responsive */
+.tour-card .btn:hover,
+.destination-card .btn:hover {
+  background: #004d40;
+}
+
+/* ===================== Timeline Section ===================== */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  margin: 30px 0;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 20px;
+}
+
+.timeline li::before {
+  content: attr(data-day);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #007b6a;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* ===================== Inclusions & Things to Do ===================== */
+.tour-inclusions p,
+ul {
+  font-size: 0.95rem;
+  margin: 5px 0;
+  color: #444;
+}
+
+ul li {
+  margin-bottom: 8px;
+  padding-left: 15px;
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #007b6a;
+}
+
+/* ===================== Footer ===================== */
+footer {
+  text-align: center;
+  padding: 25px 0;
+  background: #007b6a;
+  color: #fff;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+/* ===================== Hero & Key Attractions ===================== */
+.attractions-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.attraction img {
+  height: 150px;
+}
+
+.attraction p {
+  font-size: 0.9rem;
+  margin: 10px 0 15px;
+}
+
+/* ===================== Pagination ===================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.pagination a {
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 5px;
+  color: #007b6a;
+  font-weight: 600;
+  border: 1px solid #007b6a;
+  transition: 0.3s;
+}
+
+.pagination a.active,
+.pagination a:hover {
+  background: #007b6a;
+  color: #fff;
+}
+
+/* ===================== Media Queries ===================== */
 @media (max-width: 768px) {
-  .hero-overlay h1 {
+  .hero h1 {
     font-size: 2rem;
   }
 
-  .hero-overlay p {
+  .hero p {
     font-size: 1rem;
   }
+}
 
-  .site-header .main-nav ul li {
-    margin-left: 1rem;
+@media (max-width: 480px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+
+  .tour-card img,
+  .destination-card img {
+    height: 180px;
   }
 }
