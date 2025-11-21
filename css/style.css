@@ -1,4 +1,6 @@
-/* ===================== Reset & Base ===================== */
+/* =========================================================
+   RESET & BASE
+   ========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,290 +8,340 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f8f8f8;
   color: #333;
-  background-color: #f8f8f8;
+  line-height: 1.6;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease;
 }
 
-/* ===================== Header ===================== */
-.site-header {
+/* =========================================================
+   HEADER
+   ========================================================= */
+header {
+  width: 100%;
+  background: #ffffff;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: sticky;
   top: 0;
   z-index: 999;
 }
 
-.site-header .logo {
+.logo {
   font-size: 1.8rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #007b6a;
 }
 
-.main-nav ul {
+nav ul {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 28px;
 }
 
-.main-nav a {
+nav ul li a {
+  padding: 6px 8px;
   font-weight: 500;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
+nav ul li a:hover,
+nav ul li a.active {
   color: #007b6a;
   border-bottom: 2px solid #007b6a;
 }
 
-/* ===================== Hero Section ===================== */
+/* Mobile Menu Icon */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 .hero {
-  position: relative;
+  width: 100%;
   height: 80vh;
+  background-size: cover;
+  background-position: center center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #fff;
+  justify-content: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  top: 0;
+  left: 0;
+}
+
+.hero-content {
+  position: relative;
   text-align: center;
+  color: white;
+  max-width: 700px;
+  animation: fadeUp 1.2s ease;
 }
 
-.hero-overlay {
-  background: rgba(0,0,0,0.4);
-  padding: 30px;
-  border-radius: 10px;
-}
-
-.hero h1 {
+.hero-content h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.hero p {
+.hero-content p {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-.hero .btn {
+.hero-content .btn {
   display: inline-block;
+  padding: 12px 25px;
   background: #007b6a;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: 600;
-  transition: 0.3s;
 }
 
-.hero .btn:hover {
+.hero-content .btn:hover {
   background: #004d40;
 }
 
-/* ===================== Section Titles ===================== */
+/* =========================================================
+   SECTIONS / TITLES
+   ========================================================= */
 .section-title {
-  font-size: 2rem;
   text-align: center;
+  font-size: 2.2rem;
   margin: 50px 0 30px;
   color: #007b6a;
   font-weight: 700;
 }
 
-/* ===================== Tour / Destinations Grid ===================== */
-.tours-grid,
-.destinations-grid,
-.attractions-grid {
+/* =========================================================
+   GRID LAYOUTS
+   ========================================================= */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 28px;
+  padding: 0 40px;
+  margin-bottom: 60px;
 }
 
-.tour-card,
-.destination-card,
-.attraction {
-  background: #fff;
-  border-radius: 10px;
+/* =========================================================
+   CARDS (Tours / Destinations / Attractions)
+   ========================================================= */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
 }
 
-.tour-card:hover,
-.destination-card:hover,
-.attraction:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.tour-card img,
-.destination-card img,
-.attraction img {
+.card img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
 }
 
-.tour-card h3,
-.destination-card h3 {
+.card h3 {
   font-size: 1.4rem;
-  margin: 15px;
+  margin: 18px;
   color: #007b6a;
 }
 
-.tour-card p,
-.destination-card p,
-.attraction p {
-  margin: 0 15px 15px;
-  font-size: 0.95rem;
+.card p {
+  margin: 0 18px 18px;
   color: #555;
+  font-size: 0.96rem;
 }
 
-.tour-card .btn,
-.destination-card .btn {
+.card .btn {
+  margin: 0 18px 18px;
   display: block;
-  margin: 0 15px 15px;
   text-align: center;
-  padding: 8px 0;
+  padding: 10px 0;
   background: #007b6a;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: 600;
-  transition: 0.3s;
 }
 
-.tour-card .btn:hover,
-.destination-card .btn:hover {
+.card .btn:hover {
   background: #004d40;
 }
 
-/* ===================== Timeline Section ===================== */
-.timeline {
-  list-style: none;
-  padding-left: 0;
+/* =========================================================
+   TOUR DETAILS PAGES
+   ========================================================= */
+.detail-banner {
+  width: 100%;
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 18px 18px;
   position: relative;
-  margin: 30px 0;
+}
+
+.detail-banner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.detail-content {
+  padding: 40px;
+}
+
+.timeline {
+  margin-top: 25px;
+  list-style: none;
 }
 
 .timeline li {
-  position: relative;
-  padding-left: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  border-left: 4px solid #007b6a;
+  background: #eef7f6;
+  border-radius: 6px;
+  animation: fadeUp 1s ease;
 }
 
-.timeline li::before {
-  content: attr(data-day);
-  position: absolute;
-  left: 0;
-  top: 0;
+/* =========================================================
+   GALLERY SLIDER
+   ========================================================= */
+.gallery-slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+}
+
+.gallery-slider img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: start;
+  transition: 0.3s ease;
+}
+
+.gallery-slider img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   BOOKING FORM
+   ========================================================= */
+.booking-box {
+  background: white;
+  padding: 30px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.booking-box input,
+.booking-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.booking-box button {
+  padding: 12px 20px;
   background: #007b6a;
-  color: #fff;
+  color: white;
+  border: none;
+  border-radius: 6px;
   font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* ===================== Inclusions & Things to Do ===================== */
-.tour-inclusions p,
-ul {
-  font-size: 0.95rem;
-  margin: 5px 0;
-  color: #444;
+.booking-box button:hover {
+  background: #004d40;
 }
 
-ul li {
-  margin-bottom: 8px;
-  padding-left: 15px;
-  position: relative;
-}
-
-ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #007b6a;
-}
-
-/* ===================== Footer ===================== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 footer {
   text-align: center;
-  padding: 25px 0;
+  padding: 25px;
   background: #007b6a;
   color: #fff;
-  margin-top: 50px;
-  font-size: 0.9rem;
+  margin-top: 70px;
 }
 
-/* ===================== Hero & Key Attractions ===================== */
-.attractions-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-.attraction img {
-  height: 150px;
-}
-
-.attraction p {
-  font-size: 0.9rem;
-  margin: 10px 0 15px;
-}
-
-/* ===================== Pagination ===================== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0;
-}
-
-.pagination a {
-  padding: 8px 12px;
-  background: #fff;
-  border-radius: 5px;
-  color: #007b6a;
-  font-weight: 600;
-  border: 1px solid #007b6a;
-  transition: 0.3s;
-}
-
-.pagination a.active,
-.pagination a:hover {
-  background: #007b6a;
-  color: #fff;
-}
-
-/* ===================== Media Queries ===================== */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-nav ul {
+  nav ul {
+    display: none;
     flex-direction: column;
-    gap: 15px;
+    background: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 
   .hero {
     height: 60vh;
   }
 
-  .tour-card img,
-  .destination-card img {
-    height: 180px;
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 }
