@@ -198,7 +198,7 @@ a {
   border-radius: 5px;
 }
 
-/* ===================== Inclusions ===================== */
+/* ===================== Inclusions & Things to Do ===================== */
 .tour-inclusions p,
 ul {
   font-size: 0.95rem;
@@ -267,6 +267,34 @@ footer {
   color: #fff;
 }
 
+/* ===================== Gallery Fix ===================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px; /* fixed height for all images */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ===================== Booking Form Section ===================== */
+.booking-form,
+.booking-form p {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tour-section > p,
+.tour-section > h2 {
+  display: block;
+  margin-bottom: 15px;
+}
+
 /* ===================== Media Queries ===================== */
 @media (max-width: 768px) {
   .hero h1 {
@@ -292,82 +320,8 @@ footer {
   .destination-card img {
     height: 180px;
   }
-}
 
-/* =========================================================
-   🌟 NEW FEATURES (ONLY ADDITIONS)
-   ========================================================= */
-
-/* Make gallery images perfect same size */
-.gallery-grid img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* ---- Slider Arrows ---- */
-.gallery-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.gallery-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
-  padding: 12px 16px;
-  font-size: 1.4rem;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  user-select: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.gallery-arrow:hover {
-  background: rgba(0, 0, 0, 0.65);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.gallery-arrow.left { left: 10px; }
-.gallery-arrow.right { right: 10px; }
-
-/* Hide arrows on mobile */
-@media (max-width: 600px) {
-  .gallery-arrow { display: none; }
-}
-
-/* ---- Fade-in effect ---- */
-.fade-in {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---- Lightbox ---- */
-.lightbox-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.lightbox-bg img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
+  .gallery-grid img {
+    height: 150px;
+  }
 }
