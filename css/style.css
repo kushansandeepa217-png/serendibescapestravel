@@ -249,7 +249,9 @@ a {
 }
 
 .gallery-slider img {
-  height: 200px;
+  height: 200px;  /* fixed uniform height */
+  width: 300px;   /* fixed width for uniformity */
+  object-fit: cover;
   border-radius: 10px;
   flex-shrink: 0;
   transition: transform 0.3s;
@@ -323,6 +325,11 @@ footer {
 
   .booking-form {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-slider img {
+    width: 100%;
+    height: 200px;
   }
 }
 
