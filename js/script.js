@@ -73,59 +73,50 @@ window.addEventListener("scroll", fadeInOnScroll);
 fadeInOnScroll();
 
 /* =========================================================
-   SIMPLE IMAGE SLIDER (DESTINATION GALLERY)
+   GALLERY SLIDER (UPDATED FOR UNIFORM IMAGES)
 ========================================================= */
+
 const sliders = document.querySelectorAll(".gallery-slider");
 
-// Scroll by full image width for perfect alignment
 sliders.forEach(slider => {
   slider.addEventListener("wheel", evt => {
     evt.preventDefault();
-    // Get first image width + gap
-    const img = slider.querySelector("img");
-    if (img) {
-      const style = getComputedStyle(img);
-      const gap = parseInt(getComputedStyle(slider).gap);
-      const scrollAmount = img.offsetWidth + gap;
-      slider.scrollLeft += evt.deltaY > 0 ? scrollAmount : -scrollAmount;
-    }
+    slider.scrollLeft += evt.deltaY;
   });
 });
 
-/* --- Arrow Navigation --- */
-document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
-  const slider = wrapper.querySelector('.gallery-slider');
-  const left = wrapper.querySelector('.gallery-arrow.left');
-  const right = wrapper.querySelector('.gallery-arrow.right');
+/* Arrow Navigation */
+document.querySelectorAll(".gallery-wrapper").forEach(wrapper => {
+  const slider = wrapper.querySelector(".gallery-slider");
+  const left = wrapper.querySelector(".gallery-arrow.left");
+  const right = wrapper.querySelector(".gallery-arrow.right");
 
-  left.addEventListener('click', () => {
-    const img = slider.querySelector("img");
-    const gap = parseInt(getComputedStyle(slider).gap);
-    const scrollAmount = img.offsetWidth + gap;
-    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
+  if (!slider) return;
 
-  right.addEventListener('click', () => {
-    const img = slider.querySelector("img");
-    const gap = parseInt(getComputedStyle(slider).gap);
-    const scrollAmount = img.offsetWidth + gap;
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
+  if (left) {
+    left.addEventListener("click", () => {
+      slider.scrollBy({ left: -330, behavior: "smooth" });
+    });
+  }
+
+  if (right) {
+    right.addEventListener("click", () => {
+      slider.scrollBy({ left: 330, behavior: "smooth" });
+    });
+  }
 });
 
-/* --- Auto Slide --- */
+/* Auto-Slide */
 setInterval(() => {
-  sliders.forEach(slider => {
-    const img = slider.querySelector("img");
-    const gap = parseInt(getComputedStyle(slider).gap);
-    const scrollAmount = img.offsetWidth + gap;
-    slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  document.querySelectorAll(".gallery-slider").forEach(slider => {
+    slider.scrollBy({ left: 260, behavior: "smooth" });
   });
-}, 3800);
+}, 3500);
 
 /* =========================================================
    LIGHTBOX
 ========================================================= */
+
 const lightbox = document.createElement("div");
 lightbox.classList.add("lightbox-bg");
 document.body.appendChild(lightbox);
