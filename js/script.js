@@ -208,3 +208,26 @@ document.querySelectorAll(".pagination a").forEach(link => {
     }, 400); // 400ms delay matches smooth scroll
   });
 });
+
+/* =========================================================
+   FADE-IN EFFECT FOR "THINGS TO DO" & "BEST TIME TO VISIT"
+========================================================= */
+const thingsListItems = document.querySelectorAll(".things-list li");
+const bestTimeBox = document.querySelectorAll(".container.section p");
+
+function fadeThings() {
+  thingsListItems.forEach((item, i) => {
+    if (item.getBoundingClientRect().top < window.innerHeight - 70) {
+      setTimeout(() => item.classList.add("visible"), i * 120);
+    }
+  });
+
+  bestTimeBox.forEach(box => {
+    if (box.getBoundingClientRect().top < window.innerHeight - 100) {
+      box.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", fadeThings);
+fadeThings();
