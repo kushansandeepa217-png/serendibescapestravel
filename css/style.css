@@ -550,87 +550,75 @@ footer {
 }
 
 /* =========================================================
-   PROFESSIONAL "THINGS TO DO" LIST
+   ⭐ PROFESSIONAL THINGS TO DO + BEST TIME SECTIONS
 ========================================================= */
-.things-list {
-  list-style: none;
-  padding: 0;
-  margin: 25px auto;
-  max-width: 800px;
-}
 
-.things-list li {
-  position: relative;
+.tour-section {
   background: #ffffff;
-  padding: 16px 20px 16px 55px;
-  margin-bottom: 14px;
+  padding: 30px 35px;
   border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.07);
-  font-size: 1.05rem;
-  color: #444;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 35px;
   border-left: 5px solid #007b6a;
-}
-
-.things-list li::before {
-  content: "✔";
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #007b6a;
-}
-
-.things-list li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-  background: #f4faf9;
-}
-
-/* =========================================================
-   PROFESSIONAL "BEST TIME TO VISIT" BLOCK
-========================================================= */
-.container.section p {
-  background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 14px;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #444;
-  border-left: 6px solid #007b6a;
-  max-width: 900px;
-  margin: 20px auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container.section p:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
-}
-
-/* Section title improvement */
-.section-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 25px;
-  font-weight: 700;
-  color: #007b6a;
-}
-
-/* Default hidden state */
-.things-list li,
-.container.section p {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+  animation: fadeUp 0.8s ease forwards;
   opacity: 0;
-  transform: translateY(18px);
-  transition: all 0.6s ease;
+  transform: translateY(20px);
 }
 
-/* Visible state */
-.things-list li.visible,
-.container.section p.visible {
+.tour-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+.tour-section .section-title {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #007b6a;
+}
+
+.tour-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tour-section ul li {
+  font-size: 1rem;
+  padding: 12px 0 12px 32px;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+  color: #444;
+}
+
+.tour-section ul li:last-child {
+  border-bottom: none;
+}
+
+.tour-section ul li::before {
+  content: "✔";
+  color: #007b6a;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+.tour-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Fade animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

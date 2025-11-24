@@ -210,24 +210,17 @@ document.querySelectorAll(".pagination a").forEach(link => {
 });
 
 /* =========================================================
-   FADE-IN EFFECT FOR "THINGS TO DO" & "BEST TIME TO VISIT"
+   FADE-IN FOR THINGS TO DO + BEST TIME SECTIONS
 ========================================================= */
-const thingsListItems = document.querySelectorAll(".things-list li");
-const bestTimeBox = document.querySelectorAll(".container.section p");
+const tourSections = document.querySelectorAll(".tour-section");
 
-function fadeThings() {
-  thingsListItems.forEach((item, i) => {
-    if (item.getBoundingClientRect().top < window.innerHeight - 70) {
-      setTimeout(() => item.classList.add("visible"), i * 120);
-    }
-  });
-
-  bestTimeBox.forEach(box => {
-    if (box.getBoundingClientRect().top < window.innerHeight - 100) {
-      box.classList.add("visible");
+function revealTourSections() {
+  tourSections.forEach(sec => {
+    if (sec.getBoundingClientRect().top < window.innerHeight - 80) {
+      sec.classList.add("visible");
     }
   });
 }
 
-window.addEventListener("scroll", fadeThings);
-fadeThings();
+window.addEventListener("scroll", revealTourSections);
+revealTourSections();
