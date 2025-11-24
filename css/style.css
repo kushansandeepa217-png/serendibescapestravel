@@ -63,17 +63,23 @@ a {
   align-items: center;
   color: #fff;
   text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-overlay {
   background: rgba(0,0,0,0.4);
   padding: 30px;
   border-radius: 10px;
+  max-width: 1000px;
+  width: calc(100% - 40px);
 }
 
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 10px;
+  line-height: 1.05;
 }
 
 .hero p {
@@ -122,6 +128,8 @@ a {
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .tour-card:hover,
@@ -131,12 +139,22 @@ a {
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
+/* Ensure card images behave consistently */
 .tour-card img,
 .destination-card img,
 .attraction img {
   width: 100%;
-  height: 200px;
+  /* set aspect ratio for consistency; modern browsers support this */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
+}
+
+/* fallback for browsers not supporting aspect-ratio: keep 200px height */
+.tour-card img,
+.destination-card img,
+.attraction.img {
+  height: 200px;
 }
 
 .tour-card h3,
@@ -152,6 +170,7 @@ a {
   margin: 0 15px 15px;
   font-size: 0.95rem;
   color: #555;
+  flex-grow: 1;
 }
 
 .tour-card .btn,
@@ -236,6 +255,8 @@ footer {
 
 .attraction img {
   height: 150px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .attraction p {
@@ -267,26 +288,92 @@ footer {
   color: #fff;
 }
 
-/* ===================== Gallery Fix ===================== */
+/* ===================== Gallery Fixes (NEW & IMPORTANT) ===================== */
+
+/* Grid-style gallery (multiple columns) — fixed uniform thumbnails */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: stretch;
 }
 
-.gallery-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+/* Slider-style gallery — horizontal scroller */
+.gallery-slider {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 2px;
 }
 
-/* === FIX FOR gallery-slider images === */
+/* Make images consistent: use aspect-ratio for exact uniform crop,
+   with object-fit:cover so photos fill the box */
+.gallery-grid img,
 .gallery-slider img {
   width: 100%;
-  height: 200px;   /* the missing rule */
+  aspect-ratio: 4 / 3;        /* consistent shape: 4:3 */
   object-fit: cover;
+  display: block;
   border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  scroll-snap-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Slight hover/enlarge for gallery thumbs */
+.gallery-grid img:hover,
+.gallery-slider img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 38px rgba(0,0,0,0.15);
+}
+
+/* Fallback for older browsers that don't support aspect-ratio */
+.gallery-grid img,
+.gallery-slider img {
+  /* fallback fixed height */
+  height: 200px;
+}
+
+/* Responsive smaller thumb height for narrow screens */
+@media (max-width: 768px) {
+  .gallery-grid img,
+  .gallery-slider img {
+    height: 160px;
+    aspect-ratio: 3 / 2;
+  }
+}
+@media (max-width: 480px) {
+  .gallery-grid img,
+  .gallery-slider img {
+    height: 130px;
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/* If some pages include inline images wrapped differently (e.g. <div><img/></div>),
+   make sure wrapper doesn't force different sizing */
+.gallery-slider > * {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* Optional lightbox visual class used by your JS lightbox (keeps fullscreen center) */
+.lightbox-bg {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+}
+.lightbox-bg img {
+  max-width: 95%;
+  max-height: 92%;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 /* ===================== Booking Form Section ===================== */
@@ -297,10 +384,43 @@ footer {
   gap: 10px;
 }
 
-.tour-section > p,
-.tour-section > h2 {
-  display: block;
+.booking-form label {
+  font-weight: 600;
+  margin-top: 10px;
+  color: #333;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d8d8d8;
+  font-size: 0.95rem;
+  width: 100%;
+  background: #fff;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: #007b6a;
+  box-shadow: 0 6px 18px rgba(0,123,106,0.08);
+}
+
+.tour-intro-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
   margin-bottom: 15px;
+}
+
+.tour-intro-card h2 {
+  margin-bottom: 8px;
+  color: #007b6a;
 }
 
 /* ===================== Media Queries ===================== */
@@ -311,6 +431,10 @@ footer {
 
   .hero p {
     font-size: 1rem;
+  }
+
+  .main-nav ul {
+    gap: 14px;
   }
 }
 
@@ -327,13 +451,5 @@ footer {
   .tour-card img,
   .destination-card img {
     height: 180px;
-  }
-
-  .gallery-grid img {
-    height: 150px;
-  }
-
-  .gallery-slider img {
-    height: 150px;
   }
 }
