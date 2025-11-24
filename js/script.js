@@ -37,16 +37,24 @@ document.querySelectorAll(".card").forEach(card => {
 });
 
 /* =========================================================
-   TIMELINE HOVER
+   PROFESSIONAL TIMELINE HOVER (MATCHED WITH NEW CSS)
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
-    item.style.background = "#f4faf9";
+    item.style.background = "#f7fdfc";   // subtle premium hover color
+    item.style.borderColor = "#d7f1eb";
+    item.style.transform = "translateX(9px)";
+    item.style.boxShadow = "0 14px 38px rgba(0,0,0,0.16)";
   });
+
   item.addEventListener("mouseleave", () => {
     item.style.background = "#ffffff";
+    item.style.borderColor = "#e8f2f0";
+    item.style.transform = "translateX(0)";
+    item.style.boxShadow = "0 8px 30px rgba(0,0,0,0.08)";
   });
 });
+
 
 /* =========================================================
    BUTTON HOVER EFFECT
