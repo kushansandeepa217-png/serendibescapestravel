@@ -57,14 +57,21 @@ document.querySelectorAll(".btn").forEach(btn => {
 });
 
 /* =========================================================
-   FADE-IN ON SCROLL
+   FADE-IN ON SCROLL (Tour Overview & Inclusions)
 ========================================================= */
-const fadeElements = document.querySelectorAll(".fade-in");
+const fadeElements = document.querySelectorAll(".fade-in, .tour-overview-box");
+const inclusionItems = document.querySelectorAll(".tour-inclusions ul li");
 
 function fadeInOnScroll() {
   fadeElements.forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 70) {
       el.classList.add("visible");
+    }
+  });
+
+  inclusionItems.forEach((item, idx) => {
+    if (item.getBoundingClientRect().top < window.innerHeight - 60) {
+      setTimeout(() => item.classList.add("visible"), idx * 150);
     }
   });
 }
