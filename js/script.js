@@ -41,7 +41,7 @@ document.querySelectorAll(".card").forEach(card => {
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
-    item.style.background = "#f1fbf9";
+    item.style.background = "#f4faf9";
   });
   item.addEventListener("mouseleave", () => {
     item.style.background = "#ffffff";
@@ -137,14 +137,6 @@ sliders.forEach(slider => {
 
 lightbox.addEventListener("click", () => {
   lightbox.style.display = "none";
-});
-
-/* =========================================================
-   GALLERY SIZE FIX (FINAL)
-========================================================= */
-document.querySelectorAll(".gallery-slider img").forEach(img => {
-  img.style.height = "200px";
-  img.style.objectFit = "cover";
 });
 
 /* =========================================================

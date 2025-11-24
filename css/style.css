@@ -110,7 +110,7 @@ a {
   font-weight: 700;
 }
 
-/* ===================== Tours Grid ===================== */
+/* ===================== Tours / Destinations Grid ===================== */
 .tours-grid,
 .destinations-grid,
 .attractions-grid {
@@ -190,87 +190,129 @@ a {
 
 /* ===================== PROFESSIONAL TOUR OVERVIEW ===================== */
 .tour-overview-box {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-    border-left: 5px solid #007b6a;
-    margin-bottom: 30px;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border-left: 6px solid #007b6a;
+  margin-bottom: 35px;
 }
 
 .tour-overview-box h2 {
-    color: #007b6a;
-    margin-bottom: 12px;
-    font-size: 1.7rem;
+  color: #007b6a;
+  margin-bottom: 15px;
+  font-size: 1.9rem;
+  font-weight: 700;
 }
 
 .tour-overview-box p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.7;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 12px;
 }
-
 
 /* ===================== PROFESSIONAL ITINERARY ===================== */
 .timeline {
   list-style: none;
-  padding-left: 0;
   position: relative;
+  padding-left: 40px;
   margin: 30px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #007b6a;
+  border-radius: 4px;
 }
 
 .timeline li {
   position: relative;
-  padding: 18px 20px 18px 70px;
-  margin-bottom: 18px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
-  transition: 0.3s ease;
+  padding: 20px 25px 20px 70px;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .timeline li::before {
   content: attr(data-day);
   position: absolute;
-  left: 15px;
+  left: -12px;
   top: 50%;
   transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
   background: #007b6a;
   color: #fff;
   font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* Hover upgrade */
+.timeline li strong {
+  color: #007b6a;
+  font-weight: 600;
+}
+
 .timeline li:hover {
   transform: translateX(4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
   background: #f4faf9;
 }
 
 /* ===================== PROFESSIONAL INCLUSIONS ===================== */
 .tour-inclusions {
   background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  border-left: 5px solid #007b6a;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border-left: 6px solid #007b6a;
+  margin-bottom: 40px;
 }
 
 .tour-inclusions h3 {
   color: #007b6a;
-  margin-bottom: 14px;
-  font-size: 1.5rem;
+  margin-bottom: 18px;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.tour-inclusions p {
+  font-size: 0.97rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.tour-inclusions ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .tour-inclusions ul li {
-  background: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 20 20" fill="%23007b6a" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg>') left center no-repeat;
-  padding-left: 22px;
+  position: relative;
+  padding-left: 28px;
   margin-bottom: 10px;
-  font-size: 0.98rem;
   color: #444;
+  font-size: 0.96rem;
+}
+
+.tour-inclusions ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #007b6a;
+  font-weight: 700;
 }
 
 /* ===================== Gallery Fixes ===================== */
@@ -352,6 +394,14 @@ a {
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: #007b6a;
+  box-shadow: 0 6px 18px rgba(0,123,106,0.08);
+}
+
 /* ===================== Footer ===================== */
 footer {
   text-align: center;
@@ -372,5 +422,10 @@ footer {
   }
   .timeline li {
     padding-left: 65px;
+  }
+  .timeline li::before {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
   }
 }
