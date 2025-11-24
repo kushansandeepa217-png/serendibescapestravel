@@ -37,7 +37,7 @@ document.querySelectorAll(".card").forEach(card => {
 });
 
 /* =========================================================
-   TIMELINE HOVER
+   TIMELINE HOVER EFFECT (ORIGINAL)
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
@@ -73,9 +73,8 @@ window.addEventListener("scroll", fadeInOnScroll);
 fadeInOnScroll();
 
 /* =========================================================
-   GALLERY SLIDER (UPDATED FOR UNIFORM IMAGES)
+   SIMPLE IMAGE SLIDER (DESTINATION GALLERY)
 ========================================================= */
-
 const sliders = document.querySelectorAll(".gallery-slider");
 
 sliders.forEach(slider => {
@@ -85,38 +84,35 @@ sliders.forEach(slider => {
   });
 });
 
-/* Arrow Navigation */
-document.querySelectorAll(".gallery-wrapper").forEach(wrapper => {
-  const slider = wrapper.querySelector(".gallery-slider");
-  const left = wrapper.querySelector(".gallery-arrow.left");
-  const right = wrapper.querySelector(".gallery-arrow.right");
-
-  if (!slider) return;
+/* --- Arrow Navigation --- */
+document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
+  const slider = wrapper.querySelector('.gallery-slider');
+  const left = wrapper.querySelector('.gallery-arrow.left');
+  const right = wrapper.querySelector('.gallery-arrow.right');
 
   if (left) {
-    left.addEventListener("click", () => {
-      slider.scrollBy({ left: -330, behavior: "smooth" });
+    left.addEventListener('click', () => {
+      slider.scrollBy({ left: -350, behavior: 'smooth' });
     });
   }
 
   if (right) {
-    right.addEventListener("click", () => {
-      slider.scrollBy({ left: 330, behavior: "smooth" });
+    right.addEventListener('click', () => {
+      slider.scrollBy({ left: 350, behavior: 'smooth' });
     });
   }
 });
 
-/* Auto-Slide */
+/* --- Auto Slide --- */
 setInterval(() => {
   document.querySelectorAll(".gallery-slider").forEach(slider => {
-    slider.scrollBy({ left: 260, behavior: "smooth" });
+    slider.scrollBy({ left: 250, behavior: "smooth" });
   });
-}, 3500);
+}, 3800);
 
 /* =========================================================
    LIGHTBOX
 ========================================================= */
-
 const lightbox = document.createElement("div");
 lightbox.classList.add("lightbox-bg");
 document.body.appendChild(lightbox);
@@ -146,3 +142,44 @@ if (bookingForm) {
     bookingForm.reset();
   });
 }
+
+/* =========================================================
+   ⭐ PRO TOUR PAGE INTERACTION JS (NEW)
+   - Smooth reveal for itinerary
+   - Fade reveal for overview
+   - Staggered inclusions animation
+========================================================= */
+
+/* Itinerary expand animation */
+document.querySelectorAll(".timeline li").forEach((day, index) => {
+  day.style.transitionDelay = `${index * 80}ms`;
+  day.classList.add("fade-in");
+});
+
+/* Overview fade effect */
+const overview = document.querySelector(".tour-overview");
+if (overview) {
+  overview.classList.add("fade-in");
+}
+
+/* Inclusions stagger effect */
+document.querySelectorAll(".tour-inclusions li, .tour-exclusions li").forEach((item, i) => {
+  item.style.opacity = 0;
+  item.style.transform = "translateX(-15px)";
+  item.style.transition = "all 0.5s ease";
+  item.style.transitionDelay = `${i * 70}ms`;
+});
+
+function revealInclusions() {
+  document
+    .querySelectorAll(".tour-inclusions li, .tour-exclusions li")
+    .forEach(item => {
+      if (item.getBoundingClientRect().top < window.innerHeight - 60) {
+        item.style.opacity = 1;
+        item.style.transform = "translateX(0)";
+      }
+    });
+}
+
+window.addEventListener("scroll", revealInclusions);
+revealInclusions();
