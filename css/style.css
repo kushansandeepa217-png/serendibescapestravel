@@ -110,7 +110,7 @@ a {
   font-weight: 700;
 }
 
-/* ===================== Tour / Destinations Grid ===================== */
+/* ===================== Tours Grid ===================== */
 .tours-grid,
 .destinations-grid,
 .attractions-grid {
@@ -139,7 +139,6 @@ a {
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* Ensure card images behave consistently */
 .tour-card img,
 .destination-card img,
 .attraction img {
@@ -149,7 +148,6 @@ a {
   display: block;
 }
 
-/* fallback for browsers not supporting aspect-ratio: keep 200px height */
 .tour-card img,
 .destination-card img,
 .attraction.img {
@@ -190,7 +188,30 @@ a {
   background: #004d40;
 }
 
-/* ===================== Timeline Section ===================== */
+/* ===================== PROFESSIONAL TOUR OVERVIEW ===================== */
+.tour-overview-box {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    border-left: 5px solid #007b6a;
+    margin-bottom: 30px;
+}
+
+.tour-overview-box h2 {
+    color: #007b6a;
+    margin-bottom: 12px;
+    font-size: 1.7rem;
+}
+
+.tour-overview-box p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+
+/* ===================== PROFESSIONAL ITINERARY ===================== */
 .timeline {
   list-style: none;
   padding-left: 0;
@@ -200,96 +221,59 @@ a {
 
 .timeline li {
   position: relative;
-  padding-left: 50px;
-  margin-bottom: 20px;
+  padding: 18px 20px 18px 70px;
+  margin-bottom: 18px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+  transition: 0.3s ease;
 }
 
 .timeline li::before {
   content: attr(data-day);
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   background: #007b6a;
   color: #fff;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 5px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
-/* ===================== Inclusions & Things to Do ===================== */
-.tour-inclusions p,
-ul {
-  font-size: 0.95rem;
-  margin: 5px 0;
+/* Hover upgrade */
+.timeline li:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  background: #f4faf9;
+}
+
+/* ===================== PROFESSIONAL INCLUSIONS ===================== */
+.tour-inclusions {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border-left: 5px solid #007b6a;
+}
+
+.tour-inclusions h3 {
+  color: #007b6a;
+  margin-bottom: 14px;
+  font-size: 1.5rem;
+}
+
+.tour-inclusions ul li {
+  background: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 20 20" fill="%23007b6a" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10"/></svg>') left center no-repeat;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.98rem;
   color: #444;
 }
 
-ul li {
-  margin-bottom: 8px;
-  padding-left: 15px;
-  position: relative;
-}
-
-ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #007b6a;
-}
-
-/* ===================== Footer ===================== */
-footer {
-  text-align: center;
-  padding: 25px 0;
-  background: #007b6a;
-  color: #fff;
-  margin-top: 50px;
-  font-size: 0.9rem;
-}
-
-/* ===================== Hero & Key Attractions ===================== */
-.attractions-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.attraction img {
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.attraction p {
-  font-size: 0.9rem;
-  margin: 10px 0 15px;
-}
-
-/* ===================== Pagination ===================== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0;
-}
-
-.pagination a {
-  padding: 8px 12px;
-  background: #fff;
-  border-radius: 5px;
-  color: #007b6a;
-  font-weight: 600;
-  border: 1px solid #007b6a;
-  transition: 0.3s;
-}
-
-.pagination a.active,
-.pagination a:hover {
-  background: #007b6a;
-  color: #fff;
-}
-
-/* ===================== Gallery Fixes (NEW & IMPORTANT) ===================== */
-
-/* Grid-style gallery (multiple columns) — fixed uniform thumbnails */
+/* ===================== Gallery Fixes ===================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -297,7 +281,6 @@ footer {
   align-items: stretch;
 }
 
-/* Slider-style gallery — horizontal scroller */
 .gallery-slider {
   display: flex;
   gap: 14px;
@@ -307,14 +290,12 @@ footer {
   padding: 6px 2px;
 }
 
-/* Make images consistent: use aspect-ratio for exact uniform crop,
-   with object-fit:cover so photos fill the box */
 .gallery-grid img,
 .gallery-slider img {
   width: 100%;
-  height: 200px;         /* uniform height */
-  object-fit: cover;     /* crop center */
-  aspect-ratio: 4 / 3;   /* consistent ratio */
+  height: 200px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
   display: block;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -322,37 +303,13 @@ footer {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Slight hover/enlarge for gallery thumbs */
 .gallery-grid img:hover,
 .gallery-slider img:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 14px 38px rgba(0,0,0,0.15);
 }
 
-/* Responsive smaller thumb height for narrow screens */
-@media (max-width: 768px) {
-  .gallery-grid img,
-  .gallery-slider img {
-    height: 160px;
-    aspect-ratio: 3 / 2;
-  }
-}
-@media (max-width: 480px) {
-  .gallery-grid img,
-  .gallery-slider img {
-    height: 130px;
-    aspect-ratio: 3 / 2;
-  }
-}
-
-/* If some pages include inline images wrapped differently (e.g. <div><img/></div>),
-   make sure wrapper doesn't force different sizing */
-.gallery-slider > * {
-  flex: 0 0 auto;
-  width: auto;
-}
-
-/* Optional lightbox visual class used by your JS lightbox (keeps fullscreen center) */
+/* Lightbox */
 .lightbox-bg {
   position: fixed;
   inset: 0;
@@ -369,7 +326,7 @@ footer {
   border-radius: 6px;
 }
 
-/* ===================== Booking Form Section ===================== */
+/* ===================== Booking Form ===================== */
 .booking-form,
 .booking-form p {
   display: flex;
@@ -395,202 +352,25 @@ footer {
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.booking-form input:focus,
-.booking-form select:focus,
-.booking-form textarea:focus {
-  outline: none;
-  border-color: #007b6a;
-  box-shadow: 0 6px 18px rgba(0,123,106,0.08);
+/* ===================== Footer ===================== */
+footer {
+  text-align: center;
+  padding: 25px 0;
+  background: #007b6a;
+  color: #fff;
+  margin-top: 50px;
+  font-size: 0.9rem;
 }
 
-.tour-intro-card {
-  background: #fff;
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  margin-bottom: 15px;
-}
-
-.tour-intro-card h2 {
-  margin-bottom: 8px;
-  color: #007b6a;
-}
-
-/* ===================== Media Queries ===================== */
+/* ===================== Responsive ===================== */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
-
   .hero p {
     font-size: 1rem;
   }
-
-  .main-nav ul {
-    gap: 14px;
+  .timeline li {
+    padding-left: 65px;
   }
-}
-
-@media (max-width: 480px) {
-  .main-nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .hero {
-    height: 60vh;
-  }
-
-  .tour-card img,
-  .destination-card img {
-    height: 180px;
-  }
-}
-
-/* ===================================================================
-   PREMIUM TOUR PAGE DESIGN — OVERVIEW, ITINERARY, INCLUSIONS
-=================================================================== */
-
-/* Main container for each block */
-.tour-section {
-    background: #ffffff;
-    padding: 35px;
-    border-radius: 16px;
-    margin-top: 50px;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
-    border-left: 6px solid #007b6a;
-}
-
-/* Section title enhancement */
-.tour-section .section-title {
-    margin-bottom: 18px;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #007b6a;
-}
-
-/* -------------------------------------------
-   TOUR OVERVIEW
-------------------------------------------- */
-.tour-section p {
-    font-size: 1.08rem;
-    color: #444;
-    margin-bottom: 14px;
-    line-height: 1.8;
-}
-
-.tour-section h3 {
-    font-size: 1.35rem;
-    color: #007b6a;
-    margin: 25px 0 10px;
-    font-weight: 700;
-}
-
-/* Overview bullet list */
-.tour-section ul {
-    margin: 10px 0 15px;
-    padding-left: 0;
-    list-style: none;
-}
-
-.tour-section ul li {
-    background: #f3faf9;
-    margin-bottom: 12px;
-    padding: 12px 14px 12px 46px;
-    border-radius: 10px;
-    position: relative;
-    border: 1px solid #d6ece8;
-    font-size: 1rem;
-}
-
-.tour-section ul li::before {
-    content: "✓";
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #007b6a;
-    font-weight: 900;
-    font-size: 1.15rem;
-}
-
-/* -------------------------------------------
-   ITINERARY (timeline)
-------------------------------------------- */
-.timeline {
-    margin-top: 25px;
-    position: relative;
-    padding-left: 0;
-}
-
-.timeline li {
-    background: #ffffff;
-    padding: 20px 22px 20px 80px;
-    border-radius: 12px;
-    margin-bottom: 22px;
-    border: 1px solid #e8e8e8;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    transition: transform .25s ease, box-shadow .25s ease;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.timeline li strong {
-    color: #007b6a;
-    font-size: 1.05rem;
-}
-
-.timeline li::before {
-    content: attr(data-day);
-    position: absolute;
-    left: 22px;
-    top: 18px;
-    background: #007b6a;
-    padding: 8px 14px;
-    color: #fff;
-    font-size: .85rem;
-    font-weight: 700;
-    border-radius: 6px;
-}
-
-.timeline li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.10);
-}
-
-/* -------------------------------------------
-   INCLUSIONS (text-based)
-------------------------------------------- */
-
-.tour-inclusions p {
-    background: #f4faf8;
-    padding: 14px 16px;
-    border-radius: 10px;
-    border: 1px solid #d2ebe6;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: #333;
-}
-
-.tour-inclusions p strong {
-    color: #007b6a;
-}
-
-/* -------------------------------------------
-   Responsive Tweaks
-------------------------------------------- */
-@media(max-width: 768px) {
-    .tour-section {
-        padding: 25px;
-    }
-
-    .timeline li {
-        padding: 16px 16px 16px 70px;
-    }
-
-    .timeline li::before {
-        left: 14px;
-        top: 14px;
-    }
 }

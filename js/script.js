@@ -41,10 +41,10 @@ document.querySelectorAll(".card").forEach(card => {
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
-    item.style.background = "#dff4f2";
+    item.style.background = "#f1fbf9";
   });
   item.addEventListener("mouseleave", () => {
-    item.style.background = "#eef7f6";
+    item.style.background = "#ffffff";
   });
 });
 
@@ -73,18 +73,15 @@ window.addEventListener("scroll", fadeInOnScroll);
 fadeInOnScroll();
 
 /* =========================================================
-   SIMPLE IMAGE SLIDER (DESTINATION GALLERY)
+   GALLERY SLIDER
 ========================================================= */
 const sliders = document.querySelectorAll(".gallery-slider");
 
-// Scroll by full image width for perfect alignment
 sliders.forEach(slider => {
   slider.addEventListener("wheel", evt => {
     evt.preventDefault();
-    // Get first image width + gap
     const img = slider.querySelector("img");
     if (img) {
-      const style = getComputedStyle(img);
       const gap = parseInt(getComputedStyle(slider).gap);
       const scrollAmount = img.offsetWidth + gap;
       slider.scrollLeft += evt.deltaY > 0 ? scrollAmount : -scrollAmount;
@@ -92,28 +89,27 @@ sliders.forEach(slider => {
   });
 });
 
-/* --- Arrow Navigation --- */
-document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
-  const slider = wrapper.querySelector('.gallery-slider');
-  const left = wrapper.querySelector('.gallery-arrow.left');
-  const right = wrapper.querySelector('.gallery-arrow.right');
+document.querySelectorAll(".gallery-wrapper").forEach(wrapper => {
+  const slider = wrapper.querySelector(".gallery-slider");
+  const left = wrapper.querySelector(".gallery-arrow.left");
+  const right = wrapper.querySelector(".gallery-arrow.right");
 
-  left.addEventListener('click', () => {
+  left.addEventListener("click", () => {
     const img = slider.querySelector("img");
     const gap = parseInt(getComputedStyle(slider).gap);
     const scrollAmount = img.offsetWidth + gap;
-    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
   });
 
-  right.addEventListener('click', () => {
+  right.addEventListener("click", () => {
     const img = slider.querySelector("img");
     const gap = parseInt(getComputedStyle(slider).gap);
     const scrollAmount = img.offsetWidth + gap;
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
 });
 
-/* --- Auto Slide --- */
+/* Auto Slide */
 setInterval(() => {
   sliders.forEach(slider => {
     const img = slider.querySelector("img");
@@ -144,7 +140,15 @@ lightbox.addEventListener("click", () => {
 });
 
 /* =========================================================
-   BOOKING FORM (FAKE SUBMIT)
+   GALLERY SIZE FIX (FINAL)
+========================================================= */
+document.querySelectorAll(".gallery-slider img").forEach(img => {
+  img.style.height = "200px";
+  img.style.objectFit = "cover";
+});
+
+/* =========================================================
+   BOOKING FORM
 ========================================================= */
 const bookingForm = document.querySelector("#bookingForm");
 
