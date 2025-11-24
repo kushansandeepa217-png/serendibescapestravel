@@ -27,7 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* =========================================================
    CARD HOVERS
 ========================================================= */
-document.querySelectorAll(".card, .destination-card").forEach(card => {
+document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("mouseenter", () => {
     card.style.transform = "scale(1.03)";
   });
@@ -37,7 +37,7 @@ document.querySelectorAll(".card, .destination-card").forEach(card => {
 });
 
 /* =========================================================
-   TIMELINE HOVER EFFECT
+   TIMELINE HOVER
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
@@ -73,31 +73,53 @@ window.addEventListener("scroll", fadeInOnScroll);
 fadeInOnScroll();
 
 /* =========================================================
-   GALLERY SLIDER
+   SIMPLE IMAGE SLIDER (DESTINATION GALLERY)
 ========================================================= */
 const sliders = document.querySelectorAll(".gallery-slider");
 
+// Scroll by full image width for perfect alignment
 sliders.forEach(slider => {
   slider.addEventListener("wheel", evt => {
     evt.preventDefault();
-    slider.scrollLeft += evt.deltaY;
+    // Get first image width + gap
+    const img = slider.querySelector("img");
+    if (img) {
+      const style = getComputedStyle(img);
+      const gap = parseInt(getComputedStyle(slider).gap);
+      const scrollAmount = img.offsetWidth + gap;
+      slider.scrollLeft += evt.deltaY > 0 ? scrollAmount : -scrollAmount;
+    }
   });
 });
 
-/* Arrow Navigation */
+/* --- Arrow Navigation --- */
 document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
   const slider = wrapper.querySelector('.gallery-slider');
   const left = wrapper.querySelector('.gallery-arrow.left');
   const right = wrapper.querySelector('.gallery-arrow.right');
 
-  if (left) left.addEventListener('click', () => slider.scrollBy({ left: -350, behavior: 'smooth' }));
-  if (right) right.addEventListener('click', () => slider.scrollBy({ left: 350, behavior: 'smooth' }));
+  left.addEventListener('click', () => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  right.addEventListener('click', () => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 });
 
-/* Auto Slide */
+/* --- Auto Slide --- */
 setInterval(() => {
-  document.querySelectorAll(".gallery-slider").forEach(slider => {
-    slider.scrollBy({ left: 250, behavior: "smooth" });
+  sliders.forEach(slider => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
 }, 3800);
 
@@ -122,9 +144,9 @@ lightbox.addEventListener("click", () => {
 });
 
 /* =========================================================
-   BOOKING FORM
+   BOOKING FORM (FAKE SUBMIT)
 ========================================================= */
-const bookingForm = document.querySelector(".booking-form");
+const bookingForm = document.querySelector("#bookingForm");
 
 if (bookingForm) {
   bookingForm.addEventListener("submit", e => {
@@ -133,34 +155,3 @@ if (bookingForm) {
     bookingForm.reset();
   });
 }
-
-/* =========================================================
-   TOUR PAGE INTERACTIONS
-========================================================= */
-
-/* Itinerary fade-in */
-document.querySelectorAll(".timeline li").forEach((day, index) => {
-  day.style.transition = "all 0.5s ease";
-  day.style.transitionDelay = `${index * 100}ms`;
-  day.classList.add("fade-in");
-});
-
-/* Inclusions stagger */
-document.querySelectorAll(".tour-inclusions p").forEach((item, i) => {
-  item.style.opacity = 0;
-  item.style.transform = "translateX(-15px)";
-  item.style.transition = "all 0.5s ease";
-  item.style.transitionDelay = `${i * 70}ms`;
-});
-
-function revealInclusions() {
-  document.querySelectorAll(".tour-inclusions p").forEach(item => {
-    if (item.getBoundingClientRect().top < window.innerHeight - 60) {
-      item.style.opacity = 1;
-      item.style.transform = "translateX(0)";
-    }
-  });
-}
-
-window.addEventListener("scroll", revealInclusions);
-revealInclusions();
