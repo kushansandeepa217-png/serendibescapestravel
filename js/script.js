@@ -27,27 +27,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* =========================================================
    CARD HOVERS
 ========================================================= */
-document.querySelectorAll(".tour-card, .destination-card, .attraction").forEach(card => {
+document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("mouseenter", () => {
-    card.style.transform = "translateY(-5px) scale(1.03)";
-    card.style.boxShadow = "0 12px 30px rgba(0,0,0,0.15)";
+    card.style.transform = "scale(1.03)";
   });
   card.addEventListener("mouseleave", () => {
-    card.style.transform = "translateY(0) scale(1)";
-    card.style.boxShadow = "0 8px 25px rgba(0,0,0,0.1)";
+    card.style.transform = "scale(1)";
   });
 });
 
 /* =========================================================
-   TIMELINE HOVER EFFECT
+   TIMELINE HOVER
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
-    item.style.background = "#e6f7f5";
-    const circle = item.querySelector("::before");
+    item.style.background = "#dff4f2";
   });
   item.addEventListener("mouseleave", () => {
-    item.style.background = "#f9f9f9";
+    item.style.background = "#eef7f6";
   });
 });
 
@@ -62,12 +59,11 @@ document.querySelectorAll(".btn").forEach(btn => {
 /* =========================================================
    FADE-IN ON SCROLL
 ========================================================= */
-const fadeElements = document.querySelectorAll(".fade-in, .timeline li, .tour-intro-card");
+const fadeElements = document.querySelectorAll(".fade-in");
 
 function fadeInOnScroll() {
   fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 70) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 70) {
       el.classList.add("visible");
     }
   });
@@ -81,10 +77,18 @@ fadeInOnScroll();
 ========================================================= */
 const sliders = document.querySelectorAll(".gallery-slider");
 
+// Scroll by full image width for perfect alignment
 sliders.forEach(slider => {
   slider.addEventListener("wheel", evt => {
     evt.preventDefault();
-    slider.scrollLeft += evt.deltaY;
+    // Get first image width + gap
+    const img = slider.querySelector("img");
+    if (img) {
+      const style = getComputedStyle(img);
+      const gap = parseInt(getComputedStyle(slider).gap);
+      const scrollAmount = img.offsetWidth + gap;
+      slider.scrollLeft += evt.deltaY > 0 ? scrollAmount : -scrollAmount;
+    }
   });
 });
 
@@ -94,21 +98,28 @@ document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
   const left = wrapper.querySelector('.gallery-arrow.left');
   const right = wrapper.querySelector('.gallery-arrow.right');
 
-  if(left && right) {
-    left.addEventListener('click', () => {
-      slider.scrollBy({ left: -350, behavior: 'smooth' });
-    });
+  left.addEventListener('click', () => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
 
-    right.addEventListener('click', () => {
-      slider.scrollBy({ left: 350, behavior: 'smooth' });
-    });
-  }
+  right.addEventListener('click', () => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 });
 
 /* --- Auto Slide --- */
 setInterval(() => {
-  document.querySelectorAll(".gallery-slider").forEach(slider => {
-    slider.scrollBy({ left: 250, behavior: "smooth" });
+  sliders.forEach(slider => {
+    const img = slider.querySelector("img");
+    const gap = parseInt(getComputedStyle(slider).gap);
+    const scrollAmount = img.offsetWidth + gap;
+    slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
 }, 3800);
 
@@ -135,7 +146,7 @@ lightbox.addEventListener("click", () => {
 /* =========================================================
    BOOKING FORM (FAKE SUBMIT)
 ========================================================= */
-const bookingForm = document.querySelector(".booking-form");
+const bookingForm = document.querySelector("#bookingForm");
 
 if (bookingForm) {
   bookingForm.addEventListener("submit", e => {
@@ -144,18 +155,3 @@ if (bookingForm) {
     bookingForm.reset();
   });
 }
-
-/* =========================================================
-   PROFESSIONAL TIMELINE ANIMATION
-========================================================= */
-const timelineItems = document.querySelectorAll(".timeline li");
-
-timelineItems.forEach(item => {
-  item.addEventListener("mouseenter", () => {
-    item.style.transform = "translateY(-5px)";
-    item.style.transition = "all 0.3s ease";
-  });
-  item.addEventListener("mouseleave", () => {
-    item.style.transform = "translateY(0)";
-  });
-});
