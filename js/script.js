@@ -27,7 +27,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* =========================================================
    CARD HOVERS
 ========================================================= */
-document.querySelectorAll(".card").forEach(card => {
+document.querySelectorAll(".card, .destination-card").forEach(card => {
   card.addEventListener("mouseenter", () => {
     card.style.transform = "scale(1.03)";
   });
@@ -37,7 +37,7 @@ document.querySelectorAll(".card").forEach(card => {
 });
 
 /* =========================================================
-   TIMELINE HOVER EFFECT (ORIGINAL)
+   TIMELINE HOVER EFFECT
 ========================================================= */
 document.querySelectorAll(".timeline li").forEach(item => {
   item.addEventListener("mouseenter", () => {
@@ -73,7 +73,7 @@ window.addEventListener("scroll", fadeInOnScroll);
 fadeInOnScroll();
 
 /* =========================================================
-   SIMPLE IMAGE SLIDER (DESTINATION GALLERY)
+   GALLERY SLIDER
 ========================================================= */
 const sliders = document.querySelectorAll(".gallery-slider");
 
@@ -84,26 +84,17 @@ sliders.forEach(slider => {
   });
 });
 
-/* --- Arrow Navigation --- */
+/* Arrow Navigation */
 document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
   const slider = wrapper.querySelector('.gallery-slider');
   const left = wrapper.querySelector('.gallery-arrow.left');
   const right = wrapper.querySelector('.gallery-arrow.right');
 
-  if (left) {
-    left.addEventListener('click', () => {
-      slider.scrollBy({ left: -350, behavior: 'smooth' });
-    });
-  }
-
-  if (right) {
-    right.addEventListener('click', () => {
-      slider.scrollBy({ left: 350, behavior: 'smooth' });
-    });
-  }
+  if (left) left.addEventListener('click', () => slider.scrollBy({ left: -350, behavior: 'smooth' }));
+  if (right) right.addEventListener('click', () => slider.scrollBy({ left: 350, behavior: 'smooth' }));
 });
 
-/* --- Auto Slide --- */
+/* Auto Slide */
 setInterval(() => {
   document.querySelectorAll(".gallery-slider").forEach(slider => {
     slider.scrollBy({ left: 250, behavior: "smooth" });
@@ -131,9 +122,9 @@ lightbox.addEventListener("click", () => {
 });
 
 /* =========================================================
-   BOOKING FORM (FAKE SUBMIT)
+   BOOKING FORM
 ========================================================= */
-const bookingForm = document.querySelector("#bookingForm");
+const bookingForm = document.querySelector(".booking-form");
 
 if (bookingForm) {
   bookingForm.addEventListener("submit", e => {
@@ -144,26 +135,18 @@ if (bookingForm) {
 }
 
 /* =========================================================
-   ⭐ PRO TOUR PAGE INTERACTION JS (NEW)
-   - Smooth reveal for itinerary
-   - Fade reveal for overview
-   - Staggered inclusions animation
+   TOUR PAGE INTERACTIONS
 ========================================================= */
 
-/* Itinerary expand animation */
+/* Itinerary fade-in */
 document.querySelectorAll(".timeline li").forEach((day, index) => {
-  day.style.transitionDelay = `${index * 80}ms`;
+  day.style.transition = "all 0.5s ease";
+  day.style.transitionDelay = `${index * 100}ms`;
   day.classList.add("fade-in");
 });
 
-/* Overview fade effect */
-const overview = document.querySelector(".tour-overview");
-if (overview) {
-  overview.classList.add("fade-in");
-}
-
-/* Inclusions stagger effect */
-document.querySelectorAll(".tour-inclusions li, .tour-exclusions li").forEach((item, i) => {
+/* Inclusions stagger */
+document.querySelectorAll(".tour-inclusions p").forEach((item, i) => {
   item.style.opacity = 0;
   item.style.transform = "translateX(-15px)";
   item.style.transition = "all 0.5s ease";
@@ -171,14 +154,12 @@ document.querySelectorAll(".tour-inclusions li, .tour-exclusions li").forEach((i
 });
 
 function revealInclusions() {
-  document
-    .querySelectorAll(".tour-inclusions li, .tour-exclusions li")
-    .forEach(item => {
-      if (item.getBoundingClientRect().top < window.innerHeight - 60) {
-        item.style.opacity = 1;
-        item.style.transform = "translateX(0)";
-      }
-    });
+  document.querySelectorAll(".tour-inclusions p").forEach(item => {
+    if (item.getBoundingClientRect().top < window.innerHeight - 60) {
+      item.style.opacity = 1;
+      item.style.transform = "translateX(0)";
+    }
+  });
 }
 
 window.addEventListener("scroll", revealInclusions);
