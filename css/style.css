@@ -172,30 +172,49 @@ a {
   background: #004d40;
 }
 
-/* ===================== Timeline Section ===================== */
+/* ===================== PREMIUM ITINERARY SECTION ===================== */
 .timeline {
   list-style: none;
   padding-left: 0;
+  margin: 40px 0;
   position: relative;
-  margin: 30px 0;
 }
 
 .timeline li {
-  position: relative;
-  padding-left: 50px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  transition: 0.3s ease;
+}
+
+.timeline li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .timeline li::before {
   content: attr(data-day);
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #007b6a;
+  min-width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50%;
   color: #fff;
-  font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 5px;
+  background: linear-gradient(135deg, #009f85, #006d5c);
+  box-shadow: 0 4px 10px rgba(0, 123, 106, 0.3);
+}
+
+.timeline li strong {
+  color: #007b6a;
+  font-size: 1.05rem;
 }
 
 /* ===================== Inclusions & Things to Do ===================== */
@@ -267,18 +286,24 @@ footer {
   color: #fff;
 }
 
-/* ===================== Gallery Fix ===================== */
+/* ===================== Gallery Fix (Professional) ===================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 200px; /* fixed height for all images */
+  height: 230px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
 }
 
 /* ===================== Booking Form Section ===================== */
@@ -304,6 +329,15 @@ footer {
   .hero p {
     font-size: 1rem;
   }
+
+  .timeline li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .timeline li::before {
+    margin: 0 auto 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -322,6 +356,6 @@ footer {
   }
 
   .gallery-grid img {
-    height: 150px;
+    height: 160px;
   }
 }
