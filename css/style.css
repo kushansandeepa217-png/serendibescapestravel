@@ -477,3 +477,21 @@ a {
     left: 25px;
   }
 }
+
+/* =========================================================
+   ⭐ FIX GALLERY IMAGE SIZE — PROFESSIONAL UNIFORM LOOK
+========================================================= */
+.gallery-slider {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.gallery-slider img {
+  width: 300px;      /* professional width */
+  height: 200px;     /* professional height */
+  object-fit: cover; /* clean crop */
+  border-radius: 10px;
+  flex-shrink: 0;
+}
