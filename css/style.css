@@ -374,6 +374,22 @@ a {
   }
 }
 
+/* =========================================================
+   FIX TIMELINE TITLE OVERLAP
+========================================================= */
+
+.timeline li {
+  padding-left: 95px !important; /* Increased spacing so text never hides */
+}
+
+.timeline li::before {
+  left: 25px !important;  /* Moves circle fully outside the card */
+}
+
+.timeline::before {
+  left: 50px !important; /* Line aligned with circles */
+}
+
 
 /* ===================== PROFESSIONAL TOUR INCLUSIONS ===================== */
 .tour-inclusions {
