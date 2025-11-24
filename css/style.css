@@ -190,16 +190,16 @@ a {
 
 /* ===================== PROFESSIONAL TOUR OVERVIEW ===================== */
 .tour-overview-box {
-  background: #ffffff;
-  padding: 35px 30px;
-  border-radius: 16px;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.1);
-  border-left: 8px solid;
-  border-image: linear-gradient(180deg,#00c4b3,#007b6a) 1;
-  margin-bottom: 40px;
+  background: linear-gradient(145deg, #ffffff, #f4faf9);
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid;
+  border-image: linear-gradient(180deg, #00c4b3, #007b6a) 1;
+  margin-bottom: 50px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
+  transform: translateY(25px);
+  transition: all 1s ease;
 }
 
 .tour-overview-box.visible {
@@ -209,17 +209,36 @@ a {
 
 .tour-overview-box h2 {
   color: #007b6a;
-  margin-bottom: 18px;
-  font-size: 2rem;
-  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 .tour-overview-box p {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.8;
-  margin-bottom: 14px;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.9;
+  margin-bottom: 16px;
 }
+
+.tour-overview-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Add subtle fade-in for individual paragraphs */
+.tour-overview-box p {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.8s ease;
+}
+
+.tour-overview-box.visible p {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
 
 /* ===================== PROFESSIONAL ITINERARY ===================== */
 .timeline {
@@ -280,56 +299,59 @@ a {
   background: #f4faf9;
 }
 
-/* ===================== PROFESSIONAL INCLUSIONS ===================== */
+/* ===================== PROFESSIONAL TOUR INCLUSIONS ===================== */
 .tour-inclusions {
   background: #ffffff;
-  padding: 35px 30px;
-  border-radius: 16px;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.1);
-  border-left: 8px solid;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-left: 6px solid;
   border-image: linear-gradient(180deg,#00c4b3,#007b6a) 1;
-  margin-bottom: 45px;
+  margin-bottom: 50px;
 }
 
 .tour-inclusions h3 {
   color: #007b6a;
-  margin-bottom: 22px;
-  font-size: 1.9rem;
-  font-weight: 700;
-}
-
-.tour-inclusions p {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 12px;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 .tour-inclusions ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .tour-inclusions ul li {
   position: relative;
-  padding-left: 32px;
-  margin-bottom: 12px;
-  color: #444;
+  padding-left: 35px;
   font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-25px);
   transition: all 0.6s ease;
+  background: #f0fdfa;
+  border-radius: 10px;
+  padding: 10px 12px 10px 35px;
+  flex: 1 1 45%;
 }
 
 .tour-inclusions ul li::before {
   content: "✔";
   position: absolute;
-  left: 0;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #007b6a;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
-/* Fade-in for list items */
 .tour-inclusions ul li.visible {
   opacity: 1;
   transform: translateX(0);
