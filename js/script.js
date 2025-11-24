@@ -57,27 +57,27 @@ document.querySelectorAll(".btn").forEach(btn => {
 });
 
 /* =========================================================
-   FADE-IN ON SCROLL (Tour Overview & Inclusions)
+   PROFESSIONAL TOUR OVERVIEW FADE-IN
 ========================================================= */
-const fadeElements = document.querySelectorAll(".fade-in, .tour-overview-box");
-const inclusionItems = document.querySelectorAll(".tour-inclusions ul li");
+const tourOverviewBox = document.querySelector(".tour-overview-box");
+const overviewPoints = tourOverviewBox ? tourOverviewBox.querySelectorAll("ul li") : [];
 
-function fadeInOnScroll() {
-  fadeElements.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 70) {
-      el.classList.add("visible");
-    }
-  });
+function fadeProfessionalOverview() {
+  if (tourOverviewBox && tourOverviewBox.getBoundingClientRect().top < window.innerHeight - 100) {
+    tourOverviewBox.classList.add("visible");
+  }
 
-  inclusionItems.forEach((item, idx) => {
-    if (item.getBoundingClientRect().top < window.innerHeight - 60) {
-      setTimeout(() => item.classList.add("visible"), idx * 150);
+  overviewPoints.forEach((point, idx) => {
+    if(point.getBoundingClientRect().top < window.innerHeight - 100) {
+      setTimeout(() => point.classList.add("visible"), idx * 150);
     }
   });
 }
 
-window.addEventListener("scroll", fadeInOnScroll);
-fadeInOnScroll();
+window.addEventListener("scroll", fadeProfessionalOverview);
+fadeProfessionalOverview();
+
+
 
 /* =========================================================
    GALLERY SLIDER
