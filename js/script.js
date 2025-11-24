@@ -78,6 +78,32 @@ window.addEventListener("scroll", fadeProfessionalOverview);
 fadeProfessionalOverview();
 
 
+/* =========================================================
+   STAGGERED FADE-IN FOR TOUR OVERVIEW
+========================================================= */
+const overviewBox = document.querySelector(".tour-overview-box");
+const overviewParagraphs = overviewBox ? overviewBox.querySelectorAll("p") : [];
+const overviewListItems = overviewBox ? overviewBox.querySelectorAll("ul li") : [];
+
+function fadeInTourOverview() {
+  if(overviewBox && overviewBox.getBoundingClientRect().top < window.innerHeight - 100) {
+    overviewBox.classList.add("visible");
+
+    // Stagger paragraphs
+    overviewParagraphs.forEach((p, idx) => {
+      setTimeout(() => p.classList.add("visible"), idx * 200);
+    });
+
+    // Stagger list items
+    overviewListItems.forEach((li, idx) => {
+      setTimeout(() => li.classList.add("visible"), overviewParagraphs.length * 200 + idx * 150);
+    });
+  }
+}
+
+window.addEventListener("scroll", fadeInTourOverview);
+fadeInTourOverview();
+
 
 /* =========================================================
    GALLERY SLIDER
