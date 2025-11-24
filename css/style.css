@@ -289,6 +289,8 @@ a {
   line-height: 1.6;
 }
 
+
+
 /* ===================== Professional Tour Overview ===================== */
 .tour-overview {
   background: #ffffff;
@@ -495,3 +497,43 @@ a {
   border-radius: 10px;
   flex-shrink: 0;
 }
+
+/* =========================================================
+   ⭐ FIXED PROFESSIONAL GALLERY
+========================================================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 250px;       /* same height for all images */
+  object-fit: cover;   /* crop to fill box without distortion */
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03); /* subtle hover zoom effect */
+}
+
+/* Optional arrows if using slider version */
+.gallery-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: #007b6a;
+  padding: 10px 14px;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.gallery-arrow.left { left: -15px; }
+.gallery-arrow.right { right: -15px; }
