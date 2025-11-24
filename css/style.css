@@ -267,7 +267,7 @@ footer {
   color: #fff;
 }
 
-/* ===================== Gallery Fix (Grid) ===================== */
+/* ===================== Gallery Fix ===================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -281,10 +281,10 @@ footer {
   border-radius: 10px;
 }
 
-/* ===================== Gallery Fix (Slider Images) ===================== */
+/* === FIX FOR gallery-slider images === */
 .gallery-slider img {
   width: 100%;
-  height: 220px; /* FIX APPLIED */
+  height: 200px;   /* the missing rule */
   object-fit: cover;
   border-radius: 10px;
 }
@@ -330,6 +330,10 @@ footer {
   }
 
   .gallery-grid img {
+    height: 150px;
+  }
+
+  .gallery-slider img {
     height: 150px;
   }
 }
