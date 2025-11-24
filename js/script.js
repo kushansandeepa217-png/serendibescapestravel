@@ -184,3 +184,27 @@ if (bookingForm) {
     bookingForm.reset();
   });
 }
+
+/* =========================================================
+   SMOOTH PAGINATION SCROLL
+========================================================= */
+document.querySelectorAll(".pagination a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    // If link is active, do nothing
+    if (link.classList.contains("active")) return;
+
+    // Smooth scroll to top
+    e.preventDefault();
+    const targetUrl = link.getAttribute("href");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    // Optional: redirect after smooth scroll completes
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, 400); // 400ms delay matches smooth scroll
+  });
+});
