@@ -263,10 +263,7 @@ function revealWhyBoxes() {
 window.addEventListener("scroll", revealWhyBoxes);
 revealWhyBoxes();
 
-/* ======================================================
-   INTERACTIVE MAP JS — Professional Edition
-====================================================== */
-
+// CATEGORY FILTER FUNCTION
 const dots = document.querySelectorAll(".dot");
 const markers = document.querySelectorAll(".map-marker");
 const categoryTitle = document.getElementById("categoryTitle");
@@ -275,33 +272,25 @@ const categoryNames = {
   beach: "Popular Beaches",
   culture: "History & Culture",
   nature: "Wildlife & Nature",
-  lesser: "Lesser Travelled",
-  adventure: "Adventure Experiences",
-  gastronomy: "Gastronomy & Local Flavours"
+  lesser: "Hidden Gems",
+  adventure: "Adventure Travel",
+  gastronomy: "Food & Gastronomy"
 };
 
 dots.forEach(dot => {
   dot.addEventListener("click", () => {
-    const category = dot.getAttribute("data-cat");
-
-    // Update Active Dot
+    // Activate dot
     dots.forEach(d => d.classList.remove("active"));
     dot.classList.add("active");
 
-    // Update Title
-    categoryTitle.textContent = categoryNames[category];
+    const cat = dot.getAttribute("data-cat");
+    categoryTitle.textContent = categoryNames[cat];
 
-    // Filter Markers
+    // Show only selected markers
     markers.forEach(marker => {
-      if (marker.classList.contains(category)) {
-        marker.style.opacity = "1";
-        marker.style.transform = "translate(-50%, -50%) scale(1)";
-        marker.style.pointerEvents = "auto";
-      } else {
-        marker.style.opacity = "0.15";
-        marker.style.transform = "translate(-50%, -50%) scale(0.7)";
-        marker.style.pointerEvents = "none";
-      }
+      marker.style.display = marker.classList.contains(cat)
+        ? "block"
+        : "none";
     });
   });
 });
