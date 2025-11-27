@@ -262,3 +262,52 @@ function revealWhyBoxes() {
 
 window.addEventListener("scroll", revealWhyBoxes);
 revealWhyBoxes();
+
+/* =========================================================
+   INTERACTIVE SRI LANKA MAP
+========================================================= */
+
+const markers = document.querySelectorAll('.map-marker');
+const popup = document.getElementById('locationPopup');
+const popupTitle = document.getElementById('popupTitle');
+const dots = document.querySelectorAll('.dot');
+const categoryTitle = document.getElementById('categoryTitle');
+
+// CATEGORY TITLES
+const titles = {
+  beach: "Popular Beaches",
+  culture: "History & Culture",
+  nature: "Wildlife & Nature",
+  lesser: "Lesser Known Places",
+  adventure: "Adventure Trails",
+  gastronomy: "Gastronomy & Food"
+};
+
+// DOT CLICK FILTERING
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    dots.forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+
+    const cat = dot.getAttribute('data-cat');
+    categoryTitle.textContent = titles[cat];
+
+    markers.forEach(m => {
+      m.style.opacity = m.classList.contains(cat) ? "1" : "0.15";
+    });
+  });
+});
+
+// MARKER HOVER POPUP
+markers.forEach(marker => {
+  marker.addEventListener('mouseenter', () => {
+    popupTitle.textContent = marker.dataset.title;
+    popup.style.left = marker.style.left;
+    popup.style.top = marker.style.top;
+    popup.style.display = "block";
+  });
+
+  marker.addEventListener('mouseleave', () => {
+    popup.style.display = "none";
+  });
+});
