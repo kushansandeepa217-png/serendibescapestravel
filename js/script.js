@@ -232,3 +232,33 @@ function revealTourSections() {
 
 window.addEventListener("scroll", revealTourSections);
 revealTourSections();
+
+/* =========================================================
+   HOME HOSPITALITY SECTION FADE-IN
+========================================================= */
+const hospitalityBox = document.querySelector(".hospitality-section");
+
+function hospitalityFadeIn() {
+  if (hospitalityBox && hospitalityBox.getBoundingClientRect().top < window.innerHeight - 100) {
+    hospitalityBox.classList.add("visible");
+  }
+}
+
+window.addEventListener("scroll", hospitalityFadeIn);
+hospitalityFadeIn();
+
+/* =========================================================
+   WHY CHOOSE US — FADE IN ON SCROLL
+========================================================= */
+const whyBoxes = document.querySelectorAll(".why-box");
+
+function revealWhyBoxes() {
+  whyBoxes.forEach(box => {
+    if (box.getBoundingClientRect().top < window.innerHeight - 100) {
+      box.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealWhyBoxes);
+revealWhyBoxes();
