@@ -263,52 +263,45 @@ function revealWhyBoxes() {
 window.addEventListener("scroll", revealWhyBoxes);
 revealWhyBoxes();
 
-/* =========================================================
-   INTERACTIVE SRI LANKA MAP
-========================================================= */
+/* ======================================================
+   INTERACTIVE MAP JS — Professional Edition
+====================================================== */
 
-const markers = document.querySelectorAll('.map-marker');
-const popup = document.getElementById('locationPopup');
-const popupTitle = document.getElementById('popupTitle');
-const dots = document.querySelectorAll('.dot');
-const categoryTitle = document.getElementById('categoryTitle');
+const dots = document.querySelectorAll(".dot");
+const markers = document.querySelectorAll(".map-marker");
+const categoryTitle = document.getElementById("categoryTitle");
 
-// CATEGORY TITLES
-const titles = {
+const categoryNames = {
   beach: "Popular Beaches",
   culture: "History & Culture",
   nature: "Wildlife & Nature",
-  lesser: "Lesser Known Places",
-  adventure: "Adventure Trails",
-  gastronomy: "Gastronomy & Food"
+  lesser: "Lesser Travelled",
+  adventure: "Adventure Experiences",
+  gastronomy: "Gastronomy & Local Flavours"
 };
 
-// DOT CLICK FILTERING
 dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    dots.forEach(d => d.classList.remove('active'));
-    dot.classList.add('active');
+  dot.addEventListener("click", () => {
+    const category = dot.getAttribute("data-cat");
 
-    const cat = dot.getAttribute('data-cat');
-    categoryTitle.textContent = titles[cat];
+    // Update Active Dot
+    dots.forEach(d => d.classList.remove("active"));
+    dot.classList.add("active");
 
-    markers.forEach(m => {
-      m.style.opacity = m.classList.contains(cat) ? "1" : "0.15";
+    // Update Title
+    categoryTitle.textContent = categoryNames[category];
+
+    // Filter Markers
+    markers.forEach(marker => {
+      if (marker.classList.contains(category)) {
+        marker.style.opacity = "1";
+        marker.style.transform = "translate(-50%, -50%) scale(1)";
+        marker.style.pointerEvents = "auto";
+      } else {
+        marker.style.opacity = "0.15";
+        marker.style.transform = "translate(-50%, -50%) scale(0.7)";
+        marker.style.pointerEvents = "none";
+      }
     });
   });
 });
-
-// MARKER HOVER POPUP
-markers.forEach(marker => {
-  marker.addEventListener('mouseenter', () => {
-    popupTitle.textContent = marker.dataset.title;
-    popup.style.left = marker.style.left;
-    popup.style.top = marker.style.top;
-    popup.style.display = "block";
-  });
-
-  marker.addEventListener('mouseleave', () => {
-    popup.style.display = "none";
-  });
-});
-

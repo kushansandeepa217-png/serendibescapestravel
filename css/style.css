@@ -987,159 +987,172 @@ footer {
   background: #005f52;
   transform: translateY(-2px);
 }
-/* =========================================================
-   INTERACTIVE SRI LANKA MAP
-========================================================= */
+
+/* ======================================================
+   SRI LANKA MAP – PROFESSIONAL UI
+====================================================== */
 
 .sl-map-section {
+  padding: 80px 0;
   text-align: center;
-  padding: 50px 0;
+  position: relative;
 }
 
 .map-main-title {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #007b6a;
-  margin-bottom: 10px;
+  color: #007a68;
+  margin-bottom: 8px;
 }
 
 .map-subtitle {
+  font-size: 1.08rem;
   color: #555;
-  font-size: 1rem;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 
 .map-container {
+  max-width: 520px;
+  margin: 0 auto;
   position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
 }
 
 .map-base {
   width: 100%;
   pointer-events: none;
+  user-select: none;
 }
+
+/* ======================================================
+   MARKERS
+====================================================== */
 
 .map-marker {
-  width: 14px;
-  height: 14px;
-  background: #007b6a;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marker-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 3;
+}
+
+/* Pulse effect */
+.marker-dot::after {
+  content: "";
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   position: absolute;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  transition: 0.3s ease;
+  top: 0; left: 0;
+  animation: pulseMarker 2s infinite;
+  opacity: 0.6;
 }
 
-.map-marker:hover {
-  transform: scale(1.4) translate(-50%, -50%);
+@keyframes pulseMarker {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(2.6); opacity: 0; }
 }
 
-/* Popup */
-.location-popup {
-  position: absolute;
-  padding: 6px 12px;
-  background: #007b6a;
-  color: #fff;
-  border-radius: 20px;
-  transform: translate(-50%, -140%);
-  display: none;
+/* Floating Label */
+.marker-label {
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-top: 6px;
   font-size: 0.8rem;
+  font-weight: 600;
   white-space: nowrap;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 0.3s ease;
   pointer-events: none;
-  z-index: 10;
 }
 
-/* Category Slider */
+.map-marker:hover .marker-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ======================================================
+   CATEGORY COLORS
+====================================================== */
+
+.beach .marker-dot,
+.beach .marker-dot::after { background: #0099ff; }
+
+.culture .marker-dot,
+.culture .marker-dot::after { background: #ff8c00; }
+
+.nature .marker-dot,
+.nature .marker-dot::after { background: #28a745; }
+
+.lesser .marker-dot,
+.lesser .marker-dot::after { background: #b300ff; }
+
+.adventure .marker-dot,
+.adventure .marker-dot::after { background: #ff2d55; }
+
+.gastronomy .marker-dot,
+.gastronomy .marker-dot::after { background: #ff3355; }
+
+/* ======================================================
+   CATEGORY SLIDER
+====================================================== */
+
 .category-slider {
-  margin-top: 25px;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .category-title {
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 1.2rem;
-  color: #007b6a;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  color: #007a68;
 }
 
 .dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .dot {
-  width: 14px;
-  height: 14px;
-  background: #cfcfcf;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
+  background: #ccc;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .dot.active {
-  background: #007b6a;
-}
-
-/* MAP MARKERS */
-.map-marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.marker-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-/* Label next to each marker */
-.marker-label {
-  background: rgba(0,0,0,0.75);
-  color: #fff;
-  padding: 3px 7px;
-  font-size: 0.75rem;
-  border-radius: 5px;
-  white-space: nowrap;
-  transform: translateY(-2px);
-}
-
-/* Category colors */
-.map-marker.beach .marker-dot {
-  background: #00bcd4;
-}
-
-.map-marker.culture .marker-dot {
-  background: #ff9800;
-}
-
-.map-marker.nature .marker-dot {
-  background: #4caf50;
-}
-
-.map-marker.lesser .marker-dot {
-  background: #9c27b0;
-}
-
-.map-marker.adventure .marker-dot {
-  background: #e91e63;
-}
-
-.map-marker.gastronomy .marker-dot {
-  background: #795548;
-}
-
-/* Hover effect */
-.map-marker:hover .marker-dot {
   transform: scale(1.3);
 }
 
-.map-marker:hover .marker-label {
-  background: #007b6a;
+.dot[data-cat="beach"].active { background: #0099ff; }
+.dot[data-cat="culture"].active { background: #ff8c00; }
+.dot[data-cat="nature"].active { background: #28a745; }
+.dot[data-cat="lesser"].active { background: #b300ff; }
+.dot[data-cat="adventure"].active { background: #ff2d55; }
+.dot[data-cat="gastronomy"].active { background: #ff3355; }
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 480px) {
+  .map-main-title { font-size: 1.8rem; }
+  .marker-label { font-size: 0.72rem; }
 }
