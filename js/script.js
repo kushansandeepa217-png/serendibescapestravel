@@ -294,3 +294,37 @@ dots.forEach(dot => {
     });
   });
 });
+
+const catItems = document.querySelectorAll(".cat-item");
+const markers2 = document.querySelectorAll(".map-marker");
+
+const catMap = {
+  nature: "nature",
+  beach: "beach",
+  culture: "culture",
+  lesser: "lesser",
+  adventure: "adventure",
+  food: "gastronomy",
+};
+
+catItems.forEach(item => {
+  item.addEventListener("click", () => {
+
+    // Remove active from all
+    catItems.forEach(i => i.classList.remove("active"));
+
+    // Activate clicked one
+    item.classList.add("active");
+
+    // Get category
+    const category = item.getAttribute("data-cat");
+    const mapped = catMap[category];
+
+    // Filter markers
+    markers2.forEach(marker => {
+      marker.style.display = marker.classList.contains(mapped)
+        ? "block"
+        : "none";
+    });
+  });
+});
