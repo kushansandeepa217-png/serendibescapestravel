@@ -1260,3 +1260,102 @@ footer {
   margin-bottom: 20px;
 }
 
+/* DISCOVER YOUR PATH SECTION */
+.discover-section {
+  max-width: 900px;
+  margin: 70px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.discover-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #124542;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.discover-subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #2d6f6c;
+  margin-bottom: 25px;
+}
+
+.discover-text {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+/* Soft fade-in animation */
+.discover-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ISLAND WONDERS - PROFESSIONAL STYLE */
+.island-wonders {
+  max-width: 900px;
+  margin: 80px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.iw-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #124542;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.iw-subtitle {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #2d6f6c;
+  margin-bottom: 28px;
+}
+
+.iw-text {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #3d3d3d;
+  margin-bottom: 18px;
+}
+
+/* Decorative underline under the title */
+.iw-title::after {
+  content: "";
+  width: 70px;
+  height: 3.5px;
+  background: #2d6f6c;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 3px;
+}
+
+/* Fade-in animation */
+.island-wonders {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
