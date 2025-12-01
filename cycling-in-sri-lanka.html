@@ -118,92 +118,25 @@
   
 </section>
 
-<!-- Booking / Enquiry Form -->
+<!-- Booking Form -->
 <section class="container tour-section">
-  <h2 class="section-title">Tailor Your Dream Sri Lankan Adventure</h2>
-  <p>Fill out your details and your travel plans. Connect with a local expert for a personalized trip plan.</p>
-
+  <h2 class="section-title">Book Your Geoffrey Bawa Experience</h2>
   <form class="booking-form">
-    <div class="form-group">
-      <label for="title">Title*</label>
-      <select id="title" name="title" required>
-        <option value="">Select</option>
-        <option value="Mr">Mr</option>
-        <option value="Mrs">Mrs</option>
-        <option value="Miss">Miss</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="first-name">First Name*</label>
-      <input type="text" id="first-name" name="first-name" required>
-    </div>
-    <div class="form-group">
-      <label for="last-name">Last Name*</label>
-      <input type="text" id="last-name" name="last-name" required>
-    </div>
-    <div class="form-group">
-      <label for="accommodation">Accommodation Type</label>
-      <select id="accommodation" name="accommodation">
-        <option value="">Select</option>
-        <option value="luxury">Luxury / High End / Exclusive</option>
-        <option value="five-star">Five Star</option>
-        <option value="four-to-five-star">Four to Five Star</option>
-        <option value="four-star-lower">Four Star & Lower</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="adults">No. of Adults*</label>
-      <input type="number" id="adults" name="adults" min="1" required>
-    </div>
-    <div class="form-group">
-      <label for="kids">No. of Kids (0-11 years)</label>
-      <input type="number" id="kids" name="kids" min="0">
-    </div>
-    <div class="form-group">
-      <label for="infants">No. of Infants</label>
-      <input type="number" id="infants" name="infants" min="0">
-    </div>
-    <div class="form-group">
-      <label for="currency">Currency</label>
-      <select id="currency" name="currency">
-        <option value="$">USD ($)</option>
-        <option value="€">EUR (€)</option>
-        <option value="£">GBP (£)</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="budget">Budget (Optional)</label>
-      <select id="budget" name="budget">
-        <option value="">Select</option>
-        <option value="300-800">300 - 800</option>
-        <option value="1000-2500">1000 - 2500</option>
-        <option value="5000">5000+</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="start-date">Start Date*</label>
-      <input type="date" id="start-date" name="start-date" required>
-    </div>
-    <div class="form-group">
-      <label for="end-date">End Date*</label>
-      <input type="date" id="end-date" name="end-date" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email*</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="contact">Contact No*</label>
-      <input type="tel" id="contact" name="contact" required>
-    </div>
-    <div class="form-group">
-      <label for="additional">Additional Info (Optional)</label>
-      <textarea id="additional" name="additional" rows="4"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="country">Country*</label>
-      <select id="country" name="country" required>
-        <option value="Afghanistan">Afghanistan</option>
+    <label for="title">Title*</label>
+    <select id="title" required>
+      <option>Mr</option>
+      <option>Mrs</option>
+      <option>Miss</option>
+    </select>
+    <label for="fname">First Name*</label>
+    <input type="text" id="fname" required>
+    <label for="lname">Last Name*</label>
+    <input type="text" id="lname" required>
+    <label for="email">Email*</label>
+    <input type="email" id="email" required>
+    <label for="country">Country</label>
+    <select id="country">
+      <option value="Afghanistan">Afghanistan</option>
   <option value="Albania">Albania</option>
   <option value="Algeria">Algeria</option>
   <option value="Andorra">Andorra</option>
@@ -398,8 +331,31 @@
   <option value="Yemen">Yemen</option>
   <option value="Zambia">Zambia</option>
   <option value="Zimbabwe">Zimbabwe</option>
-      </select>
-    </div>
+    </select>
+    <label for="contact">Contact No*</label>
+    <input type="text" id="contact" required>
+    <label for="accommodation">Accommodation Type</label>
+    <select id="accommodation">
+      <option>Luxury / High End</option>
+      <option>Five Star</option>
+      <option>Four Star & Lower</option>
+    </select>
+    <label for="start">Start Date*</label>
+    <input type="date" id="start" required>
+    <label for="end">End Date*</label>
+    <input type="date" id="end" required>
+    <label for="adults">No. Adults</label>
+    <input type="number" id="adults" min="1" value="1">
+    <label for="kids">No. Kids (0-11)</label>
+    <input type="number" id="kids" min="0" value="0">
+    <label for="budget">Budget (USD)</label>
+    <select id="budget">
+      <option>1000 - 2500</option>
+      <option>2500 - 5000</option>
+      <option>5000+</option>
+    </select>
+    <label for="info">Additional Info</label>
+    <textarea id="info" rows="4"></textarea>
     <button type="submit" class="btn">Send Enquiry</button>
   </form>
 </section>
