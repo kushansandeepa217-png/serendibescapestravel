@@ -1479,47 +1479,64 @@ body {
   background: #067;
 }
 
+/* ===== Overseas Offices Section ===== */
+
 .office-section {
-  margin-top: 60px;
-  padding: 40px;
-  background: #faf9f6;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.gold-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #d4af37; /* Gold */
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
 .office-label {
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
   display: block;
-  margin-bottom: 8px;
+}
+
+.office-select-wrapper {
+  max-width: 400px;
+  margin: 0 auto 20px auto;
 }
 
 .office-select {
-  width: 300px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 16px;
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
   outline: none;
-  transition: 0.3s;
+  background: #fff;
+  color: #333;
+  transition: 0.3s ease;
 }
 
 .office-select:focus {
-  border-color: #b89b5e;
-  box-shadow: 0 0 10px rgba(184, 155, 94, 0.3);
+  border-color: #b68a28;
+  box-shadow: 0 0 5px rgba(212,175,55,0.4);
 }
 
 .office-details {
-  margin-top: 30px;
+  max-width: 600px;
+  margin: 30px auto 0 auto;
   padding: 25px;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  font-size: 17px;
-  line-height: 1.7;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  background: #fff;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.6;
   opacity: 0;
-  transform: translateY(15px);
-  transition: all 0.5s ease;
+  transform: translateY(10px);
+  transition: 0.4s ease;
 }
 
 .office-details.show {
@@ -1527,11 +1544,16 @@ body {
   transform: translateY(0);
 }
 
-.office-details p {
-  margin: 8px 0;
+.office-details p span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #d4af37;
 }
 
-.office-details span {
-  font-weight: bold;
-  color: #b89b5e;
+/* Mobile */
+@media (max-width: 600px) {
+  .office-details {
+    padding: 20px;
+    font-size: 1rem;
+  }
 }
