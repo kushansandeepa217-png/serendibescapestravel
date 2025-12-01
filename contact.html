@@ -288,12 +288,18 @@
 <section class="office-section container">
   <h2 class="section-title">Our Overseas Offices / Representation</h2>
 
-  <label for="officeCountry" class="office-label">Select Your Country</label>
-  <select id="officeCountry" class="office-select">
-      <option value="">-- Choose Country --</option>
-      <option value="srilanka">Sri Lanka 🇱🇰</option>
-      <option value="uk">United Kingdom 🇬🇧</option>
-  </select>
+  <div class="office-select-wrap">
+    <label for="officeCountry">Select Your Country</label>
+    <select id="officeCountry" class="office-select">
+        <option value="">-- Choose Country --</option>
+        <option value="srilanka">Sri Lanka 🇱🇰</option>
+        <option value="uk">United Kingdom 🇬🇧</option>
+    </select>
+  </div>
+
+  <div id="officeDetails" class="office-details hidden"></div>
+</section>
+
 
   <div id="officeDetails" class="office-details hidden"></div>
 </section>

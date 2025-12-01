@@ -349,7 +349,6 @@ const officeData = {
     <p>📞 <strong>Phone:</strong> +94-77-179-5679</p>
     <p>🌐 <strong>Website:</strong> www.serendibeescapestravels.com</p>
   `,
-
   uk: `
     <p><span>🇬🇧 United Kingdom Office</span></p>
     <p>📍 <strong>Address:</strong> Liverpool, England</p>
@@ -361,20 +360,13 @@ const officeData = {
 
 document.getElementById("officeCountry").addEventListener("change", function () {
   const container = document.getElementById("officeDetails");
-  
-  if (officeData[this.value]) {
-    container.classList.remove("hidden");
-    container.innerHTML = officeData[this.value];
+  const selected = this.value;
 
-    setTimeout(() => {
-      container.classList.add("show");
-    }, 20);
-
+  if (officeData[selected]) {
+    container.innerHTML = officeData[selected];
+    container.classList.add("show");
   } else {
     container.classList.remove("show");
-    setTimeout(() => {
-      container.classList.add("hidden");
-      container.innerHTML = "";
-    }, 300);
+    container.innerHTML = "";
   }
 });

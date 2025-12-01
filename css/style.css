@@ -1479,81 +1479,65 @@ body {
   background: #067;
 }
 
-/* ===== Overseas Offices Section ===== */
-
+/* Office Section */
 .office-section {
-  padding: 60px 20px;
-  margin-top: 40px;
+  margin-top: 50px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.gold-title {
-  font-size: 2rem;
-  text-align: center;
-  color: #d4af37; /* Gold */
-  font-weight: 700;
+/* Title */
+.office-section .section-title {
+  font-size: 28px;
   margin-bottom: 25px;
-}
-
-.office-label {
-  font-size: 1rem;
+  color: #003b5c; /* same deep blue from your site */
+  text-align: center;
   font-weight: 600;
-  color: #444;
-  margin-bottom: 10px;
-  display: block;
 }
 
-.office-select-wrapper {
-  max-width: 400px;
-  margin: 0 auto 20px auto;
+/* Select Box (matching booking-form inputs) */
+.office-select-wrap label {
+  font-weight: 600;
+  color: #003b5c;
 }
 
 .office-select {
   width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border: 2px solid #d4af37;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  border: 1px solid #c7d2da;
   border-radius: 8px;
-  outline: none;
-  background: #fff;
-  color: #333;
-  transition: 0.3s ease;
+  font-size: 16px;
+  background: #f7fafc;
+  color: #003b5c;
 }
 
-.office-select:focus {
-  border-color: #b68a28;
-  box-shadow: 0 0 5px rgba(212,175,55,0.4);
-}
-
+/* Office Details Box */
 .office-details {
-  max-width: 600px;
-  margin: 30px auto 0 auto;
   padding: 25px;
-  border: 1px solid #d4af37;
-  border-radius: 10px;
-  background: #fff;
-  color: #333;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: 0.4s ease;
+  background: #f7fafc;
+  border: 1px solid #c7d2da;
+  border-radius: 12px;
+  display: none;
+  line-height: 1.7;
+  color: #003b5c;
 }
 
 .office-details.show {
-  opacity: 1;
-  transform: translateY(0);
+  display: block;
+  animation: fadeIn 0.4s ease;
 }
 
 .office-details p span {
-  font-size: 1.3rem;
+  font-size: 20px;
   font-weight: 700;
-  color: #d4af37;
+  color: #005f89; /* matching button/blue tone */
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .office-details {
-    padding: 20px;
-    font-size: 1rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
