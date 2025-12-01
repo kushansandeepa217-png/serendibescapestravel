@@ -328,3 +328,15 @@ catItems.forEach(item => {
     });
   });
 });
+
+const cards = document.querySelectorAll(".select-card");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    if (card.parentElement.classList.contains("single-select")) {
+      card.parentElement.querySelectorAll(".select-card")
+        .forEach(c => c.classList.remove("active"));
+    }
+    card.classList.toggle("active");
+  });
+});
