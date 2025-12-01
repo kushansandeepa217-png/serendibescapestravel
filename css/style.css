@@ -1479,3 +1479,59 @@ body {
   background: #067;
 }
 
+.office-section {
+  margin-top: 60px;
+  padding: 40px;
+  background: #faf9f6;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.office-label {
+  font-weight: 600;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.office-select {
+  width: 300px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.office-select:focus {
+  border-color: #b89b5e;
+  box-shadow: 0 0 10px rgba(184, 155, 94, 0.3);
+}
+
+.office-details {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+}
+
+.office-details.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.office-details p {
+  margin: 8px 0;
+}
+
+.office-details span {
+  font-weight: bold;
+  color: #b89b5e;
+}

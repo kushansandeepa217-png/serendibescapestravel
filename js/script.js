@@ -341,18 +341,32 @@ cards.forEach(card => {
   });
 });
 
-// Smooth scroll fade effects (optional)
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".fade-in, .fade-up");
+const officeData = {
+  srilanka: `
+    <p><span>🇱🇰 Sri Lanka Office</span></p>
+    <p>📍 <strong>Address:</strong> Ambalangoda, Galle, Sri Lanka</p>
+    <p>📧 <strong>Email:</strong> inquiries@serendibeescapestravel.com</p>
+    <p>📞 <strong>Phone:</strong> +94-77-179-5679</p>
+    <p>🌐 <strong>Website:</strong> www.serendibeescapestravels.com</p>
+  `,
+  uk: `
+    <p><span>🇬🇧 United Kingdom Office</span></p>
+    <p>📍 <strong>Address:</strong> Liverpool, England</p>
+    <p>📧 <strong>Email:</strong> inquiries@serendibeescapestravel.com</p>
+    <p>📞 <strong>Phone:</strong> +44-79-507-81227</p>
+    <p>🌐 <strong>Website:</strong> www.serendibeescapestravel.com</p>
+  `
+};
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 });
+document.getElementById("officeCountry").addEventListener("change", function () {
+  const container = document.getElementById("officeDetails");
+  const selected = this.value;
 
-  sections.forEach(section => observer.observe(section));
+  if (officeData[selected]) {
+    container.innerHTML = officeData[selected];
+    container.classList.add("show");
+  } else {
+    container.classList.remove("show");
+    container.innerHTML = "";
+  }
 });
-
