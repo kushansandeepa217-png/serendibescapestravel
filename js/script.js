@@ -371,7 +371,6 @@ document.getElementById("officeCountry").addEventListener("change", function () 
   }
 });
 
-<script>
 function toggleInfo(element) {
   const menu = element.nextElementSibling;
   const icon = element.querySelector(".icon");
@@ -380,4 +379,3 @@ function toggleInfo(element) {
 
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
-</script>
