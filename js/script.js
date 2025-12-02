@@ -370,3 +370,14 @@ document.getElementById("officeCountry").addEventListener("change", function () 
     container.innerHTML = "";
   }
 });
+
+<script>
+function toggleInfo(element) {
+  const menu = element.nextElementSibling;
+  const icon = element.querySelector(".icon");
+
+  menu.classList.toggle("show");
+
+  icon.textContent = menu.classList.contains("show") ? "−" : "+";
+}
+</script>
