@@ -371,11 +371,15 @@ document.getElementById("officeCountry").addEventListener("change", function () 
   }
 });
 
+
+
 function toggleInfo(element) {
   const menu = element.nextElementSibling;
   const icon = element.querySelector(".icon");
 
   menu.classList.toggle("show");
 
+  // Change + to −
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
+
