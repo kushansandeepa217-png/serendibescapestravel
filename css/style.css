@@ -1549,141 +1549,155 @@ body {
   margin-top: 40px;
 }
 
-/* ===========================
-   NEWSLETTER
-=========================== */
-.premium-newsletter {
-  background: #007B6A;
+/* -------------------------
+  Luxury Newsletter
+-------------------------- */
+.lux-newsletter {
+  background: #ffffff;
   padding: 60px 20px;
   text-align: center;
-  color: #fff;
 }
 
-.premium-newsletter h2 {
-  font-size: 2rem;
-  margin-bottom: 8px;
+.lux-newsletter h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #007B6A;
 }
 
-.premium-newsletter p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-bottom: 20px;
+.lux-newsletter p {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 16px;
 }
 
-.newsletter-form {
+.lux-news-form {
   display: flex;
   justify-content: center;
   gap: 10px;
-  max-width: 500px;
-  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.newsletter-form input {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
+.lux-news-form input {
+  padding: 12px 15px;
+  width: 260px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
-.newsletter-form button {
-  background: #fff;
-  color: #007B6A;
-  font-weight: bold;
+.lux-news-form button {
   padding: 12px 20px;
+  background: #007B6A;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
 }
 
-/* ===========================
-   INFO SECTION
-=========================== */
-.footer-info {
-  background: #F3F6F4;
+.lux-news-form button:hover {
+  background: #005f52;
+}
+
+/* -------------------------
+  Luxury Footer Section
+-------------------------- */
+.lux-footer-section {
+  background: #007B6A;
+  color: white;
   padding: 60px 20px;
 }
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+.lux-footer-inner {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
-.info-box {
-  background: none;
+/* Each section block */
+.lux-footer-box {
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 25px;
 }
 
-.info-header {
-  display: none; /* Hidden on desktop */
+/* Toggle Header */
+.lux-toggle {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: 600;
+  color: #F5D6A2; /* soft gold accent */
 }
 
-/* Titles */
-.info-title {
-  font-size: 1.2rem;
-  color: #007B6A;
-  margin-bottom: 6px;
+.lux-icon {
+  transition: all 0.3s ease;
 }
 
-.info-text {
-  line-height: 1.6;
-  margin-bottom: 18px;
-}
-
-/* Links */
-.info-menu {
+/* Menu list */
+.lux-menu {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: none;
+  padding-left: 5px;
 }
 
-.info-menu li {
-  margin-bottom: 10px;
+.lux-menu.show {
+  display: block;
 }
 
-.info-menu a {
-  color: #333;
+.lux-menu li {
+  margin: 10px 0;
+}
+
+.lux-menu a {
+  color: #ffffff;
   text-decoration: none;
-  transition: 0.3s;
+  font-size: 16px;
+  opacity: 0.9;
 }
 
-.info-menu a:hover {
-  color: #007B6A;
+.lux-menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
-/* ===========================
-   MOBILE ACCORDION
-=========================== */
-@media (max-width: 820px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+.lux-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #F5D6A2;
+}
 
-  .info-header {
-    display: flex;
+.lux-hotline span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .lux-footer-inner {
+    flex-direction: row;
     justify-content: space-between;
-    background: #007B6A;
-    color: #fff;
-    padding: 14px;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 1.1rem;
   }
 
-  .toggle-icon {
-    font-weight: bold;
-    font-size: 1.3rem;
+  .lux-footer-box {
+    width: 30%;
+    border-bottom: none;
   }
 
-  .info-menu {
-    display: none;
-    background: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 10px;
+  .lux-menu {
+    display: block !important;  /* Always open on desktop */
   }
 
-  .info-menu.show {
-    display: block;
+  .lux-toggle .lux-icon {
+    display: none; /* no + icon on desktop */
+  }
+
+  .lux-toggle {
+    cursor: default;
   }
 }
