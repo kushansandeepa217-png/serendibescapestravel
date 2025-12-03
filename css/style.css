@@ -2262,112 +2262,104 @@ body {
   }
 }
 
-
+/* ===========================
+   TESTIMONIAL PREMIUM SECTION
+=========================== */
 .testimonial-section {
-max-width: 850px;
-margin: 40px auto;
-text-align: center;
-padding: 0 20px;
-font-family: Arial, sans-serif;
+  padding: 80px 20px;
+  background: #faf7f1;          /* matches your luxury beige tone */
+  text-align: center;
 }
 
-.testimonial-container {
-width: 100%;
-position: relative;
+.testimonial-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 40px;
+  font-family: "Playfair Display", serif;
 }
 
-.testimonial-box {
-display: none;
-padding: 25px;
-background: #ffffff;
-border-left: 4px solid #0d6efd;
-border-radius: 12px;
-font-size: 16px;
-color: #333;
-line-height: 1.7;
-box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-opacity: 0;
-transition: opacity 0.5s ease-in-out;
+/* Slider Container */
+.testimonial-slider {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
 }
 
-.testimonial-box.active {
-display: block;
-opacity: 1;
+/* Testimonial Box */
+.ts-wrapper {
+  overflow: hidden;
+  position: relative;
 }
 
-.nav-buttons {
-margin-top: 15px;
+.ts-slide {
+  display: none;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: opacity 0.4s ease-in-out;
 }
 
-.nav-btn {
-cursor: pointer;
-font-size: 28px;
-padding: 10px 16px;
-background: #eee;
-border-radius: 50%;
-display: inline-block;
-margin: 0 10px;
-transition: 0.3s;
+.ts-slide.active {
+  display: block;
 }
 
-.nav-btn:hover {
-background: #ddd;
+.ts-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
-/* Dots */
-.dots {
-margin-top: 15px;
+.ts-author {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b6b2c;        /* gold tone */
+  font-family: "Playfair Display", serif;
 }
 
-.dot {
-height: 12px;
-width: 12px;
-margin: 5px;
-background: #bbb;
-border-radius: 50%;
-display: inline-block;
-cursor: pointer;
-transition: 0.3s;
+/* Arrows */
+.ts-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: none;
+  padding: 16px 20px;
+  font-size: 26px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
 }
 
-.dot.active {
-background: #0d6efd;
+.ts-arrow:hover {
+  background: #e8dab8;
 }
 
-/* -------------------- RESPONSIVE -------------------- */
-
-/* Mobile Devices (below 600px) */
-@media (max-width: 600px) {
-.testimonial-box {
-padding: 18px;
-font-size: 14px;
-border-left-width: 3px;
+.ts-left {
+  left: -40px;
 }
 
-.nav-btn {
-font-size: 24px;
-padding: 8px 12px;
+.ts-right {
+  right: -40px;
 }
 
-.dot {
-height: 10px;
-width: 10px;
-}
-}
-
-/* Large Desktop (above 1000px) */
-@media (min-width: 1000px) {
-.testimonial-section {
-max-width: 900px;
-}
-
-.testimonial-box {
-font-size: 17px;
-padding: 30px;
-}
-
-.nav-btn {
-font-size: 32px;
-padding: 10px 18px;
-}
+/* Mobile Fix */
+@media (max-width: 768px) {
+  .ts-arrow {
+    padding: 10px 14px;
+    font-size: 22px;
+  }
+  .ts-left {
+    left: -18px;
+  }
+  .ts-right {
+    right: -18px;
+  }
+  .ts-text {
+    font-size: 18px;
+  }
 }

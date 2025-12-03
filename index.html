@@ -300,40 +300,67 @@
   </ul>
 </section>
 
-<div class="testimonial-section">
-<h2>Experiences from Around Sri Lanka</h2>
+<!-- ===========================
+   PREMIUM TESTIMONIAL SLIDER
+=========================== -->
+<section class="testimonial-section">
 
-<div class="testimonial-container">
-<div class="testimonial-box active">
-“Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!”
-<br><strong>- Emily Thompson, United Kingdom 🇬🇧</strong>
-</div>
+  <h2 class="testimonial-title">Experiences from around Sri Lanka</h2>
 
-<div class="testimonial-box">
-“Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable.”
-<br><strong>- Sophie Martin, France 🇫🇷</strong>
-</div>
+  <div class="testimonial-slider">
 
-<div class="testimonial-box">
-“Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter, Herr Kushan, war herausragend – herzlich, kenntnisreich und leidenschaftlich.”
-<br><strong>- Maximilian, Germany 🇩🇪</strong>
-</div>
+    <!-- Left Arrow -->
+    <button class="ts-arrow ts-left" onclick="moveTestimonial(-1)">&#10094;</button>
 
-<div class="testimonial-box">
-“Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Каждое место было тщательно подобрано, а гостеприимство было очень сердечным. Идеально организованное приключение!”
-<br><strong>- Alexey, Russia 🇷🇺</strong>
-</div>
-</div>
+    <!-- Slides Wrapper -->
+    <div class="ts-wrapper">
 
-<!-- Navigation Arrows -->
-<div class="nav-buttons">
-<span class="nav-btn" onclick="prevTestimonial()">❮</span>
-<span class="nav-btn" onclick="nextTestimonial()">❯</span>
-</div>
+      <!-- Slide 1 -->
+      <div class="ts-slide active">
+        <p class="ts-text">
+          “Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned—smooth, 
+          hassle-free, and magical. Highly recommended!”
+        </p>
+        <p class="ts-author">Emily Thompson — United Kingdom 🇬🇧</p>
+      </div>
 
-<!-- Dots -->
-<div class="dots"></div>
-</div>
+      <!-- Slide 2 -->
+      <div class="ts-slide">
+        <p class="ts-text">
+          “Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. 
+          Merci pour votre professionnalisme — expérience vraiment inoubliable.”
+        </p>
+        <p class="ts-author">Sophie Martin — France 🇫🇷</p>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="ts-slide">
+        <p class="ts-text">
+          “Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Herr Kushan war herausragend – herzlich, kompetent und 
+          leidenschaftlich. Wir empfehlen Sie wärmstens weiter!”
+        </p>
+        <p class="ts-author">Maximilian — Germany 🇩🇪</p>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="ts-slide">
+        <p class="ts-text">
+          “Наша поездка в Шри-Ланку превзошла все ожидания. Каждое место подобрано идеально, гостеприимство было невероятным. 
+          Идеально организованное приключение!”
+        </p>
+        <p class="ts-author">Alexey — Russia 🇷🇺</p>
+      </div>
+
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="ts-arrow ts-right" onclick="moveTestimonial(1)">&#10095;</button>
+
+  </div>
+</section>
+
+
+
 
 <!-- ===========================
    LUXURY NEWSLETTER SECTION

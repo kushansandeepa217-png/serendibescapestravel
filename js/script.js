@@ -411,46 +411,18 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-/* =========================================================
-   Comment — FADE IN ON SCROLL
-========================================================= */
+let tsIndex = 0;
+const tsSlides = document.querySelectorAll(".ts-slide");
 
-
-let index = 0;
-const testimonials = document.getElementsByClassName("testimonial-box");
-const dotsContainer = document.querySelector(".dots");
-
-// Create dots dynamically
-for (let i = 0; i < testimonials.length; i++) {
-let dot = document.createElement("span");
-dot.classList.add("dot");
-if (i === 0) dot.classList.add("active");
-dot.onclick = () => showTestimonial(i);
-dotsContainer.appendChild(dot);
+function showTestimonial(n) {
+  tsSlides.forEach(slide => slide.classList.remove("active"));
+  tsIndex = (n + tsSlides.length) % tsSlides.length;
+  tsSlides[tsIndex].classList.add("active");
 }
 
-const dot = document.getElementsByClassName("dot");
-
-function showTestimonial(i) {
-for (let t of testimonials) t.classList.remove("active");
-for (let d of dots) d.classList.remove("active");
-
-testimonials[i].classList.add("active");
-dots[i].classList.add("active");
-
-index = i;
+function moveTestimonial(x) {
+  showTestimonial(tsIndex + x);
 }
 
-function nextTestimonial() {
-index = (index + 1) % testimonials.length;
-showTestimonial(index);
-}
-
-function prevTestimonial() {
-index = (index - 1 + testimonials.length) % testimonials.length;
-showTestimonial(index);
-}
-
-// Auto-slide every 5 seconds
-setInterval(nextTestimonial, 5000);
-
+// Start with first testimonial
+showTestimonial(tsIndex);
