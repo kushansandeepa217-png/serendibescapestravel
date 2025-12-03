@@ -394,4 +394,13 @@ function toggleLuxMenu(el) {
 
 
 
+function toggleLuxMenu(element) {
+  const menu = element.nextElementSibling;
+  const icon = element.querySelector(".lux-icon");
+
+  menu.classList.toggle("show");
+
+  icon.textContent = menu.classList.contains("show") ? "−" : "+";
+}
+
 

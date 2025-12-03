@@ -1702,147 +1702,156 @@ body {
   }
 }
 
-/* NEWSLETTER SECTION */
+/* -------------------------
+  Luxury Newsletter
+-------------------------- */
 .lux-newsletter {
-  background:#007B6A;
-  padding:60px 20px;
-  text-align:center;
-  color:#fff;
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .lux-newsletter h2 {
-  font-size:28px;
-  margin-bottom:10px;
-  letter-spacing:0.5px;
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #007B6A;
 }
 
 .lux-newsletter p {
-  font-size:16px;
-  opacity:0.9;
-  margin-bottom:25px;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 16px;
 }
 
 .lux-news-form {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  max-width:600px;
-  margin:auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .lux-news-form input {
-  padding:12px 15px;
-  border-radius:6px;
-  border:none;
-  width:70%;
+  padding: 12px 15px;
+  width: 260px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 .lux-news-form button {
-  background:#fff;
-  color:#007B6A;
-  border:none;
-  padding:12px 20px;
-  border-radius:6px;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
+  padding: 12px 20px;
+  background: #007B6A;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .lux-news-form button:hover {
-  background:#e4f7f2;
+  background: #005f52;
 }
 
-/* FOOTER MAIN SECTION */
+/* -------------------------
+  Luxury Footer Section
+-------------------------- */
 .lux-footer-section {
-  background:#007B6A;
-  color:#fff;
-  padding:50px 20px;
+  background: #007B6A;
+  color: white;
+  padding: 60px 20px;
 }
 
 .lux-footer-inner {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:40px;
-  max-width:1200px;
-  margin:auto;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 }
 
+/* Each section block */
 .lux-footer-box {
-  background:rgba(255,255,255,0.06);
-  padding:25px;
-  border-radius:10px;
-  backdrop-filter:blur(4px);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 25px;
 }
 
-/* COLLAPSIBLE MENU */
+/* Toggle Header */
 .lux-toggle {
-  display:flex;
-  justify-content:space-between;
-  cursor:pointer;
-  font-size:18px;
-  padding-bottom:10px;
-  border-bottom:1px solid rgba(255,255,255,0.2);
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 12px 0;
+  font-weight: 600;
+  color: #F5D6A2; /* soft gold accent */
 }
 
+.lux-icon {
+  transition: all 0.3s ease;
+}
+
+/* Menu list */
 .lux-menu {
-  list-style:none;
-  padding:0;
-  margin-top:10px;
-  max-height:0;
-  overflow:hidden;
-  transition:0.3s ease;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  padding-left: 5px;
 }
 
 .lux-menu.show {
-  max-height:500px;
+  display: block;
 }
 
 .lux-menu li {
-  margin:10px 0;
+  margin: 10px 0;
 }
 
 .lux-menu a {
-  color:#fff;
-  opacity:0.9;
-  text-decoration:none;
-  transition:0.2s;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.9;
 }
 
 .lux-menu a:hover {
-  opacity:1;
-}
-
-/* OFFICE BOX — CENTERED PREMIUM VERSION */
-.lux-office {
-  text-align:center;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .lux-title {
-  font-size:20px;
-  margin-bottom:5px;
-  color:#fff;
-}
-
-.lux-hotline {
-  font-size:17px;
-  margin-bottom:15px;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #F5D6A2;
 }
 
 .lux-hotline span {
-  font-size:14px;
-  opacity:0.8;
+  font-size: 13px;
+  opacity: 0.9;
 }
 
-/* MOBILE VERSION */
-@media (max-width:900px){
+/* Responsive */
+@media (min-width: 768px) {
   .lux-footer-inner {
-    grid-template-columns:1fr;
+    flex-direction: row;
+    justify-content: space-between;
   }
-  .lux-news-form {
-    flex-direction:column;
+
+  .lux-footer-box {
+    width: 30%;
+    border-bottom: none;
   }
-  .lux-news-form input {
-    width:100%;
+
+  .lux-menu {
+    display: block !important;  /* Always open on desktop */
+  }
+
+  .lux-toggle .lux-icon {
+    display: none; /* no + icon on desktop */
+  }
+
+  .lux-toggle {
+    cursor: default;
   }
 }
 
