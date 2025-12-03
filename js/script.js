@@ -412,48 +412,48 @@ function toggleLuxMenu(el) {
 }
 
 
-let luxIndex = 0;
-let luxSlides = document.querySelectorAll(".lux-slide");
-let luxDotsContainer = document.querySelector(".lux-dots");
+const track = document.querySelector(".testimonial-track");
+const slides = Array.from(track.children);
 
-/* Create dots automatically */
-luxSlides.forEach((_, i) => {
-  let dot = document.createElement("span");
-  dot.setAttribute("onclick", `luxGoToSlide(${i})`);
-  luxDotsContainer.appendChild(dot);
+const nextBtn = document.querySelector(".right-arrow");
+const prevBtn = document.querySelector(".left-arrow");
+
+const dotsContainer = document.querySelector(".dots");
+let currentIndex = 0;
+
+/* Create dots dynamically */
+slides.forEach((_, i) => {
+  const dot = document.createElement("div");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
 });
 
-let luxDots = luxDotsContainer.querySelectorAll("span");
+const dots = document.querySelectorAll(".dots div");
 
-/* Initial state */
-luxShowSlide(luxIndex);
+/* Update slide position */
+function updateSlider() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-function luxShowSlide(n) {
-  luxSlides.forEach(slide => slide.classList.remove("active"));
-  luxDots.forEach(dot => dot.classList.remove("active"));
-
-  luxSlides[n].classList.add("active");
-  luxDots[n].classList.add("active");
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[currentIndex].classList.add("active");
 }
 
-/* Manual controls */
-function luxPrevSlide() {
-  luxIndex = (luxIndex === 0) ? luxSlides.length - 1 : luxIndex - 1;
-  luxShowSlide(luxIndex);
-}
+/* Arrows */
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateSlider();
+});
 
-function luxNextSlide() {
-  luxIndex = (luxIndex + 1) % luxSlides.length;
-  luxShowSlide(luxIndex);
-}
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateSlider();
+});
 
-function luxGoToSlide(n) {
-  luxIndex = n;
-  luxShowSlide(n);
-}
-
-/* Auto-slide every 6 seconds */
-setInterval(() => {
-  luxNextSlide();
-}, 6000);
+/* Dots functionality */
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    currentIndex = i;
+    updateSlider();
+  });
+});
 

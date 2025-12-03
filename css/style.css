@@ -2262,111 +2262,92 @@ body {
   }
 }
 
-/* ===========================
-   PREMIUM TESTIMONIALS SLIDER
-=========================== */
-
-.lux-testimonials-section {
+.testimonials-section {
   padding: 80px 20px;
-  background: #f4f4f4;
-}
-
-.lux-testimonials-container {
-  max-width: 900px;
-  margin: 0 auto;
+  background: #faf7f2;
   text-align: center;
 }
 
-.lux-testimonial-title {
+.testimonials-title {
   font-size: 32px;
-  margin-bottom: 50px;
   font-weight: 700;
-  color: #2b2b2b;
-  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+  color: #4b3b2d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.lux-testimonial-slider {
+/* Slider Container */
+.testimonial-slider {
   position: relative;
-  background: #ffffff;
-  padding: 50px 40px;
-  border-radius: 18px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
-  min-height: 260px;
+  max-width: 700px;
+  margin: auto;
+  overflow: hidden;
 }
 
-.lux-slide {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+/* Track */
+.testimonial-track {
+  display: flex;
+  transition: transform 0.6s ease;
 }
 
-.lux-slide.active {
-  display: block;
-  opacity: 1;
+/* Individual Slide */
+.testimonial-box {
+  min-width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-.lux-quote {
-  font-size: 20px;
-  line-height: 1.7;
-  color: #333;
-  font-style: italic;
-  margin-bottom: 25px;
-}
-
-.lux-author {
+.testimonial-text {
   font-size: 18px;
-  font-weight: 600;
-  color: #444;
+  line-height: 1.6;
+  color: #555;
 }
 
 /* Arrows */
-.lux-arrow {
+.arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #ffffff;
+  background: #4b3b2d;
+  color: white;
   border: none;
-  font-size: 32px;
+  padding: 14px 20px;
   cursor: pointer;
-  color: #222;
-  padding: 8px 15px;
+  font-size: 24px;
   border-radius: 50%;
+  opacity: 0.85;
   transition: 0.3s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-.lux-arrow:hover {
-  background: #222;
-  color: #fff;
+.arrow:hover {
+  opacity: 1;
 }
 
-.lux-arrow.left { left: -20px; }
-.lux-arrow.right { right: -20px; }
+.left-arrow { left: -25px; }
+.right-arrow { right: -25px; }
 
 /* Dots */
-.lux-dots {
-  margin-top: 25px;
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.lux-dots span {
-  height: 12px;
+.dots div {
   width: 12px;
-  display: inline-block;
-  background: #bbb;
+  height: 12px;
+  background: #c1b6a3;
   margin: 0 6px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.lux-dots span.active {
-  background: #222;
-  transform: scale(1.25);
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-  .lux-arrow.left { left: -10px; }
-  .lux-arrow.right { right: -10px; }
-  .lux-testimonial-slider { padding: 40px 25px; }
+.dots .active {
+  background: #4b3b2d;
+  transform: scale(1.3);
 }
