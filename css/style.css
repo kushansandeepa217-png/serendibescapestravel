@@ -1946,3 +1946,125 @@ body {
   }
 }
 
+/* =============================
+   LUXURY FOOTER BASE STYLING
+============================= */
+.lux-footer-section {
+  background: #004d43; /* your footer dark green */
+  padding: 70px 20px;
+  color: #fff;
+}
+
+.lux-footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;   /* mobile default (stack) */
+  gap: 40px;
+}
+
+/* Footer boxes */
+.lux-footer-box {
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 25px;
+}
+
+/* Titles */
+.lux-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #f0d59c; /* soft luxury gold */
+}
+
+/* Hotline text */
+.lux-hotline span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Footer links */
+.lux-menu li {
+  list-style: none;
+  padding: 6px 0;
+}
+
+.lux-menu li a {
+  color: #fff;
+  opacity: 0.9;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.lux-menu li a:hover {
+  opacity: 1;
+}
+
+/* Accordion toggle */
+.lux-toggle {
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lux-icon {
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+/* Hidden menu (mobile accordion) */
+.lux-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+/* When opened */
+.lux-menu.open {
+  max-height: 600px;
+}
+
+/* =============================
+   DESKTOP VERSION FIX (IMPORTANT)
+============================= */
+
+@media (min-width: 900px) {
+  .lux-footer-inner {
+    flex-direction: row;     /* ← Desktop side-by-side columns */
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  /* Remove mobile borders */
+  .lux-footer-box {
+    border: none;
+    padding-bottom: 0;
+    width: 33%;
+  }
+
+  /* Disable accordion on desktop */
+  .lux-toggle {
+    cursor: default;
+  }
+
+  .lux-icon {
+    display: none;
+  }
+
+  .lux-menu {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .lux-menu li {
+    padding: 4px 0;
+  }
+
+  /* Office column center alignment */
+  .lux-footer-box:nth-child(3) {
+    text-align: center;
+  }
+}
