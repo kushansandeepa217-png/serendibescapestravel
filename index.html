@@ -301,59 +301,64 @@
 </section>
 
 
-<!-- =======================
-   PREMIUM TESTIMONIALS
-========================= -->
-<section class="lux-testimonials">
-  <h2 class="lux-testimonial-title">Experiences from Around Sri Lanka</h2>
+<section class="testimonials-section">
+  <h2 class="testimonials-title">Experiences from Around Sri Lanka</h2>
 
-  <div class="lux-testimonial-box">
+  <div class="testimonial-slider">
 
-    <!-- Arrow Left -->
-    <button class="lux-arrow lux-left" onclick="prevTestimonial()">&#10094;</button>
+    <div class="testimonial-track">
 
-    <!-- Testimonials Wrapper -->
-    <div class="lux-testimonial-content">
-
-      <div class="testimonial active">
-        <p>“Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Truly magical—highly recommended!”</p>
-        <h4>Emily Thompson <span>🇬🇧</span></h4>
-        <small>United Kingdom</small>
+      <!-- Slide 1 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          “Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, 
+          from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!”
+        </p>
+        <h4 class="testimonial-author">Emily Thompson <span>🇬🇧 United Kingdom</span></h4>
       </div>
 
-      <div class="testimonial">
-        <p>“Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme.”</p>
-        <h4>Sophie Martin <span>🇫🇷</span></h4>
-        <small>France</small>
+      <!-- Slide 2 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          “Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. 
+          Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable.”
+        </p>
+        <h4 class="testimonial-author">Sophie Martin <span>🇫🇷 France</span></h4>
       </div>
 
-      <div class="testimonial">
-        <p>“Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Unser Reiseleiter Herr Kushan war herausragend – herzlich, kenntnisreich und leidenschaftlich.”</p>
-        <h4>Maximilian <span>🇩🇪</span></h4>
-        <small>Germany</small>
+      <!-- Slide 3 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          “Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Besonderen Dank für die sorgfältige Hotelorganisation. 
+          Unser Reiseleiter Herr Kushan war herausragend – herzlich, kenntnisreich und leidenschaftlich.”
+        </p>
+        <h4 class="testimonial-author">Maximilian <span>🇩🇪 Germany</span></h4>
       </div>
 
-      <div class="testimonial">
-        <p>“Наша поездка в Шри-Ланку превзошла все ожидания. Идеально организованное приключение, позволившее полностью насладиться красотой страны.”</p>
-        <h4>Alexey <span>🇷🇺</span></h4>
-        <small>Russia</small>
+      <!-- Slide 4 -->
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          “Наша поездка в Шри-Ланку превзошла все ожидания! Каждое место было тщательно подобрано. 
+          Гостеприимство было невероятным. Идеально организованное путешествие!”
+        </p>
+        <h4 class="testimonial-author">Alexey <span>🇷🇺 Russia</span></h4>
       </div>
 
     </div>
 
-    <!-- Arrow Right -->
-    <button class="lux-arrow lux-right" onclick="nextTestimonial()">&#10095;</button>
+    <!-- Arrows -->
+    <button class="testimonial-arrow left" onclick="moveTestimonial(-1)">&#10094;</button>
+    <button class="testimonial-arrow right" onclick="moveTestimonial(1)">&#10095;</button>
+
+    <!-- Dots -->
+    <div class="testimonial-dots">
+      <span class="dot active" onclick="goToTestimonial(0)"></span>
+      <span class="dot" onclick="goToTestimonial(1)"></span>
+      <span class="dot" onclick="goToTestimonial(2)"></span>
+      <span class="dot" onclick="goToTestimonial(3)"></span>
+    </div>
 
   </div>
-
-  <!-- Navigation Dots -->
-  <div class="lux-dots">
-    <span class="lux-dot active" onclick="goToTestimonial(0)"></span>
-    <span class="lux-dot" onclick="goToTestimonial(1)"></span>
-    <span class="lux-dot" onclick="goToTestimonial(2)"></span>
-    <span class="lux-dot" onclick="goToTestimonial(3)"></span>
-  </div>
-
 </section>
 
 

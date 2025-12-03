@@ -411,34 +411,25 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-let currentTestimonial = 0;
+let testimonialIndex = 0;
 
-const testimonials = document.querySelectorAll(".testimonial");
-const dots = document.querySelectorAll(".lux-dot");
+function updateTestimonials() {
+  const track = document.querySelector(".testimonial-track");
+  const dots = document.querySelectorAll(".dot");
 
-function showTestimonial(index) {
-  testimonials.forEach((t, i) => {
-    t.classList.toggle("active", i === index);
-  });
-  dots.forEach((d, i) => {
-    d.classList.toggle("active", i === index);
-  });
+  track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[testimonialIndex].classList.add("active");
 }
 
-function nextTestimonial() {
-  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-  showTestimonial(currentTestimonial);
-}
-
-function prevTestimonial() {
-  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-  showTestimonial(currentTestimonial);
+function moveTestimonial(direction) {
+  const total = document.querySelectorAll(".testimonial-card").length;
+  testimonialIndex = (testimonialIndex + direction + total) % total;
+  updateTestimonials();
 }
 
 function goToTestimonial(index) {
-  currentTestimonial = index;
-  showTestimonial(currentTestimonial);
+  testimonialIndex = index;
+  updateTestimonials();
 }
-
-// Auto-slide every 7 seconds
-setInterval(nextTestimonial, 7000);
