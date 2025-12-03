@@ -403,4 +403,11 @@ function toggleLuxMenu(element) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
+function toggleLuxMenu(el) {
+  const menu = el.nextElementSibling;
+  const icon = el.querySelector(".lux-icon");
+
+  menu.classList.toggle("show");
+  icon.textContent = menu.classList.contains("show") ? "−" : "+";
+}
 
