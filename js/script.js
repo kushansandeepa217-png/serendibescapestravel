@@ -411,25 +411,49 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-let testimonialIndex = 0;
 
-function updateTestimonials() {
-  const track = document.querySelector(".testimonial-track");
-  const dots = document.querySelectorAll(".dot");
+let luxIndex = 0;
+let luxSlides = document.querySelectorAll(".lux-slide");
+let luxDotsContainer = document.querySelector(".lux-dots");
 
-  track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+/* Create dots automatically */
+luxSlides.forEach((_, i) => {
+  let dot = document.createElement("span");
+  dot.setAttribute("onclick", `luxGoToSlide(${i})`);
+  luxDotsContainer.appendChild(dot);
+});
 
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[testimonialIndex].classList.add("active");
+let luxDots = luxDotsContainer.querySelectorAll("span");
+
+/* Initial state */
+luxShowSlide(luxIndex);
+
+function luxShowSlide(n) {
+  luxSlides.forEach(slide => slide.classList.remove("active"));
+  luxDots.forEach(dot => dot.classList.remove("active"));
+
+  luxSlides[n].classList.add("active");
+  luxDots[n].classList.add("active");
 }
 
-function moveTestimonial(direction) {
-  const total = document.querySelectorAll(".testimonial-card").length;
-  testimonialIndex = (testimonialIndex + direction + total) % total;
-  updateTestimonials();
+/* Manual controls */
+function luxPrevSlide() {
+  luxIndex = (luxIndex === 0) ? luxSlides.length - 1 : luxIndex - 1;
+  luxShowSlide(luxIndex);
 }
 
-function goToTestimonial(index) {
-  testimonialIndex = index;
-  updateTestimonials();
+function luxNextSlide() {
+  luxIndex = (luxIndex + 1) % luxSlides.length;
+  luxShowSlide(luxIndex);
 }
+
+function luxGoToSlide(n) {
+  luxIndex = n;
+  luxShowSlide(n);
+}
+
+/* Auto-slide every 6 seconds */
+setInterval(() => {
+  luxNextSlide();
+}, 6000);
+
