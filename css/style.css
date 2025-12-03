@@ -1701,3 +1701,63 @@ body {
     cursor: default;
   }
 }
+
+/* ================================
+   LUXURY OFFICE BLOCK - MATCHING THEME
+==================================*/
+
+.lux-footer-box {
+  background: #0A3A32; /* same as footer background */
+  padding: 40px 30px;
+  border-radius: 12px;
+  margin-top: 40px;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lux-footer-inner {
+  max-width: 420px;
+}
+
+.lux-footer-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 25px 0 8px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  border-left: 4px solid #ffffff;
+  padding-left: 12px;
+  text-transform: none;
+}
+
+.lux-footer-heading span {
+  margin-right: 8px;
+  font-size: 22px;
+}
+
+.lux-footer-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.88);
+  margin: 0 0 12px;
+}
+
+.lux-footer-text small {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  .lux-footer-box {
+    padding: 30px 20px;
+  }
+  .lux-footer-heading {
+    font-size: 18px;
+  }
+  .lux-footer-text {
+    font-size: 14px;
+  }
+}
