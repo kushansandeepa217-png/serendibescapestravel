@@ -2383,7 +2383,7 @@ body {
   transition: transform .15s ease, background .15s ease;
 }
 .t-dot.active {
-  background: #007B6A;
+  background: #2c897d;
   transform: scale(1.2);
 }
 

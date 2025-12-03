@@ -503,7 +503,7 @@ dots.forEach((dot, i) => {
     // update aria-live region if you add (optional)
   }
 
-  // Arrow handlers
+  // Arrow handler
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
