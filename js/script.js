@@ -428,7 +428,7 @@ slides.forEach((_, i) => {
   dotsContainer.appendChild(dot);
 });
 
-const dots = document.querySelectorAll(".dots div");
+const dot = document.querySelectorAll(".dots div");
 
 /* Update slide position */
 function updateSlider() {
