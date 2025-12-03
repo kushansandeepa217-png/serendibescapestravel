@@ -373,13 +373,13 @@ document.getElementById("officeCountry").addEventListener("change", function () 
 
 
 
-function toggleInfo(element) {
-  const menu = element.nextElementSibling;
-  const icon = element.querySelector(".icon");
+function toggleFooterMenu(header) {
+  const menu = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
 
   menu.classList.toggle("show");
-
-  // Change + to −
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
+
+
 
