@@ -2262,92 +2262,149 @@ body {
   }
 }
 
+/* ===========================
+   TESTIMONIALS STYLES (Luxury & matching site colors)
+=========================== */
 .testimonials-section {
-  padding: 80px 20px;
-  background: #faf7f2;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+.testimonials-section .section-title {
+  color: #007B6A;
+  font-size: 1.9rem;
   text-align: center;
-}
-
-.testimonials-title {
-  font-size: 32px;
+  margin-bottom: 22px;
   font-weight: 700;
-  margin-bottom: 40px;
-  color: #4b3b2d;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-/* Slider Container */
-.testimonial-slider {
+/* Wrap holds arrows + viewport */
+.testimonials-wrap {
   position: relative;
-  max-width: 700px;
-  margin: auto;
-  overflow: hidden;
-}
-
-/* Track */
-.testimonial-track {
   display: flex;
-  transition: transform 0.6s ease;
+  align-items: center;
+  gap: 18px;
 }
 
-/* Individual Slide */
-.testimonial-box {
-  min-width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.testimonial-text {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Arrows */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #4b3b2d;
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  cursor: pointer;
-  font-size: 24px;
+/* Arrow buttons */
+.t-arrow {
+  background: #fff;
+  border: 2px solid rgba(0,0,0,0.06);
+  color: #007B6A;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  opacity: 0.85;
-  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.t-arrow:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+.t-arrow:active { transform: translateY(0); }
+
+/* Disable outline only visually but keep accessible focus */
+.t-arrow:focus {
+  outline: 3px solid rgba(0,123,106,0.18);
+  outline-offset: 3px;
 }
 
-.arrow:hover {
-  opacity: 1;
+/* Slider viewport */
+.t-slider-viewport {
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-width: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  background: #ffffff;
+  padding: 28px 30px;
 }
 
-.left-arrow { left: -25px; }
-.right-arrow { right: -25px; }
+/* Slider list */
+.t-slider {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s cubic-bezier(.2,.9,.2,1);
+  will-change: transform;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Single slide */
+.t-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+/* Blockquote */
+.t-slide blockquote {
+  margin: 0;
+  padding: 0;
+  font-size: 1.03rem;
+  line-height: 1.65;
+  color: #333;
+  max-width: 100%;
+}
+
+/* Quote text */
+.t-slide blockquote p {
+  font-style: normal;
+  color: #1f3532;
+  margin-bottom: 14px;
+}
+
+/* Footer / author */
+.t-slide blockquote footer {
+  font-weight: 700;
+  color: #007B6A;
+  font-size: 0.95rem;
+}
 
 /* Dots */
-.dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.t-dots {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:16px;
 }
-
-.dots div {
-  width: 12px;
-  height: 12px;
-  background: #c1b6a3;
-  margin: 0 6px;
-  border-radius: 50%;
+.t-dot {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background: rgba(0,0,0,0.15);
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform .15s ease, background .15s ease;
+}
+.t-dot.active {
+  background: #007B6A;
+  transform: scale(1.2);
 }
 
-.dots .active {
-  background: #4b3b2d;
-  transform: scale(1.3);
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .t-arrow { width:40px; height:40px; font-size:16px; }
+  .t-slider-viewport { padding:20px; }
+  .testimonials-wrap { gap:12px; }
+}
+
+@media (min-width: 1100px) {
+  /* On very wide screens keep slide content narrower and centered, add subtle decorative left bar */
+  .t-slider-viewport {
+    padding: 36px 46px;
+    border-left: 6px solid rgba(0,123,106,0.06);
+  }
+  .t-slide blockquote p { font-size:1.05rem; }
+}
+
+/* Improve contrast for focusable viewport */
+.t-slider-viewport:focus {
+  box-shadow: 0 0 0 4px rgba(0,123,106,0.08);
+  outline: none;
 }

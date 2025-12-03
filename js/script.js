@@ -457,3 +457,124 @@ dots.forEach((dot, i) => {
   });
 });
 
+/* Testimonials slider — accessible, arrows, dots, keyboard & swipe */
+(function () {
+  const slider = document.querySelector('.t-slider');
+  const slides = Array.from(document.querySelectorAll('.t-slide'));
+  const prevBtn = document.querySelector('.t-arrow.prev');
+  const nextBtn = document.querySelector('.t-arrow.next');
+  const dotsContainer = document.querySelector('.t-dots');
+  const viewport = document.querySelector('.t-slider-viewport');
+
+  if (!slider || slides.length === 0) return;
+
+  let current = 0;
+  const total = slides.length;
+  let isAnimating = false;
+  let startX = 0, currentX = 0, isDragging = false;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 't-dot';
+    d.type = 'button';
+    d.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+    d.dataset.index = i;
+    if (i === 0) d.classList.add('active');
+    dotsContainer.appendChild(d);
+  });
+
+  const dots = Array.from(dotsContainer.children);
+
+  function goTo(index) {
+    if (isAnimating) return;
+    isAnimating = true;
+    current = (index + total) % total;
+    const translateX = -current * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+    updateUI();
+    // allow animation to finish
+    setTimeout(() => { isAnimating = false; }, 480);
+  }
+
+  function updateUI() {
+    dots.forEach(d => d.classList.remove('active'));
+    dots[current].classList.add('active');
+    // update aria-live region if you add (optional)
+  }
+
+  // Arrow handlers
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Dots handlers
+  dots.forEach(d => d.addEventListener('click', (e) => {
+    const idx = Number(e.currentTarget.dataset.index);
+    goTo(idx);
+  }));
+
+  // Keyboard navigation when focus in viewport
+  viewport.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+  });
+
+  // Touch / swipe support
+  viewport.addEventListener('touchstart', touchStart, {passive: true});
+  viewport.addEventListener('touchmove', touchMove, {passive: true});
+  viewport.addEventListener('touchend', touchEnd);
+
+  // Mouse drag support (desktop)
+  viewport.addEventListener('mousedown', mouseDown);
+  window.addEventListener('mouseup', mouseUp);
+  window.addEventListener('mousemove', mouseMove);
+
+  function touchStart(e) {
+    if (isAnimating) return;
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    currentX = startX;
+  }
+  function touchMove(e) {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX;
+  }
+  function touchEnd() {
+    if (!isDragging) return;
+    const diff = currentX - startX;
+    isDragging = false;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) goTo(current + 1); else goTo(current - 1);
+    }
+  }
+
+  function mouseDown(e) {
+    // only left button
+    if (e.button !== 0) return;
+    isDragging = true;
+    startX = e.clientX;
+    currentX = startX;
+    viewport.classList.add('dragging');
+  }
+  function mouseMove(e) {
+    if (!isDragging) return;
+    currentX = e.clientX;
+  }
+  function mouseUp() {
+    if (!isDragging) return;
+    const diff = currentX - startX;
+    isDragging = false;
+    viewport.classList.remove('dragging');
+    if (Math.abs(diff) > 60) {
+      if (diff < 0) goTo(current + 1); else goTo(current - 1);
+    }
+  }
+
+  // Optional: autoplay — uncomment to enable automatic cycling
+  // let autoplayInterval = setInterval(() => goTo(current + 1), 6000);
+  // viewport.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+  // viewport.addEventListener('mouseleave', () => autoplayInterval = setInterval(() => goTo(current + 1), 6000));
+
+  // Initialize transform (in case )
+  slider.style.transform = 'translateX(0%)';
+})();
