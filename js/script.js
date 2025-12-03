@@ -411,52 +411,34 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-// ===========================
-//   TESTIMONIAL SLIDER
-// ===========================
-
-const testimonials = [
-  {
-    text: "Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!",
-    author: "Emily Thompson • United Kingdom 🇬🇧"
-  },
-  {
-    text: "Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable.",
-    author: "Sophie Martin • France 🇫🇷"
-  },
-  {
-    text: "Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein großes Dankeschön für die perfekte Hotelorganisation. Herr Kushan war herausragend – herzlich, kenntnisreich und leidenschaftlich.",
-    author: "Maximilian • Germany 🇩🇪"
-  },
-  {
-    text: "Наша поездка в Шри-Ланку превзошла все ожидания. Всё было организовано идеально, а гостеприимство было на высшем уровне. Это было незабываемое путешествие!",
-    author: "Alexey • Russia 🇷🇺"
-  }
-];
-
 let currentTestimonial = 0;
 
-function displayTestimonial() {
-  const textEl = document.getElementById("testimonial-text");
-  const authorEl = document.getElementById("testimonial-author");
+const testimonials = document.querySelectorAll(".testimonial");
+const dots = document.querySelectorAll(".lux-dot");
 
-  // Fade out before updating
-  textEl.classList.remove("fade-in");
-  authorEl.classList.remove("fade-in");
-
-  setTimeout(() => {
-    textEl.textContent = testimonials[currentTestimonial].text;
-    authorEl.textContent = testimonials[currentTestimonial].author;
-
-    textEl.classList.add("fade-in");
-    authorEl.classList.add("fade-in");
-  }, 150);
+function showTestimonial(index) {
+  testimonials.forEach((t, i) => {
+    t.classList.toggle("active", i === index);
+  });
+  dots.forEach((d, i) => {
+    d.classList.toggle("active", i === index);
+  });
 }
 
-function moveTestimonial(direction) {
-  currentTestimonial = (currentTestimonial + direction + testimonials.length) % testimonials.length;
-  displayTestimonial();
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  showTestimonial(currentTestimonial);
 }
 
-// Load first testimonial
-displayTestimonial();
+function prevTestimonial() {
+  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}
+
+function goToTestimonial(index) {
+  currentTestimonial = index;
+  showTestimonial(currentTestimonial);
+}
+
+// Auto-slide every 7 seconds
+setInterval(nextTestimonial, 7000);
