@@ -302,60 +302,61 @@
 
 
 <!-- ===========================
-   TESTIMONIALS - SINGLE, ARROWS + DOTS
-   Place this BEFORE your news/alert section
+  TESTIMONIALS (FINAL - Paste where needed)
 =========================== -->
-<section class="testimonials-section container" aria-label="Testimonials">
-  <div class="testimonials-inner">
-    <h2 class="section-title">Experiences from around Sri Lanka</h2>
+<section class="testimonials-section container" aria-label="Customer testimonials">
+  <h2 class="section-title">Experiences from around Sri Lanka</h2>
 
-    <div class="testimonial-slider" id="testimonialSlider">
-      <button class="ts-btn ts-prev" id="tsPrev" aria-label="Previous testimonial">‹</button>
+  <div class="testimonials-wrap">
+    <button class="t-arrow t-prev" aria-label="Previous testimonial">
+      <!-- left SVG -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
 
-      <div class="ts-viewport">
-        <div class="ts-track" id="tsTrack">
-          <!-- Slide 1 -->
-          <article class="ts-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 1">
-            <div class="ts-card">
-              <p class="quote">“Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!”</p>
-              <p class="author">— Emily Thompson, United Kingdom 🇬🇧</p>
-            </div>
-          </article>
+    <div class="t-viewport">
+      <ul class="t-track" id="tTrack">
+        <li class="t-slide">
+          <blockquote>
+            <p>“Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!”</p>
+            <cite>— Emily Thompson, United Kingdom 🇬🇧</cite>
+          </blockquote>
+        </li>
 
-          <!-- Slide 2 -->
-          <article class="ts-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 2">
-            <div class="ts-card">
-              <p class="quote">“Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable.”</p>
-              <p class="author">— Sophie Martin, France 🇫🇷</p>
-            </div>
-          </article>
+        <li class="t-slide">
+          <blockquote>
+            <p>« Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable. »</p>
+            <cite>— Sophie Martin, France 🇫🇷</cite>
+          </blockquote>
+        </li>
 
-          <!-- Slide 3 -->
-          <article class="ts-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 3">
-            <div class="ts-card">
-              <p class="quote">“Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter, Herr Kushan, war herausragend – herzlich, kenntnisreich und leidenschaftlich.”</p>
-              <p class="author">— Maximilian, Germany 🇩🇪</p>
-            </div>
-          </article>
+        <li class="t-slide">
+          <blockquote>
+            <p>“Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter, Herr Kushan, war herausragend – herzlich, kenntnisreich und leidenschaftlich.”</p>
+            <cite>— Maximilian, Germany 🇩🇪</cite>
+          </blockquote>
+        </li>
 
-          <!-- Slide 4 -->
-          <article class="ts-slide" role="group" aria-roledescription="slide" aria-label="Testimonial 4">
-            <div class="ts-card">
-              <p class="quote">“Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Это было идеально организованное приключение, которое позволило нам полностью насладиться красотой и очарованием этой удивительной страны.”</p>
-              <p class="author">— Alexey, Russia 🇷🇺</p>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <button class="ts-btn ts-next" id="tsNext" aria-label="Next testimonial">›</button>
+        <li class="t-slide">
+          <blockquote>
+            <p>“Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Это было идеально организованное приключение, которое позволило нам полностью насладиться красотой и очарованием этой удивительной страны.”</p>
+            <cite>— Alexey, Russia 🇷🇺</cite>
+          </blockquote>
+        </li>
+      </ul>
     </div>
 
-    <!-- dots -->
-    <div class="ts-dots" id="tsDots" role="tablist" aria-label="Testimonials navigation"></div>
+    <button class="t-arrow t-next" aria-label="Next testimonial">
+      <!-- right SVG -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
-</section>
 
+  <div class="t-dots" id="tDots" role="tablist" aria-label="Testimonial navigation"></div>
+</section>
 
 
 

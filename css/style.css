@@ -2262,150 +2262,133 @@ body {
   }
 }
 
-/* Testimonials: professional boxed slider (matches site colour #007B6A) */
+/* ---------- Testimonials styles (final, matches your colour scheme) ---------- */
 .testimonials-section {
-  padding: 50px 20px;
-  background: #f7fafc; /* subtle off-white to separate from page */
-  margin-top: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-}
-
-.testimonials-inner {
+  padding: 48px 20px;
   max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 0 auto 40px;
 }
 
 .testimonials-section .section-title {
   color: #007B6A;
-  margin-bottom: 22px;
-  font-size: 28px;
   font-weight: 700;
+  margin-bottom: 18px;
+  font-size: 1.8rem;
+  text-align: center;
 }
 
-/* Slider layout */
-.testimonial-slider {
+/* wrapper with arrows */
+.testimonials-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   position: relative;
-  display: grid;
-  grid-template-columns: 56px 1fr 56px; /* left btn / viewport / right btn */
-  gap: 20px;
-  align-items: center;
-  margin-top: 18px;
-  align-items: center;
 }
 
-/* Buttons */
-.ts-btn {
+/* arrows */
+.t-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
   background: #fff;
   color: #007B6A;
-  border: 1px solid rgba(0,123,106,0.12);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  font-size: 28px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: inline-grid;
+  place-items: center;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.ts-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
-.ts-btn:active { transform: translateY(0); }
+.t-arrow:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+.t-arrow:active { transform: translateY(0); }
 
-/* viewport & track */
-.ts-viewport {
+/* viewport & track (single-slide carousel) */
+.t-viewport {
   overflow: hidden;
-  width: 100%;
+  flex: 1 1 auto;
 }
 
-.ts-track {
+.t-track {
+  list-style: none;
   display: flex;
-  gap: 20px;
-  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  transition: transform 400ms cubic-bezier(.2,.9,.3,1);
   will-change: transform;
 }
 
-/* slide */
-.ts-slide {
+/* each slide */
+.t-slide {
   min-width: 100%;
+  box-sizing: border-box;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: stretch;
 }
 
-.ts-card {
-  background: #fff;
+.t-slide blockquote {
+  background: #ffffff;
+  padding: 28px 28px;
   border-radius: 12px;
-  padding: 30px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  max-width: 860px;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-  border-left: 5px solid rgba(0,123,106,0.05);
-  text-align: left;
+  color: #123;
+  margin: 0;
+  border-left: 4px solid rgba(0,123,106,0.08);
 }
 
-/* quote styling */
-.quote {
+.t-slide blockquote p {
   font-size: 1.05rem;
-  color: #2b2b2b;
   line-height: 1.7;
-  margin-bottom: 16px;
-  font-style: italic;
+  color: #333;
+  margin-bottom: 12px;
 }
 
-/* author */
-.author {
-  font-weight: 700;
-  color: #005f50;
+/* citation */
+.t-slide blockquote cite {
+  display: block;
   font-size: 0.95rem;
+  color: #007B6A;
+  font-weight: 700;
+  margin-top: 6px;
 }
 
 /* dots */
-.ts-dots {
-  margin-top: 16px;
+.t-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
+  margin-top: 16px;
 }
-.ts-dot {
+.t-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(0,123,106,0.25);
-  border: 2px solid rgba(0,123,106,0.08);
+  background: #d6e9e4;
+  border: 1px solid rgba(0,0,0,0.06);
   cursor: pointer;
   transition: transform .18s ease, background .18s ease;
 }
-.ts-dot.active {
+.t-dot.active {
   background: #007B6A;
-  transform: scale(1.15);
-  border-color: rgba(0,123,106,0.15);
+  transform: scale(1.18);
 }
 
-/* responsive tweaks */
-@media (max-width: 900px) {
-  .testimonial-slider { grid-template-columns: 46px 1fr 46px; gap: 14px; }
-  .ts-btn { width: 46px; height: 46px; font-size: 22px; }
-  .ts-card { padding: 20px; }
-  .section-title { font-size: 22px; }
-}
-
-@media (max-width: 560px) {
-  /* collapse arrows into overlay small buttons */
-  .testimonial-slider { grid-template-columns: 1fr; }
-  .ts-prev, .ts-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    opacity: 0.95;
+/* Responsiveness */
+@media (min-width: 980px) {
+  .t-slide blockquote {
+    padding: 36px 40px;
   }
-  .ts-prev { left: 10px; }
-  .ts-next { right: 10px; }
-  .ts-dots { margin-top: 12px; }
+  .t-arrow { width: 56px; height: 56px; border-radius: 12px; }
 }
+
+@media (max-width: 640px) {
+  .testimonials-section { padding: 28px 12px; }
+  .t-arrow { display: none; } /* simpler touch swipe on mobile */
+  .t-dots { margin-top: 12px; }
+}
+
+/* small accessibility focus */
+.t-arrow:focus, .t-dot:focus { outline: 3px solid rgba(0,123,106,0.18); outline-offset: 3px; }

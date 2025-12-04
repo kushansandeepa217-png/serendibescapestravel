@@ -457,126 +457,133 @@ dots.forEach((dot, i) => {
   });
 });
 
-// Testimonials slider (vanilla JS, robust)
+/* Testimonials carousel JS - final package
+   - Works with arrows, dots, keyboard arrows, touch swipe, autoplay optional
+*/
 (function () {
-  const track = document.getElementById('tsTrack');
-  const slides = Array.from(track.querySelectorAll('.ts-slide'));
-  const prevBtn = document.getElementById('tsPrev');
-  const nextBtn = document.getElementById('tsNext');
-  const dotsContainer = document.getElementById('tsDots');
+  const track = document.getElementById('tTrack');
+  const slides = Array.from(track.children);
+  const prevBtn = document.querySelector('.t-prev');
+  const nextBtn = document.querySelector('.t-next');
+  const dotsWrap = document.getElementById('tDots');
+
+  if (!track || slides.length === 0) return;
 
   let index = 0;
-  let isAnimating = false;
-  let slideCount = slides.length;
+  const total = slides.length;
+  let isMoving = false;
+  let autoplayInterval = null;
+  const AUTOPLAY = false; // set true if you want autoplay
+  const AUTOPLAY_DELAY = 5000;
 
-  // Build dots
+  // build dots
   slides.forEach((_, i) => {
     const d = document.createElement('button');
-    d.className = 'ts-dot';
-    d.setAttribute('aria-label', `Show testimonial ${i + 1}`);
+    d.className = 't-dot';
+    d.setAttribute('aria-label', `Show testimonial ${i+1}`);
     d.setAttribute('role', 'tab');
-    d.dataset.index = i;
-    dotsContainer.appendChild(d);
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
   });
-  const dots = Array.from(dotsContainer.querySelectorAll('.ts-dot'));
 
-  function updateUI() {
-    // clamp index
-    if (index < 0) index = slideCount - 1;
-    if (index >= slideCount) index = 0;
+  const dots = Array.from(dotsWrap.children);
 
-    // translate
-    const pct = -index * 100;
-    track.style.transform = `translateX(${pct}%)`;
-
-    // active dot
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-
-    // update aria-selected on dots
-    dots.forEach((d, i) => {
-      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
-      d.tabIndex = i === index ? 0 : -1;
-    });
-
-    // set focusable slide roles (optional)
-    slides.forEach((s, i) => {
-      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
-    });
+  function update() {
+    // move track
+    track.style.transform = `translateX(-${index * 100}%)`;
+    // update dots
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    // ARIA: set active tab
+    dots.forEach((d,i) => d.setAttribute('aria-selected', i===index ? 'true' : 'false'));
   }
 
-  // Prev / Next
-  prevBtn.addEventListener('click', () => {
-    if (isAnimating) return;
-    isAnimating = true;
-    index -= 1;
-    updateUI();
-    setTimeout(() => (isAnimating = false), 420);
-  });
-  nextBtn.addEventListener('click', () => {
-    if (isAnimating) return;
-    isAnimating = true;
-    index += 1;
-    updateUI();
-    setTimeout(() => (isAnimating = false), 420);
-  });
+  function prev() {
+    if (isMoving) return;
+    index = (index - 1 + total) % total;
+    update();
+    resetAutoplay();
+  }
 
-  // Dots click
-  dots.forEach(d => {
-    d.addEventListener('click', (e) => {
-      const i = Number(e.currentTarget.dataset.index);
-      if (i === index || isAnimating) return;
-      isAnimating = true;
-      index = i;
-      updateUI();
-      setTimeout(() => (isAnimating = false), 420);
-    });
-  });
+  function next() {
+    if (isMoving) return;
+    index = (index + 1) % total;
+    update();
+    resetAutoplay();
+  }
 
-  // Keyboard navigation (left/right)
+  function goTo(i) {
+    if (isMoving) return;
+    index = Math.max(0, Math.min(i, total-1));
+    update();
+    resetAutoplay();
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  // keyboard support
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevBtn.click();
-    if (e.key === 'ArrowRight') nextBtn.click();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
   });
 
-  // Resize handler: ensure track transform still appropriate
-  window.addEventListener('resize', () => {
-    // immediate redraw (transform uses % so fine), but reapply
-    track.style.transition = 'none';
-    updateUI();
-    // re-enable transition next frame
-    requestAnimationFrame(() => {
-      track.style.transition = '';
-    });
-  });
+  // touch swipe support
+  let startX = 0;
+  let isTouching = false;
+  const threshold = 40; // px
 
-  // Touch swipe support (mobile)
-  (function addTouch() {
-    let startX = 0;
-    let deltaX = 0;
-    const viewport = document.querySelector('.ts-viewport');
-
-    viewport.addEventListener('touchstart', e => {
+  track.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length === 1) {
       startX = e.touches[0].clientX;
-    }, { passive: true });
+      isTouching = true;
+    }
+  }, {passive: true});
 
-    viewport.addEventListener('touchmove', e => {
-      deltaX = e.touches[0].clientX - startX;
-    }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (!isTouching || !e.touches) return;
+    const dx = e.touches[0].clientX - startX;
+    // slight translate while moving (nice feel)
+    track.style.transition = 'none';
+    track.style.transform = `translateX(${ -index*100 + (dx / track.clientWidth) * 100 }%)`;
+  }, {passive: true});
 
-    viewport.addEventListener('touchend', () => {
-      if (Math.abs(deltaX) > 40) {
-        if (deltaX < 0) nextBtn.click();
-        else prevBtn.click();
-      }
-      deltaX = 0;
-    });
-  })();
+  track.addEventListener('touchend', (e) => {
+    if (!isTouching) return;
+    isTouching = false;
+    track.style.transition = ''; // restore transition
+    const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+    const diff = endX - startX;
+    if (Math.abs(diff) > threshold) {
+      if (diff < 0) next(); else prev();
+    } else {
+      update(); // snap back
+    }
+  });
 
-  // Initialize
-  updateUI();
+  // autoplay (optional)
+  function startAutoplay() {
+    if (!AUTOPLAY) return;
+    stopAutoplay();
+    autoplayInterval = setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, AUTOPLAY_DELAY);
+  }
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+  }
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
 
-  // Optional: autoplay (commented out; enable if desired)
-  // let autoplay = setInterval(() => nextBtn.click(), 6000);
-  // testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoplay));
-  // testimonialSlider.addEventListener('mouseleave', () => autoplay = setInterval(() => nextBtn.click(), 6000));
+  // update initial state and show first
+  update();
+  startAutoplay();
+
+  // adjust on resize to ensure correct transform
+  window.addEventListener('resize', () => update());
 })();
