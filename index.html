@@ -301,11 +301,22 @@
 </section>
 
 
+<!-- ===========================
+     PREMIUM TESTIMONIAL SECTION
+=========================== -->
 <section class="testimonial-wrapper">
+
+  <h2 class="testimonial-title">Experiences From Around Sri Lanka</h2>
+
   <div class="testimonial-box">
-    <p class="testimonial-text"></p>
-    <div class="testimonial-author"></div>
+      <div class="testimonial-content">
+          <p id="testimonial-text" class="fade-in">
+              Loading testimonials...
+          </p>
+          <div id="testimonial-author" class="fade-in"></div>
+      </div>
   </div>
+
 </section>
 
 
@@ -411,42 +422,45 @@ const testimonials = [
     author: "Sophie Martin — France 🇫🇷"
   },
   {
-    text: "Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter, Herr Kushan, war herausragend – herzlich, kenntnisreich und leidenschaftlich.",
+    text: "Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter Herr Kushan war herzlich, kenntnisreich und leidenschaftlich. Wir empfehlen Sie wärmstens weiter!",
     author: "Maximilian — Germany 🇩🇪"
   },
   {
-    text: "Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Это было идеально организованное приключение, которое позволило нам полностью насладиться красотой этой удивительной страны.",
+    text: "Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Каждое место было тщательно подобрано, а гостеприимство было очень сердечным. Идеально организованное приключение!",
     author: "Alexey — Russia 🇷🇺"
   }
 ];
 
-let currentIndex = 0;
-const box = document.querySelector(".testimonial-box");
-const textEl = document.querySelector(".testimonial-text");
-const authorEl = document.querySelector(".testimonial-author");
+let index = 0;
+const textEl = document.getElementById("testimonial-text");
+const authorEl = document.getElementById("testimonial-author");
 
-function showTestimonial(index) {
-  const t = testimonials[index];
-
-  // fade out
-  box.classList.remove("active");
+function showTestimonial() {
+  // Remove fade first
+  textEl.classList.remove("fade-in");
+  authorEl.classList.remove("fade-in");
 
   setTimeout(() => {
-    textEl.textContent = `“${t.text}”`;
-    authorEl.textContent = t.author;
+    // Update content
+    textEl.textContent = testimonials[index].text;
+    authorEl.textContent = testimonials[index].author;
 
-    // fade in
-    box.classList.add("active");
-  }, 500);
+    // Add fade-in effect
+    textEl.classList.add("fade-in");
+    authorEl.classList.add("fade-in");
+
+    // Move to next
+    index = (index + 1) % testimonials.length;
+  }, 300);
 }
 
-showTestimonial(0);
+// Initial display
+showTestimonial();
 
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % testimonials.length;
-  showTestimonial(currentIndex);
-}, 6000);
+// Auto-slide every 6 seconds
+setInterval(showTestimonial, 6000);
 </script>
+
 
 <script src="js/script.js"></script>
 
