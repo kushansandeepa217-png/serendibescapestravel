@@ -8,50 +8,20 @@
 </head>
 <body>
 
-<header class="lux-header">
-  <div class="lux-header-inner container">
+<header class="site-header container">
+  <div class="logo">Serendib Escapes</div>
 
-    <!-- LOGO -->
-    <a href="index.html" class="lux-logo-box">
-      <img src="images/logo.png" alt="Serendib Escapes" class="lux-logo">
-      <span class="lux-logo-text">Serendib Escapes</span>
-    </a>
-
-    <!-- NAVIGATION -->
-    <nav class="lux-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="tours.html">Tours</a></li>
-        <li><a href="destinations-1.html">Destinations</a></li>
-        <li><a href="plan-your-trip.html">Plan Your Trip</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <!-- MOBILE MENU ICON -->
-    <div class="lux-menu-icon" onclick="toggleLuxMenuMobile()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-  </div>
-
-  <!-- MOBILE SLIDE MENU -->
-  <div class="lux-mobile-menu" id="luxMobileMenu">
+  <nav class="main-nav">
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="destinations-1.html">Destinations</a></li>
-      <li><a href="plan-your-trip.html">Plan Your Trip</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="tours.html">TOURS</a></li>
+      <li><a href="destinations-1.html">DESTINATIONS</a></li>
+      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
-
-
 
 <!-- HERO -->
 <section class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
@@ -490,23 +460,6 @@ showTestimonial();
 // Auto-slide every 6 seconds
 setInterval(showTestimonial, 6000);
 </script>
-
-<script>
-function toggleMenu() {
-  document.getElementById("luxMenu").classList.toggle("open");
-}
-</script>
-
-<script>
-const menuToggle = document.getElementById("luxMenuToggle");
-const nav = document.getElementById("luxNav");
-
-menuToggle.addEventListener("click", () => {
-  menuToggle.classList.toggle("active");
-  nav.classList.toggle("open");
-});
-</script>
-
 
 
 <script src="js/script.js"></script>

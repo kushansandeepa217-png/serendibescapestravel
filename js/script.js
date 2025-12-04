@@ -411,17 +411,3 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-// Mobile Slide Menu
-function toggleLuxMenuMobile() {
-  document.getElementById("luxMobileMenu").classList.toggle("show");
-}
-
-// Header Scroll Effect
-window.addEventListener("scroll", function () {
-  const header = document.querySelector(".lux-header");
-  if (window.scrollY > 20) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
