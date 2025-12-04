@@ -414,3 +414,8 @@ function toggleLuxMenu(el) {
 function toggleMobileMenu() {
   document.getElementById("lux-mobile-menu").classList.toggle("open");
 }
+
+<div class="logo">
+    <img src="images/logo.png" alt="Serendib Escapes Logo">
+    Serendib Escapes
+</div>

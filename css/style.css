@@ -2740,3 +2740,29 @@ body {
     display: block;
   }
 }
+
+/* Move menu to the right side */
+.site-header {
+    display: flex;
+    justify-content: space-between; /* pushes nav to far right */
+    align-items: center;
+    padding: 20px 40px; /* extra spacing */
+}
+
+/* Add spacing between logo + menu */
+.main-nav ul {
+    display: flex;
+    gap: 35px; /* increase space between menu items */
+}
+
+/* Optional: reduce tightness on desktop */
+@media (min-width: 992px) {
+    .site-header {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .main-nav ul {
+        gap: 45px; /* more luxurious spacing */
+    }
+}
