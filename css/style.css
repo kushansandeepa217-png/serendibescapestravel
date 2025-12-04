@@ -2329,42 +2329,59 @@ body {
 }
 
 /* ================================
-   LUXURY HEADER
+   LUXURY TRANSPARENT HEADER
 ================================ */
 
 .lux-header {
-  width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
-  z-index: 2000;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 221, 170, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  z-index: 999;
+  padding: 15px 0;
+  transition: 0.4s ease-in-out;
+  backdrop-filter: blur(0px);
 }
 
-.lux-header-container {
-  max-width: 1400px;
-  margin: auto;
+.lux-header.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  padding: 10px 0;
+}
+
+.lux-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 25px;
 }
 
 /* LOGO */
-.lux-logo img {
-  height: 55px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+.lux-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
 
-.lux-logo img:hover {
-  transform: scale(1.05);
+.lux-logo {
+  width: 55px;
+  height: auto;
 }
 
-/* NAVIGATION – Desktop */
+.lux-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.lux-header.scrolled .lux-logo-text {
+  color: #4a3f35;
+}
+
+/* NAVIGATION */
 .lux-nav ul {
   display: flex;
   gap: 35px;
@@ -2372,107 +2389,106 @@ body {
 }
 
 .lux-nav ul li a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #3f2e1e;
-  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 500;
   letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
   position: relative;
-  transition: color 0.3s ease;
 }
 
-/* Luxury gold underline hover */
+.lux-header.scrolled .lux-nav ul li a {
+  color: #4a3f35;
+}
+
+/* Luxury underline hover */
 .lux-nav ul li a::after {
   content: "";
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #d4a056, #e7c58b);
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: 0;
-  transition: 0.35s;
+  width: 0%;
+  height: 2px;
+  background: #d4b27c; /* Luxury gold */
+  transition: 0.3s;
 }
 
-.lux-nav ul li a:hover::after,
-.lux-nav ul li a.active::after {
+.lux-nav ul li a:hover::after {
   width: 100%;
 }
 
-/* ================================
-   MOBILE MENU (Hamburger)
-================================ */
-.lux-menu-toggle {
-  width: 32px;
-  height: 24px;
+/* ACTIVE ITEM */
+.lux-nav .active {
+  color: #d4b27c !important;
+}
+
+/* MENU ICON FOR MOBILE */
+.lux-menu-icon {
+  width: 35px;
+  height: 25px;
   cursor: pointer;
   display: none;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.lux-menu-toggle span {
+.lux-menu-icon span {
   height: 4px;
   width: 100%;
-  background: #3f2e1e;
-  border-radius: 4px;
-  transition: 0.4s ease;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
 }
 
-/* Animate hamburger → X */
-.lux-menu-toggle.active span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-.lux-menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.lux-menu-toggle.active span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+.lux-header.scrolled .lux-menu-icon span {
+  background: #4a3f35;
 }
 
-/* ================================
-   MOBILE NAVIGATION PANEL
-================================ */
-.lux-nav {
+/* MOBILE MENU */
+.lux-mobile-menu {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 70%;
-  height: 100vh;
-  background: #fff;
-  padding: 120px 30px;
-  box-shadow: -10px 0 25px rgba(0,0,0,0.1);
-  transition: 0.45s ease;
+  width: 75%;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+  transition: 0.4s ease-in-out;
+  padding-top: 90px;
 }
 
-.lux-nav.open {
+.lux-mobile-menu.show {
   right: 0;
 }
 
-.lux-nav ul {
-  flex-direction: column;
-  gap: 25px;
+.lux-mobile-menu ul {
+  list-style: none;
+  padding: 0 25px;
 }
 
-/* Mobile menu text */
-.lux-nav ul li a {
+.lux-mobile-menu ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.lux-mobile-menu ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #4a3f35;
   font-size: 1.1rem;
-  color: #4a3a2a;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
-@media (max-width: 992px) {
-  .lux-nav ul {
+/* MOBILE BREAKPOINT */
+@media(max-width: 992px) {
+  .lux-nav {
     display: none;
   }
-  .lux-menu-toggle {
+  .lux-menu-icon {
     display: flex;
   }
-}
-
-@media (max-width: 768px) {
-  .lux-nav {
-    width: 80%;
+  .lux-logo-text {
+    font-size: 1.2rem;
   }
 }
