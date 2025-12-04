@@ -457,124 +457,126 @@ dots.forEach((dot, i) => {
   });
 });
 
-/* Testimonials slider — accessible, arrows, dots, keyboard & swipe */
+// Testimonials slider (vanilla JS, robust)
 (function () {
-  const slider = document.querySelector('.t-slider');
-  const slides = Array.from(document.querySelectorAll('.t-slide'));
-  const prevBtn = document.querySelector('.t-arrow.prev');
-  const nextBtn = document.querySelector('.t-arrow.next');
-  const dotsContainer = document.querySelector('.t-dots');
-  const viewport = document.querySelector('.t-slider-viewport');
+  const track = document.getElementById('tsTrack');
+  const slides = Array.from(track.querySelectorAll('.ts-slide'));
+  const prevBtn = document.getElementById('tsPrev');
+  const nextBtn = document.getElementById('tsNext');
+  const dotsContainer = document.getElementById('tsDots');
 
-  if (!slider || slides.length === 0) return;
-
-  let current = 0;
-  const total = slides.length;
+  let index = 0;
   let isAnimating = false;
-  let startX = 0, currentX = 0, isDragging = false;
+  let slideCount = slides.length;
 
   // Build dots
   slides.forEach((_, i) => {
     const d = document.createElement('button');
-    d.className = 't-dot';
-    d.type = 'button';
-    d.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+    d.className = 'ts-dot';
+    d.setAttribute('aria-label', `Show testimonial ${i + 1}`);
+    d.setAttribute('role', 'tab');
     d.dataset.index = i;
-    if (i === 0) d.classList.add('active');
     dotsContainer.appendChild(d);
   });
-
-  const dots = Array.from(dotsContainer.children);
-
-  function goTo(index) {
-    if (isAnimating) return;
-    isAnimating = true;
-    current = (index + total) % total;
-    const translateX = -current * 100;
-    slider.style.transform = `translateX(${translateX}%)`;
-    updateUI();
-    // allow animation to finish
-    setTimeout(() => { isAnimating = false; }, 480);
-  }
+  const dots = Array.from(dotsContainer.querySelectorAll('.ts-dot'));
 
   function updateUI() {
-    dots.forEach(d => d.classList.remove('active'));
-    dots[current].classList.add('active');
-    // update aria-live region if you add (optional)
+    // clamp index
+    if (index < 0) index = slideCount - 1;
+    if (index >= slideCount) index = 0;
+
+    // translate
+    const pct = -index * 100;
+    track.style.transform = `translateX(${pct}%)`;
+
+    // active dot
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
+    // update aria-selected on dots
+    dots.forEach((d, i) => {
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      d.tabIndex = i === index ? 0 : -1;
+    });
+
+    // set focusable slide roles (optional)
+    slides.forEach((s, i) => {
+      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+    });
   }
 
-  // Arrow handler
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  // Dots handlers
-  dots.forEach(d => d.addEventListener('click', (e) => {
-    const idx = Number(e.currentTarget.dataset.index);
-    goTo(idx);
-  }));
-
-  // Keyboard navigation when focus in viewport
-  viewport.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+  // Prev / Next
+  prevBtn.addEventListener('click', () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    index -= 1;
+    updateUI();
+    setTimeout(() => (isAnimating = false), 420);
+  });
+  nextBtn.addEventListener('click', () => {
+    if (isAnimating) return;
+    isAnimating = true;
+    index += 1;
+    updateUI();
+    setTimeout(() => (isAnimating = false), 420);
   });
 
-  // Touch / swipe support
-  viewport.addEventListener('touchstart', touchStart, {passive: true});
-  viewport.addEventListener('touchmove', touchMove, {passive: true});
-  viewport.addEventListener('touchend', touchEnd);
+  // Dots click
+  dots.forEach(d => {
+    d.addEventListener('click', (e) => {
+      const i = Number(e.currentTarget.dataset.index);
+      if (i === index || isAnimating) return;
+      isAnimating = true;
+      index = i;
+      updateUI();
+      setTimeout(() => (isAnimating = false), 420);
+    });
+  });
 
-  // Mouse drag support (desktop)
-  viewport.addEventListener('mousedown', mouseDown);
-  window.addEventListener('mouseup', mouseUp);
-  window.addEventListener('mousemove', mouseMove);
+  // Keyboard navigation (left/right)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+  });
 
-  function touchStart(e) {
-    if (isAnimating) return;
-    isDragging = true;
-    startX = e.touches[0].clientX;
-    currentX = startX;
-  }
-  function touchMove(e) {
-    if (!isDragging) return;
-    currentX = e.touches[0].clientX;
-  }
-  function touchEnd() {
-    if (!isDragging) return;
-    const diff = currentX - startX;
-    isDragging = false;
-    if (Math.abs(diff) > 40) {
-      if (diff < 0) goTo(current + 1); else goTo(current - 1);
-    }
-  }
+  // Resize handler: ensure track transform still appropriate
+  window.addEventListener('resize', () => {
+    // immediate redraw (transform uses % so fine), but reapply
+    track.style.transition = 'none';
+    updateUI();
+    // re-enable transition next frame
+    requestAnimationFrame(() => {
+      track.style.transition = '';
+    });
+  });
 
-  function mouseDown(e) {
-    // only left button
-    if (e.button !== 0) return;
-    isDragging = true;
-    startX = e.clientX;
-    currentX = startX;
-    viewport.classList.add('dragging');
-  }
-  function mouseMove(e) {
-    if (!isDragging) return;
-    currentX = e.clientX;
-  }
-  function mouseUp() {
-    if (!isDragging) return;
-    const diff = currentX - startX;
-    isDragging = false;
-    viewport.classList.remove('dragging');
-    if (Math.abs(diff) > 60) {
-      if (diff < 0) goTo(current + 1); else goTo(current - 1);
-    }
-  }
+  // Touch swipe support (mobile)
+  (function addTouch() {
+    let startX = 0;
+    let deltaX = 0;
+    const viewport = document.querySelector('.ts-viewport');
 
-  // Optional: autoplay — uncomment to enable automatic cycling
-  // let autoplayInterval = setInterval(() => goTo(current + 1), 6000);
-  // viewport.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-  // viewport.addEventListener('mouseleave', () => autoplayInterval = setInterval(() => goTo(current + 1), 6000));
+    viewport.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
 
-  // Initialize transform (in case )
-  slider.style.transform = 'translateX(0%)';
+    viewport.addEventListener('touchmove', e => {
+      deltaX = e.touches[0].clientX - startX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', () => {
+      if (Math.abs(deltaX) > 40) {
+        if (deltaX < 0) nextBtn.click();
+        else prevBtn.click();
+      }
+      deltaX = 0;
+    });
+  })();
+
+  // Initialize
+  updateUI();
+
+  // Optional: autoplay (commented out; enable if desired)
+  // let autoplay = setInterval(() => nextBtn.click(), 6000);
+  // testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoplay));
+  // testimonialSlider.addEventListener('mouseleave', () => autoplay = setInterval(() => nextBtn.click(), 6000));
 })();

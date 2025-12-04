@@ -2262,149 +2262,150 @@ body {
   }
 }
 
-/* ===========================
-   TESTIMONIALS STYLES (Luxury & matching site colors)
-=========================== */
+/* Testimonials: professional boxed slider (matches site colour #007B6A) */
 .testimonials-section {
-  padding: 40px 20px;
+  padding: 50px 20px;
+  background: #f7fafc; /* subtle off-white to separate from page */
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.testimonials-inner {
   max-width: 1100px;
-  margin: 50px auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .testimonials-section .section-title {
   color: #007B6A;
-  font-size: 1.9rem;
-  text-align: center;
   margin-bottom: 22px;
+  font-size: 28px;
   font-weight: 700;
 }
 
-/* Wrap holds arrows + viewport */
-.testimonials-wrap {
+/* Slider layout */
+.testimonial-slider {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 56px 1fr 56px; /* left btn / viewport / right btn */
+  gap: 20px;
   align-items: center;
-  gap: 18px;
+  margin-top: 18px;
+  align-items: center;
 }
 
-/* Arrow buttons */
-.t-arrow {
+/* Buttons */
+.ts-btn {
   background: #fff;
-  border: 2px solid rgba(0,0,0,0.06);
   color: #007B6A;
-  width: 48px;
-  height: 48px;
+  border: 1px solid rgba(0,123,106,0.12);
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-size: 28px;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform .18s ease, box-shadow .18s ease;
 }
-.t-arrow:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-.t-arrow:active { transform: translateY(0); }
+.ts-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.ts-btn:active { transform: translateY(0); }
 
-/* Disable outline only visually but keep accessible focus */
-.t-arrow:focus {
-  outline: 3px solid rgba(0,123,106,0.18);
-  outline-offset: 3px;
-}
-
-/* Slider viewport */
-.t-slider-viewport {
+/* viewport & track */
+.ts-viewport {
   overflow: hidden;
-  flex: 1 1 auto;
-  min-width: 0;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  background: #ffffff;
-  padding: 28px 30px;
+  width: 100%;
 }
 
-/* Slider list */
-.t-slider {
+.ts-track {
   display: flex;
-  gap: 24px;
-  transition: transform 0.45s cubic-bezier(.2,.9,.2,1);
+  gap: 20px;
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1);
   will-change: transform;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-/* Single slide */
-.t-slide {
+/* slide */
+.ts-slide {
   min-width: 100%;
-  box-sizing: border-box;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
 }
 
-/* Blockquote */
-.t-slide blockquote {
-  margin: 0;
-  padding: 0;
-  font-size: 1.03rem;
-  line-height: 1.65;
-  color: #333;
-  max-width: 100%;
+.ts-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  border-left: 5px solid rgba(0,123,106,0.05);
+  text-align: left;
 }
 
-/* Quote text */
-.t-slide blockquote p {
-  font-style: normal;
-  color: #1f3532;
-  margin-bottom: 14px;
+/* quote styling */
+.quote {
+  font-size: 1.05rem;
+  color: #2b2b2b;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
 }
 
-/* Footer / author */
-.t-slide blockquote footer {
+/* author */
+.author {
   font-weight: 700;
-  color: #007B6A;
+  color: #005f50;
   font-size: 0.95rem;
 }
 
-/* Dots */
-.t-dots {
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:16px;
+/* dots */
+.ts-dots {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
-.t-dot {
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background: rgba(0,0,0,0.15);
+.ts-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0,123,106,0.25);
+  border: 2px solid rgba(0,123,106,0.08);
   cursor: pointer;
-  transition: transform .15s ease, background .15s ease;
+  transition: transform .18s ease, background .18s ease;
 }
-.t-dot.active {
-  background: #2c897d;
-  transform: scale(1.2);
+.ts-dot.active {
+  background: #007B6A;
+  transform: scale(1.15);
+  border-color: rgba(0,123,106,0.15);
 }
 
-/* Responsive adjustments */
+/* responsive tweaks */
 @media (max-width: 900px) {
-  .t-arrow { width:40px; height:40px; font-size:16px; }
-  .t-slider-viewport { padding:20px; }
-  .testimonials-wrap { gap:12px; }
+  .testimonial-slider { grid-template-columns: 46px 1fr 46px; gap: 14px; }
+  .ts-btn { width: 46px; height: 46px; font-size: 22px; }
+  .ts-card { padding: 20px; }
+  .section-title { font-size: 22px; }
 }
 
-@media (min-width: 1100px) {
-  /* On very wide screens keep slide content narrower and centered, add subtle decorative left bar */
-  .t-slider-viewport {
-    padding: 36px 46px;
-    border-left: 6px solid rgba(0,123,106,0.06);
+@media (max-width: 560px) {
+  /* collapse arrows into overlay small buttons */
+  .testimonial-slider { grid-template-columns: 1fr; }
+  .ts-prev, .ts-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    opacity: 0.95;
   }
-  .t-slide blockquote p { font-size:1.05rem; }
-}
-
-/* Improve contrast for focusable viewport */
-.t-slider-viewport:focus {
-  box-shadow: 0 0 0 4px rgba(0,123,106,0.08);
-  outline: none;
+  .ts-prev { left: 10px; }
+  .ts-next { right: 10px; }
+  .ts-dots { margin-top: 12px; }
 }
