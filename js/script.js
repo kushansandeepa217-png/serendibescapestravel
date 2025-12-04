@@ -457,133 +457,34 @@ dots.forEach((dot, i) => {
   });
 });
 
-/* Testimonials carousel JS - final package
-   - Works with arrows, dots, keyboard arrows, touch swipe, autoplay optional
-*/
-(function () {
-  const track = document.getElementById('tTrack');
-  const slides = Array.from(track.children);
-  const prevBtn = document.querySelector('.t-prev');
-  const nextBtn = document.querySelector('.t-next');
-  const dotsWrap = document.getElementById('tDots');
+let currentTestimonial = 0;
 
-  if (!track || slides.length === 0) return;
+const testimonials = document.querySelectorAll(".testimonial");
+constdots = document.querySelectorAll(".lux-dot");
 
-  let index = 0;
-  const total = slides.length;
-  let isMoving = false;
-  let autoplayInterval = null;
-  const AUTOPLAY = false; // set true if you want autoplay
-  const AUTOPLAY_DELAY = 5000;
-
-  // build dots
-  slides.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 't-dot';
-    d.setAttribute('aria-label', `Show testimonial ${i+1}`);
-    d.setAttribute('role', 'tab');
-    d.addEventListener('click', () => goTo(i));
-    dotsWrap.appendChild(d);
+function showTestimonial(index) {
+  testimonials.forEach((t, i) => {
+    t.classList.toggle("active", i === index);
   });
-
-  const dots = Array.from(dotsWrap.children);
-
-  function update() {
-    // move track
-    track.style.transform = `translateX(-${index * 100}%)`;
-    // update dots
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    // ARIA: set active tab
-    dots.forEach((d,i) => d.setAttribute('aria-selected', i===index ? 'true' : 'false'));
-  }
-
-  function prev() {
-    if (isMoving) return;
-    index = (index - 1 + total) % total;
-    update();
-    resetAutoplay();
-  }
-
-  function next() {
-    if (isMoving) return;
-    index = (index + 1) % total;
-    update();
-    resetAutoplay();
-  }
-
-  function goTo(i) {
-    if (isMoving) return;
-    index = Math.max(0, Math.min(i, total-1));
-    update();
-    resetAutoplay();
-  }
-
-  prevBtn.addEventListener('click', prev);
-  nextBtn.addEventListener('click', next);
-
-  // keyboard support
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+  dots.forEach((d, i) => {
+    d.classList.toggle("active", i === index);
   });
+}
 
-  // touch swipe support
-  let startX = 0;
-  let isTouching = false;
-  const threshold = 40; // px
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}
 
-  track.addEventListener('touchstart', (e) => {
-    if (e.touches && e.touches.length === 1) {
-      startX = e.touches[0].clientX;
-      isTouching = true;
-    }
-  }, {passive: true});
+function prevTestimonial() {
+  currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(currentTestimonial);
+}
 
-  track.addEventListener('touchmove', (e) => {
-    if (!isTouching || !e.touches) return;
-    const dx = e.touches[0].clientX - startX;
-    // slight translate while moving (nice feel)
-    track.style.transition = 'none';
-    track.style.transform = `translateX(${ -index*100 + (dx / track.clientWidth) * 100 }%)`;
-  }, {passive: true});
+function goToTestimonial(index) {
+  currentTestimonial = index;
+  showTestimonial(currentTestimonial);
+}
 
-  track.addEventListener('touchend', (e) => {
-    if (!isTouching) return;
-    isTouching = false;
-    track.style.transition = ''; // restore transition
-    const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-    const diff = endX - startX;
-    if (Math.abs(diff) > threshold) {
-      if (diff < 0) next(); else prev();
-    } else {
-      update(); // snap back
-    }
-  });
-
-  // autoplay (optional)
-  function startAutoplay() {
-    if (!AUTOPLAY) return;
-    stopAutoplay();
-    autoplayInterval = setInterval(() => {
-      index = (index + 1) % total;
-      update();
-    }, AUTOPLAY_DELAY);
-  }
-  function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = null;
-    }
-  }
-  function resetAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
-
-  // update initial state and show first
-  update();
-  startAutoplay();
-
-  // adjust on resize to ensure correct transform
-  window.addEventListener('resize', () => update());
-})();
+// Auto-slide every 7 seconds
+setInterval(nextTestimonial, 7000);
