@@ -2327,3 +2327,130 @@ body {
     font-size: 1.1rem;
   }
 }
+
+/* ================================
+   PREMIUM LUXURY HEADER
+================================ */
+
+.lux-header {
+  width: 100%;
+  background: #f5efe6; /* light beige */
+  padding: 18px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.lux-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.lux-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #4b3b2f;
+  text-transform: uppercase;
+}
+
+/* Burger Icon */
+.lux-burger {
+  width: 35px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lux-burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #4b3b2f;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* SLIDE MENU */
+.lux-slide-menu {
+  position: fixed;
+  top: 0;
+  right: -320px; /* hidden */
+  width: 300px;
+  height: 100%;
+  background: #ede4d7;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+  padding: 40px 20px;
+  transition: 0.4s ease;
+}
+
+.lux-slide-menu.open {
+  right: 0;
+}
+
+/* Close Button */
+.lux-close {
+  font-size: 40px;
+  font-weight: 300;
+  color: #4b3b2f;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.lux-slide-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lux-slide-menu ul li {
+  margin: 18px 0;
+}
+
+.lux-slide-menu ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #4a3f35;
+  font-weight: 500;
+  padding-bottom: 4px;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.lux-slide-menu ul li a:hover,
+.lux-slide-menu ul li a.active {
+  color: #c59d5f;
+}
+
+/* Desktop Menu Behavior */
+@media(min-width: 900px){
+  .lux-burger { display: none; }
+
+  .lux-slide-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    right: 0;
+  }
+
+  .lux-close { display: none; }
+
+  .lux-slide-menu ul {
+    display: flex;
+    gap: 40px;
+  }
+
+  .lux-slide-menu ul li a {
+    font-size: 1rem;
+  }
+}

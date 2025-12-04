@@ -411,17 +411,3 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
-
-// ===============================
-//   AUTO TESTIMONIAL SLIDER
-// ===============================
-let currentIndex = 0;
-const slides = document.querySelectorAll(".lux-testimonial-slide");
-
-function autoSlideTestimonials() {
-  slides[currentIndex].classList.remove("active");
-  currentIndex = (currentIndex + 1) % slides.length;
-  slides[currentIndex].classList.add("active");
-}
-
-setInterval(autoSlideTestimonials, 6000);

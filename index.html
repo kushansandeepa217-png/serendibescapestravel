@@ -8,20 +8,33 @@
 </head>
 <body>
 
-<header class="site-header container">
-  <div class="logo">Serendib Escapes</div>
+<header class="lux-header">
+  <div class="lux-container">
+    <div class="lux-logo">Serendib Escapes</div>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html" class="active">HOME</a></li>
-      <li><a href="tours.html">TOURS</a></li>
-      <li><a href="destinations-1.html">DESTINATIONS</a></li>
-      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="contact.html">CONTACT US</a></li>
-    </ul>
-  </nav>
+    <!-- BURGER -->
+    <div class="lux-burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- SLIDE MENU -->
+    <nav class="lux-slide-menu" id="luxMenu">
+      <div class="lux-close" onclick="toggleMenu()">×</div>
+
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="tours.html">TOURS</a></li>
+        <li><a href="destinations-1.html">DESTINATIONS</a></li>
+        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
 
 <!-- HERO -->
 <section class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
@@ -459,6 +472,12 @@ showTestimonial();
 
 // Auto-slide every 6 seconds
 setInterval(showTestimonial, 6000);
+</script>
+
+<script>
+function toggleMenu() {
+  document.getElementById("luxMenu").classList.toggle("open");
+}
 </script>
 
 
