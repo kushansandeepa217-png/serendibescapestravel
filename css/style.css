@@ -2493,147 +2493,118 @@ body {
   }
 }
 
-/* =========================
-   PREMIUM HEADER
-   ========================= */
-
+/* HEADER WRAPPER */
 .lux-header {
   width: 100%;
   background: #004D43;
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+  color: #ffffff;
+  padding: 12px 20px;
+  position: relative;
+  z-index: 999;
 }
 
+/* INNER FLEX */
 .lux-header-inner {
-  max-width: 1400px;
+  max-width: 1300px;
   margin: auto;
-  padding: 12px 22px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* LOGO + BRAND NAME */
-.lux-logo-area {
+/* BRAND */
+.lux-brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .lux-logo {
-  width: 55px;
-  height: auto;
+  height: 45px;
+  width: auto;
 }
 
 .lux-brand-name {
-  color: #ffffff;
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
-/* SEARCH BAR */
-.lux-search-wrapper {
+/* SEARCH BOX */
+.lux-search {
   display: flex;
   align-items: center;
   background: #ffffff;
-  padding: 6px 12px;
   border-radius: 25px;
-  gap: 6px;
-  width: 280px;
-  max-width: 100%;
+  padding: 5px 10px;
 }
 
-.lux-search-input {
+.lux-search input {
   border: none;
   outline: none;
-  width: 100%;
-  font-size: 0.9rem;
+  padding: 5px 10px;
+  width: 160px;
 }
 
-.lux-search-btn {
-  border: none;
+.lux-search button {
   background: none;
-  font-size: 1rem;
+  border: none;
   cursor: pointer;
+  font-size: 18px;
 }
 
-/* NAVIGATION (DESKTOP) */
-.lux-nav ul {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
+.desktop-only { display: flex; }
+.mobile-only { display: none; }
 
-.lux-nav ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.lux-nav ul li a:hover,
-.lux-nav ul li a.active {
-  color: #E8DBC8;
-}
-
-/* HAMBURGER (MOBILE ONLY) */
+/* HAMBURGER */
 .lux-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+  font-size: 32px;
   cursor: pointer;
+  display: none;
 }
 
-.lux-hamburger span {
-  width: 28px;
-  height: 3px;
-  background: #ffffff;
-  transition: 0.3s;
+/* MOBILE MENU */
+.lux-mobile-menu {
+  background: #004D43;
+  width: 100%;
+  display: none;
+  padding: 20px 0;
+  animation: dropdown 0.3s ease;
 }
 
-/* ========================
-   MOBILE RESPONSIVE
-======================== */
+@keyframes dropdown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
+.lux-mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.lux-mobile-menu li {
+  padding: 12px 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.lux-mobile-menu a {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+}
+
+/* RESPONSIVE */
 @media(max-width: 900px) {
-
-  .lux-search-wrapper {
-    display: none;
-  }
+  .desktop-only { display: none; }
+  .mobile-only { display: flex; }
 
   .lux-hamburger {
-    display: flex;
+    display: block;
   }
 
-  .lux-nav {
-    position: fixed;
-    right: -100%;
-    top: 0;
-    width: 70%;
-    height: 100vh;
-    background: #004D43;
-    padding-top: 120px;
-    padding-left: 30px;
-    transition: 0.4s ease;
-    box-shadow: -5px 0 25px rgba(0,0,0,0.3);
-  }
-
-  .lux-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 22px;
-  }
-
-  .lux-nav ul li a {
-    font-size: 1.2rem;
-  }
-
-  /* WHEN OPEN */
-  .lux-nav.show {
-    right: 0;
+  .lux-mobile-menu {
+    display: none;
   }
 }
