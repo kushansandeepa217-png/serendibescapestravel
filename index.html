@@ -400,6 +400,54 @@
   © 2025 Serendib Escapes. All Rights Reserved.
 </footer>
 
+<script>
+const testimonials = [
+  {
+    text: "Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!",
+    author: "Emily Thompson — United Kingdom 🇬🇧"
+  },
+  {
+    text: "Nous avons pleinement apprécié notre séjour au Sri Lanka, admirant la beauté du pays et la chaleur de ses habitants. Merci pour votre professionnalisme, qui a rendu notre expérience vraiment inoubliable.",
+    author: "Sophie Martin — France 🇫🇷"
+  },
+  {
+    text: "Wir sind dankbar für die ausgezeichnete 2-wöchige Reiseroute. Ein besonderes Dankeschön für die sorgfältige Hotelorganisation. Unser Reiseleiter, Herr Kushan, war herausragend – herzlich, kenntnisreich und leidenschaftlich.",
+    author: "Maximilian — Germany 🇩🇪"
+  },
+  {
+    text: "Наша поездка в Шри-Ланку превзошла все ожидания благодаря Serendib Escapes. Это было идеально организованное приключение, которое позволило нам полностью насладиться красотой этой удивительной страны.",
+    author: "Alexey — Russia 🇷🇺"
+  }
+];
+
+let currentIndex = 0;
+const box = document.querySelector(".testimonial-box");
+const textEl = document.querySelector(".testimonial-text");
+const authorEl = document.querySelector(".testimonial-author");
+
+function showTestimonial(index) {
+  const t = testimonials[index];
+
+  // fade out
+  box.classList.remove("active");
+
+  setTimeout(() => {
+    textEl.textContent = `“${t.text}”`;
+    authorEl.textContent = t.author;
+
+    // fade in
+    box.classList.add("active");
+  }, 500);
+}
+
+showTestimonial(0);
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  showTestimonial(currentIndex);
+}, 6000);
+</script>
+
 <script src="js/script.js"></script>
 
 </body>
