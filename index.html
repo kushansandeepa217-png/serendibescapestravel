@@ -9,43 +9,38 @@
 <body>
 
 <header class="lux-header">
+
   <div class="lux-header-inner">
 
-    <!-- Left: Logo + Name -->
-    <div class="lux-brand">
-      <img src="images/logo.png" alt="Serendib Escapes" class="lux-logo">
+    <!-- LOGO + NAME -->
+    <div class="lux-logo-area">
+      <img src="images/logo.png" alt="Serendib Escapes Logo" class="lux-logo">
       <span class="lux-brand-name">Serendib Escapes</span>
     </div>
 
-    <!-- Desktop Search -->
-    <div class="lux-search desktop-only">
-      <input type="text" placeholder="Search..." />
-      <button>🔍</button>
+    <!-- SEARCH BAR -->
+    <div class="lux-search-wrapper">
+      <input type="text" placeholder="Search..." class="lux-search-input">
+      <button class="lux-search-btn">🔍</button>
     </div>
 
-    <!-- Right: Hamburger -->
-    <div class="lux-hamburger" onclick="toggleMobileMenu()">
-      ☰
+    <!-- HAMBURGER (MOBILE) -->
+    <div class="lux-hamburger" onclick="toggleMenu()">
+      <span></span> <span></span> <span></span>
     </div>
 
-  </div>
+    <!-- NAV MENU -->
+    <nav class="lux-nav" id="lux-nav-menu">
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="tours.html">TOURS</a></li>
+        <li><a href="destinations-1.html">DESTINATIONS</a></li>
+        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="lux-mobile-menu" class="lux-mobile-menu">
-
-    <div class="lux-search mobile-only">
-      <input type="text" placeholder="Search..." />
-      <button>🔍</button>
-    </div>
-
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="tours.html">TOURS</a></li>
-      <li><a href="destinations-1.html">DESTINATIONS</a></li>
-      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="contact.html">CONTACT US</a></li>
-    </ul>
   </div>
 </header>
 
@@ -495,12 +490,6 @@ function toggleMenu() {
 }
 </script>
 
-<script>
-function toggleMobileMenu() {
-  const menu = document.getElementById("lux-mobile-menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-</script>
 
 
 <script src="js/script.js"></script>
