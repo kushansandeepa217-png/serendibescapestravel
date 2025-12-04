@@ -9,20 +9,22 @@
 <body>
 
 <header class="lux-header">
-  <div class="lux-container">
-    <div class="lux-logo">Serendib Escapes</div>
+  <div class="lux-header-container">
 
-    <!-- BURGER -->
-    <div class="lux-burger" onclick="toggleMenu()">
+    <!-- LOGO -->
+    <a href="index.html" class="lux-logo">
+      <img src="images/logo.png" alt="Serendib Escapes Logo">
+    </a>
+
+    <!-- HAMBURGER ICON -->
+    <div class="lux-menu-toggle" id="luxMenuToggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- SLIDE MENU -->
-    <nav class="lux-slide-menu" id="luxMenu">
-      <div class="lux-close" onclick="toggleMenu()">×</div>
-
+    <!-- NAVIGATION -->
+    <nav class="lux-nav" id="luxNav">
       <ul>
         <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="tours.html">TOURS</a></li>
@@ -32,8 +34,10 @@
         <li><a href="contact.html">CONTACT US</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
+
 
 
 <!-- HERO -->
@@ -479,6 +483,17 @@ function toggleMenu() {
   document.getElementById("luxMenu").classList.toggle("open");
 }
 </script>
+
+<script>
+const menuToggle = document.getElementById("luxMenuToggle");
+const nav = document.getElementById("luxNav");
+
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("active");
+  nav.classList.toggle("open");
+});
+</script>
+
 
 
 <script src="js/script.js"></script>

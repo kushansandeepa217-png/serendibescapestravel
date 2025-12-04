@@ -2329,128 +2329,150 @@ body {
 }
 
 /* ================================
-   PREMIUM LUXURY HEADER
+   LUXURY HEADER
 ================================ */
 
 .lux-header {
   width: 100%;
-  background: #f5efe6; /* light beige */
-  padding: 18px 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 9999;
+  left: 0;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 221, 170, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
-.lux-container {
-  width: 90%;
+.lux-header-container {
+  max-width: 1400px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
 }
 
 /* LOGO */
-.lux-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #4b3b2f;
-  text-transform: uppercase;
+.lux-logo img {
+  height: 55px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* Burger Icon */
-.lux-burger {
-  width: 35px;
-  cursor: pointer;
+.lux-logo img:hover {
+  transform: scale(1.05);
+}
+
+/* NAVIGATION – Desktop */
+.lux-nav ul {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  gap: 35px;
+  list-style: none;
 }
 
-.lux-burger span {
-  display: block;
-  height: 3px;
+.lux-nav ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #3f2e1e;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Luxury gold underline hover */
+.lux-nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #d4a056, #e7c58b);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transition: 0.35s;
+}
+
+.lux-nav ul li a:hover::after,
+.lux-nav ul li a.active::after {
   width: 100%;
-  background: #4b3b2f;
-  border-radius: 3px;
-  transition: 0.3s ease;
 }
 
-/* SLIDE MENU */
-.lux-slide-menu {
-  position: fixed;
-  top: 0;
-  right: -320px; /* hidden */
-  width: 300px;
-  height: 100%;
-  background: #ede4d7;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.15);
-  padding: 40px 20px;
+/* ================================
+   MOBILE MENU (Hamburger)
+================================ */
+.lux-menu-toggle {
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lux-menu-toggle span {
+  height: 4px;
+  width: 100%;
+  background: #3f2e1e;
+  border-radius: 4px;
   transition: 0.4s ease;
 }
 
-.lux-slide-menu.open {
+/* Animate hamburger → X */
+.lux-menu-toggle.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+.lux-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.lux-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ================================
+   MOBILE NAVIGATION PANEL
+================================ */
+.lux-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #fff;
+  padding: 120px 30px;
+  box-shadow: -10px 0 25px rgba(0,0,0,0.1);
+  transition: 0.45s ease;
+}
+
+.lux-nav.open {
   right: 0;
 }
 
-/* Close Button */
-.lux-close {
-  font-size: 40px;
-  font-weight: 300;
-  color: #4b3b2f;
-  cursor: pointer;
-  text-align: right;
-  margin-bottom: 20px;
+.lux-nav ul {
+  flex-direction: column;
+  gap: 25px;
 }
 
-.lux-slide-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Mobile menu text */
+.lux-nav ul li a {
+  font-size: 1.1rem;
+  color: #4a3a2a;
 }
 
-.lux-slide-menu ul li {
-  margin: 18px 0;
-}
-
-.lux-slide-menu ul li a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #4a3f35;
-  font-weight: 500;
-  padding-bottom: 4px;
-  display: inline-block;
-  transition: 0.3s ease;
-}
-
-.lux-slide-menu ul li a:hover,
-.lux-slide-menu ul li a.active {
-  color: #c59d5f;
-}
-
-/* Desktop Menu Behavior */
-@media(min-width: 900px){
-  .lux-burger { display: none; }
-
-  .lux-slide-menu {
-    position: static;
-    width: auto;
-    height: auto;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-    right: 0;
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+  .lux-nav ul {
+    display: none;
   }
-
-  .lux-close { display: none; }
-
-  .lux-slide-menu ul {
+  .lux-menu-toggle {
     display: flex;
-    gap: 40px;
   }
+}
 
-  .lux-slide-menu ul li a {
-    font-size: 1rem;
+@media (max-width: 768px) {
+  .lux-nav {
+    width: 80%;
   }
 }
