@@ -411,3 +411,6 @@ function toggleLuxMenu(el) {
   icon.textContent = menu.classList.contains("show") ? "−" : "+";
 }
 
+function toggleMobileMenu() {
+  document.getElementById("lux-mobile-menu").classList.toggle("open");
+}
