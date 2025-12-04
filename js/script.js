@@ -488,3 +488,205 @@ function goToTestimonial(index) {
 
 // Auto-slide every 7 seconds
 setInterval(nextTestimonial, 7000);
+
+
+
+(function () {
+  // Flexible selectors: try to match common class/id names the page might already use.
+  const container =
+    document.querySelector('.testimonial-slider') ||
+    document.querySelector('#testimonial-slider') ||
+    document.querySelector('.testimonials') ||
+    document.querySelector('#testimonials');
+
+  if (!container) {
+    console.warn('Testimonials slider: container not found (expected .testimonial-slider or #testimonial-slider).');
+    return;
+  }
+
+  // Slides should be children with class .testimonial-item (or fallback .slide / .testimonial)
+  let slides = Array.from(container.querySelectorAll('.testimonial-item'));
+  if (!slides.length) slides = Array.from(container.querySelectorAll('.slide'));
+  if (!slides.length) slides = Array.from(container.querySelectorAll('.testimonial'));
+
+  // Prev / Next arrow elements (common classnames)
+  const prevBtn =
+    container.querySelector('.testimonial-prev') ||
+    container.querySelector('.slider-prev') ||
+    document.querySelector('.testimonial-prev') ||
+    document.querySelector('.slider-prev');
+
+  const nextBtn =
+    container.querySelector('.testimonial-next') ||
+    container.querySelector('.slider-next') ||
+    document.querySelector('.testimonial-next') ||
+    document.querySelector('.slider-next');
+
+  // Dots container or individual dots
+  let dotsContainer =
+    container.querySelector('.testimonial-dots') ||
+    document.querySelector('.testimonial-dots') ||
+    container.querySelector('.dots') ||
+    document.querySelector('.dots');
+
+  // If dots are individual elements already in DOM, collect them
+  let dots = [];
+  if (dotsContainer) {
+    dots = Array.from(dotsContainer.querySelectorAll('button, .dot, li, a'));
+  } else {
+    // If no dots DOM present, create a simple dots container under the slider.
+    dotsContainer = document.createElement('div');
+    dotsContainer.className = 'testimonial-dots';
+    container.appendChild(dotsContainer);
+  }
+
+  if (!slides.length) {
+    console.warn('Testimonials slider: no slide elements found (expected .testimonial-item / .slide / .testimonial).');
+    return;
+  }
+
+  // Build dots if they don't already exist
+  if (!dots.length) {
+    dots = slides.map((_, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'dot';
+      btn.setAttribute('aria-label', 'Show testimonial ' + (i + 1));
+      dotsContainer.appendChild(btn);
+      return btn;
+    });
+  }
+
+  // Ensure only one slide visible at a time via classes
+  let current = 0;
+  const slidesCount = slides.length;
+
+  function showSlide(index) {
+    if (index < 0) index = slidesCount - 1;
+    if (index >= slidesCount) index = 0;
+    current = index;
+
+    slides.forEach((s, i) => {
+      if (i === index) {
+        s.classList.add('active');
+        s.style.display = ''; // let CSS manage default (block/flex)
+        s.setAttribute('aria-hidden', 'false');
+      } else {
+        s.classList.remove('active');
+        s.style.display = 'none';
+        s.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    dots.forEach((d, i) => {
+      if (i === index) {
+        d.classList.add('active');
+        d.setAttribute('aria-current', 'true');
+      } else {
+        d.classList.remove('active');
+        d.removeAttribute('aria-current');
+      }
+    });
+
+    // If arrows exist, optionally disable at boundaries (not required)
+    if (prevBtn) prevBtn.disabled = false;
+    if (nextBtn) nextBtn.disabled = false;
+  }
+
+  // Prev / Next handlers
+  function prev() { showSlide(current - 1); }
+  function next() { showSlide(current + 1); }
+
+  if (prevBtn) prevBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    prev();
+    resetAutoplayTimer();
+  });
+
+  if (nextBtn) nextBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    next();
+    resetAutoplayTimer();
+  });
+
+  // Dot clicks
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', function (e) {
+      e.preventDefault();
+      showSlide(idx);
+      resetAutoplayTimer();
+    });
+  });
+
+  // Keyboard navigation (left / right) when slider or its children focused
+  container.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { prev(); resetAutoplayTimer(); }
+    if (e.key === 'ArrowRight') { next(); resetAutoplayTimer(); }
+  });
+
+  // Make container focusable for keyboard users
+  if (!container.hasAttribute('tabindex')) container.setAttribute('tabindex', '0');
+
+  // OPTIONAL: autoplay settings (disabled by default). If you want autoplay, set autoplay = true.
+  let autoplay = false;
+  let autoplayDelay = 6000; // ms
+  let autoplayTimer = null;
+
+  function startAutoplay() {
+    if (!autoplay) return;
+    clearAutoplay();
+    autoplayTimer = setInterval(() => {
+      showSlide(current + 1);
+    }, autoplayDelay);
+  }
+
+  function clearAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function resetAutoplayTimer() {
+    if (!autoplay) return;
+    clearAutoplay();
+    // restart after short pause
+    autoplayTimer = setTimeout(startAutoplay, 3000);
+  }
+
+  // Initialize: ensure slides have necessary ARIA attributes and styling
+  slides.forEach((s) => {
+    s.setAttribute('role', 'group');
+    s.style.transition = 'opacity 0.35s ease';
+  });
+
+  // If your CSS expects .active to show slide, ensure it too:
+  // show first slide
+  showSlide(0);
+  startAutoplay();
+
+  // Make sure dots reflect current number if dynamic changes later
+  // Observe slide children changes and rebuild dots if needed
+  const observer = new MutationObserver(() => {
+    const newSlides = Array.from(container.querySelectorAll('.testimonial-item, .slide, .testimonial'));
+    if (newSlides.length !== slidesCount) {
+      // small reload is safest: reload page or re-run script (but we simply update local arrays)
+      // For now, do nothing automatic to avoid altering page behaviour unexpectedly.
+    }
+  });
+
+  try {
+    observer.observe(container, { childList: true, subtree: false });
+  } catch (e) {
+    // ignore
+  }
+
+  // Expose some controls globally for debugging (optional)
+  window._testimonialSlider = {
+    show: showSlide,
+    next: next,
+    prev: prev,
+    getCurrent: () => current
+  };
+})();
+
