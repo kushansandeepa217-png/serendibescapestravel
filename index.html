@@ -405,6 +405,8 @@
 <script src="js/script.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
 const testimonials = [
   {
     text: "Our journey through Sri Lanka with Serendib Escapes was unforgettable! Every detail was perfectly planned, from scenic routes to cultural experiences. Smooth, hassle-free, and truly magical—highly recommended!",
@@ -429,30 +431,27 @@ const textEl = document.getElementById("testimonial-text");
 const authorEl = document.getElementById("testimonial-author");
 
 function showTestimonial() {
-  // Remove fade first
+
   textEl.classList.remove("fade-in");
   authorEl.classList.remove("fade-in");
 
   setTimeout(() => {
-    // Update content
     textEl.textContent = testimonials[index].text;
     authorEl.textContent = testimonials[index].author;
 
-    // Add fade-in effect
     textEl.classList.add("fade-in");
     authorEl.classList.add("fade-in");
 
-    // Move to next
     index = (index + 1) % testimonials.length;
   }, 300);
 }
 
-// Initial display
 showTestimonial();
-
-// Auto-slide every 6 seconds
 setInterval(showTestimonial, 6000);
+
+});
 </script>
+
 
 </body>
 </html>
