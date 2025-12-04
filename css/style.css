@@ -2493,143 +2493,140 @@ body {
   }
 }
 
-/* ================================
-   PREMIUM LUXURY HEADER
-================================= */
-
+/* -----------------------------------------
+   LUXURY TRANSPARENT HEADER
+----------------------------------------- */
 .lux-header {
-  width: 100%;
-  background: #f7f3ec;
-  box-shadow: 0px 4px 20px rgba(0,0,0,0.08);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 18px 0;
+  background: transparent;
+  transition: background 0.35s ease, padding 0.25s ease;
+  backdrop-filter: blur(6px);
 }
 
-.lux-header-container {
-  max-width: 1300px;
-  margin: auto;
+/* When user scrolls */
+.lux-header.scrolled {
+  background: #004D43;
+  padding: 12px 0;
+}
+
+/* Inner container */
+.header-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 18px 25px;
 }
 
-/* Logo + Name */
-.lux-logo-box {
+/* LOGO + TEXT */
+.header-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.lux-logo {
-  height: 55px;
-  width: auto;
+.header-logo img {
+  height: 52px;
 }
 
-.lux-brand-name {
+.header-logo span {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #4a3f35;
+  color: #ffffff;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Desktop Navigation */
+/* NAV AREA */
 .lux-nav ul {
   display: flex;
-  gap: 35px;
-  list-style: none;
+  gap: 30px;
 }
 
 .lux-nav ul li a {
-  color: #4a3f35;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
+  color: white;
+  font-weight: 500;
+  padding: 8px 4px;
   transition: 0.3s;
 }
 
 .lux-nav ul li a:hover,
 .lux-nav ul li a.active {
-  color: #b4976b;
+  color: #e8dbc8;
 }
 
-/* Hamburger Icon (Mobile Only) */
-.lux-hamburger {
-  width: 30px;
-  height: 22px;
+/* SEARCH BAR */
+.header-search {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.header-search input {
+  border: none;
+  outline: none;
+  width: 160px;
+}
+
+.header-search button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
+  gap: 5px;
 }
 
-.lux-hamburger span {
+.menu-btn span {
+  width: 28px;
   height: 3px;
-  width: 100%;
-  background: #4a3f35;
-  border-radius: 5px;
+  background: white;
   transition: 0.3s;
 }
 
-/* Mobile Menu */
-.lux-mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 260px;
-  height: 100%;
-  background: #f1e8dc;
-  box-shadow: -4px 0 15px rgba(0,0,0,0.1);
-  padding: 70px 25px;
-  transition: 0.4s ease;
-}
+/* Mobile Responsive */
+@media(max-width: 992px) {
 
-.lux-mobile-menu.open {
-  right: 0;
-}
-
-.lux-mobile-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.lux-mobile-menu ul li {
-  margin-bottom: 22px;
-}
-
-.lux-mobile-menu ul li a {
-  text-decoration: none;
-  color: #4a3f35;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: 0.3s;
-}
-
-.lux-mobile-menu ul li a:hover {
-  color: #b4976b;
-}
-
-/* ============================
-   RESPONSIVE DESIGN
-============================= */
-
-@media (max-width: 992px) {
-  .lux-nav {
+  .header-search {
     display: none;
   }
 
-  .lux-hamburger {
+  .menu-btn {
     display: flex;
   }
-}
 
-@media (max-width: 600px) {
-  .lux-logo {
-    height: 45px;
+  .lux-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 260px;
+    height: 100vh;
+    background: #004D43;
+    padding-top: 100px;
+    transition: 0.4s ease;
+    box-shadow: -3px 0 15px rgba(0,0,0,0.2);
   }
-  .lux-brand-name {
-    font-size: 1.3rem;
+
+  .lux-nav.open {
+    right: 0;
   }
+
+  .lux-nav ul {
+    flex-direction: column;
+    text-align: left;
+    padding-left: 30px;
+    gap: 20px;
+  }
+
 }

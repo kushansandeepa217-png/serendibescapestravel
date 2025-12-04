@@ -9,45 +9,41 @@
 <body>
 
 <header class="lux-header">
-  <div class="lux-header-container">
+  <div class="header-inner container">
 
-    <!-- Logo + Name -->
-    <div class="lux-logo-box">
-      <img src="images/logo.png" alt="Serendib Escapes Logo" class="lux-logo">
-      <span class="lux-brand-name">Serendib Escapes</span>
+    <!-- LEFT: LOGO + NAME -->
+    <div class="header-logo">
+      <img src="images/logo.png" alt="Serendib Escapes Logo">
+      <span>Serendib Escapes</span>
     </div>
 
-    <!-- Desktop Navigation -->
+    <!-- RIGHT: SEARCH + MENU BUTTON -->
+    <div class="header-right">
+
+      <!-- Search Bar -->
+      <div class="header-search">
+        <input type="text" placeholder="Search...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="menu-btn" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- NAVIGATION (Desktop + Mobile Slide-in) -->
     <nav class="lux-nav">
       <ul>
-        <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="tours.html">TOURS</a></li>
-        <li><a href="destinations-1.html">DESTINATIONS</a></li>
-        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-        <li><a href="about.html">ABOUT US</a></li>
-        <li><a href="contact.html">CONTACT US</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="tours.html">Tours</a></li>
+        <li><a href="destinations-1.html">Destinations</a></li>
+        <li><a href="plan-your-trip.html">Plan Your Trip</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
 
-    <!-- Mobile Hamburger Icon -->
-    <div class="lux-hamburger" onclick="toggleMobileMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-  </div>
-
-  <!-- Mobile Slide Menu -->
-  <div id="lux-mobile-menu" class="lux-mobile-menu">
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="tours.html">TOURS</a></li>
-      <li><a href="destinations-1.html">DESTINATIONS</a></li>
-      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="contact.html">CONTACT US</a></li>
-    </ul>
   </div>
 </header>
 
@@ -489,6 +485,25 @@ showTestimonial();
 // Auto-slide every 6 seconds
 setInterval(showTestimonial, 6000);
 </script>
+
+
+<script>
+/* MOBILE MENU TOGGLE */
+function toggleMobileMenu() {
+  document.querySelector('.lux-nav').classList.toggle('open');
+}
+
+/* ADD BACKGROUND WHEN SCROLL */
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.lux-header');
+  if (window.scrollY > 60) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
+
 
 
 <script src="js/script.js"></script>
