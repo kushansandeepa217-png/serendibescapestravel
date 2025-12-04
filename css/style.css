@@ -2493,140 +2493,147 @@ body {
   }
 }
 
-/* -----------------------------------------
-   LUXURY TRANSPARENT HEADER
------------------------------------------ */
+/* =========================
+   PREMIUM HEADER
+   ========================= */
+
 .lux-header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: 9999;
-  padding: 18px 0;
-  background: transparent;
-  transition: background 0.35s ease, padding 0.25s ease;
-  backdrop-filter: blur(6px);
-}
-
-/* When user scrolls */
-.lux-header.scrolled {
   background: #004D43;
-  padding: 12px 0;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 
-/* Inner container */
-.header-inner {
+.lux-header-inner {
+  max-width: 1400px;
+  margin: auto;
+  padding: 12px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* LOGO + TEXT */
-.header-logo {
+/* LOGO + BRAND NAME */
+.lux-logo-area {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.header-logo img {
-  height: 52px;
+.lux-logo {
+  width: 55px;
+  height: auto;
 }
 
-.header-logo span {
-  font-size: 1.6rem;
-  font-weight: 700;
+.lux-brand-name {
   color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
   letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
-/* NAV AREA */
+/* SEARCH BAR */
+.lux-search-wrapper {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 25px;
+  gap: 6px;
+  width: 280px;
+  max-width: 100%;
+}
+
+.lux-search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.lux-search-btn {
+  border: none;
+  background: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* NAVIGATION (DESKTOP) */
 .lux-nav ul {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 28px;
 }
 
 .lux-nav ul li a {
-  color: white;
-  font-weight: 500;
-  padding: 8px 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: 0.3s;
 }
 
 .lux-nav ul li a:hover,
 .lux-nav ul li a.active {
-  color: #e8dbc8;
+  color: #E8DBC8;
 }
 
-/* SEARCH BAR */
-.header-search {
-  display: flex;
-  align-items: center;
-  background: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  margin-right: 20px;
-}
-
-.header-search input {
-  border: none;
-  outline: none;
-  width: 160px;
-}
-
-.header-search button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* MOBILE MENU BUTTON */
-.menu-btn {
+/* HAMBURGER (MOBILE ONLY) */
+.lux-hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
 }
 
-.menu-btn span {
+.lux-hamburger span {
   width: 28px;
   height: 3px;
-  background: white;
+  background: #ffffff;
   transition: 0.3s;
 }
 
-/* Mobile Responsive */
-@media(max-width: 992px) {
+/* ========================
+   MOBILE RESPONSIVE
+======================== */
 
-  .header-search {
+@media(max-width: 900px) {
+
+  .lux-search-wrapper {
     display: none;
   }
 
-  .menu-btn {
+  .lux-hamburger {
     display: flex;
   }
 
   .lux-nav {
     position: fixed;
+    right: -100%;
     top: 0;
-    right: -300px;
-    width: 260px;
+    width: 70%;
     height: 100vh;
     background: #004D43;
-    padding-top: 100px;
+    padding-top: 120px;
+    padding-left: 30px;
     transition: 0.4s ease;
-    box-shadow: -3px 0 15px rgba(0,0,0,0.2);
-  }
-
-  .lux-nav.open {
-    right: 0;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.3);
   }
 
   .lux-nav ul {
     flex-direction: column;
-    text-align: left;
-    padding-left: 30px;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 22px;
   }
 
+  .lux-nav ul li a {
+    font-size: 1.2rem;
+  }
+
+  /* WHEN OPEN */
+  .lux-nav.show {
+    right: 0;
+  }
 }
