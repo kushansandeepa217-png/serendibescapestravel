@@ -8,46 +8,20 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
+<header class="site-header container">
+  <div class="logo">Serendib Escapes</div>
 
-    <!-- LOGO + NAME -->
-    <div class="logo-area">
-      <img src="images/logo.png" alt="Serendib Escapes Logo" class="site-logo">
-      <span class="site-name">Serendib Escapes</span>
-    </div>
-
-    <!-- SEARCH -->
-    <div class="search-area">
-      <input type="text" placeholder="Search..." class="search-input">
-    </div>
-
-    <!-- HAMBURGER FOR MOBILE -->
-    <div class="mobile-menu-icon" id="menuToggle">
-      ☰
-    </div>
-
-    <!-- MAIN NAV -->
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="tours.html">TOURS</a></li>
-        <li><a href="destinations-1.html">DESTINATIONS</a></li>
-        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-        <li><a href="about.html">ABOUT US</a></li>
-        <li><a href="contact.html">CONTACT US</a></li>
-      </ul>
-
-      <!-- SEARCH IN MOBILE DROPDOWN -->
-      <div class="mobile-search">
-        <input type="text" placeholder="Search..." class="search-input">
-      </div>
-    </nav>
-  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="tours.html">TOURS</a></li>
+      <li><a href="destinations-1.html">DESTINATIONS</a></li>
+      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+  </nav>
 </header>
-
-
-
 
 <!-- HERO -->
 <section class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
@@ -485,19 +459,6 @@ showTestimonial();
 
 // Auto-slide every 6 seconds
 setInterval(showTestimonial, 6000);
-</script>
-
-<script>
-function toggleMenu() {
-  document.getElementById("lux-nav-menu").classList.toggle("show");
-}
-</script>
-
-<script>
-document.getElementById("menuToggle").addEventListener("click", function() {
-  const nav = document.getElementById("mainNav");
-  nav.style.display = nav.style.display === "block" ? "none" : "block";
-});
 </script>
 
 
