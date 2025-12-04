@@ -690,3 +690,119 @@ setInterval(nextTestimonial, 7000);
   };
 })();
 
+// Put this in js/script.js or inside a <script> tag before </body>
+document.addEventListener('DOMContentLoaded', function () {
+  const testimonials = Array.from(document.querySelectorAll('.lux-testimonial-content .testimonial'));
+  const dots = Array.from(document.querySelectorAll('.lux-dots .lux-dot'));
+  const btnPrev = document.querySelector('.lux-arrow.lux-left');
+  const btnNext = document.querySelector('.lux-arrow.lux-right');
+  const box = document.querySelector('.lux-testimonial-box');
+
+  if (!testimonials.length) return;
+
+  let current = testimonials.findIndex(t => t.classList.contains('active'));
+  if (current < 0) current = 0;
+
+  // ensure state consistent
+  function updateUI(index) {
+    testimonials.forEach((t, i) => {
+      if (i === index) {
+        t.classList.add('active');
+        t.setAttribute('aria-hidden', 'false');
+        // ensure visible (in case absolute positioning)
+        t.style.position = '';
+      } else {
+        t.classList.remove('active');
+        t.setAttribute('aria-hidden', 'true');
+        t.style.position = 'absolute';
+      }
+    });
+
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+      d.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+    });
+
+    current = index;
+  }
+
+  // normalize index with wrap
+  function normalize(i) {
+    const n = testimonials.length;
+    return ((i % n) + n) % n;
+  }
+
+  // Public functions (so existing inline onclick handlers will work)
+  window.prevTestimonial = function () {
+    updateUI(normalize(current - 1));
+  };
+
+  window.nextTestimonial = function () {
+    updateUI(normalize(current + 1));
+  };
+
+  window.goToTestimonial = function (i) {
+    const idx = Number(i);
+    if (!Number.isFinite(idx)) return;
+    updateUI(normalize(idx));
+  };
+
+  // Attach events to arrows (in case inline handlers removed)
+  if (btnPrev) btnPrev.addEventListener('click', () => window.prevTestimonial());
+  if (btnNext) btnNext.addEventListener('click', () => window.nextTestimonial());
+
+  // Attach events to dots
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => window.goToTestimonial(idx));
+    // keyboard support for dot (enter/space)
+    dot.setAttribute('role', 'button');
+    dot.setAttribute('tabindex', '0');
+    dot.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.goToTestimonial(idx);
+      }
+    });
+  });
+
+  // Keyboard arrow navigation (left / right)
+  document.addEventListener('keydown', (e) => {
+    // ignore if focus is on input/textarea/select
+    const tag = document.activeElement && document.activeElement.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+    if (e.key === 'ArrowLeft') {
+      window.prevTestimonial();
+    } else if (e.key === 'ArrowRight') {
+      window.nextTestimonial();
+    }
+  });
+
+  // Optional: swipe support on touch devices
+  (function addSwipe() {
+    if (!box) return;
+    let startX = 0;
+    let startY = 0;
+    const threshold = 40; // min px move to count as swipe
+    box.addEventListener('touchstart', (e) => {
+      const t = e.changedTouches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+    }, { passive: true });
+
+    box.addEventListener('touchend', (e) => {
+      const t = e.changedTouches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > threshold) {
+        if (dx > 0) window.prevTestimonial();
+        else window.nextTestimonial();
+      }
+    });
+  })();
+
+  // initial UI
+  updateUI(current);
+});
+
+
