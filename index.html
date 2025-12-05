@@ -8,19 +8,52 @@
 </head>
 <body>
 
-<header class="site-header container">
-  <div class="logo">Serendib Escapes</div>
+<header class="lux-header">
+<div class="lux-container">
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html" class="active">HOME</a></li>
-      <li><a href="tours.html">TOURS</a></li>
-      <li><a href="destinations-1.html">DESTINATIONS</a></li>
-      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="contact.html">CONTACT US</a></li>
-    </ul>
-  </nav>
+<!-- Logo + Name -->
+<div class="lux-logo-area">
+<img src="images/logo.png" alt="Serendib Escapes Logo" class="lux-logo">
+<span class="lux-brand-name">Serendib Escapes</span>
+</div>
+
+<!-- Desktop Navigation -->
+<nav class="lux-nav">
+<ul>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="tours.html">Tours</a></li>
+<li><a href="destinations-1.html">Destinations</a></li>
+<li><a href="plan-your-trip.html">Plan Your Trip</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</nav>
+
+<!-- Right Icons -->
+<div class="lux-icons">
+<div class="lux-search-icon" onclick="toggleSearch()">🔍</div>
+<div class="lux-menu-icon" onclick="toggleMobileMenu()">☰</div>
+</div>
+
+</div>
+
+<!-- Search Bar -->
+<div class="lux-search-bar" id="searchBar">
+<input type="text" placeholder="Search...">
+</div>
+
+<!-- Mobile Menu -->
+<div class="lux-mobile-menu" id="mobileMenu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="tours.html">Tours</a></li>
+<li><a href="destinations-1.html">Destinations</a></li>
+<li><a href="plan-your-trip.html">Plan Your Trip</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+
 </header>
 
 <!-- HERO -->
@@ -450,6 +483,18 @@ showTestimonial();
 setInterval(showTestimonial, 6000);
 
 });
+</script>
+
+<script>
+function toggleSearch() {
+const bar = document.getElementById("searchBar");
+bar.style.display = bar.style.display === "block" ? "none" : "block";
+}
+
+function toggleMobileMenu() {
+const menu = document.getElementById("mobileMenu");
+menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
 </script>
 
 

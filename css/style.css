@@ -2328,3 +2328,153 @@ body {
   }
 }
 
+/* ================================
+LUXURY HEADER
+================================ */
+
+.lux-header {
+position: absolute; /* transparent header over hero */
+top: 0;
+left: 0;
+width: 100%;
+z-index: 9999;
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+padding: 20px 0;
+}
+
+.lux-container {
+max-width: 1400px;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 25px;
+}
+
+/* Logo Area */
+.lux-logo-area {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.lux-logo {
+height: 55px;
+}
+
+.lux-brand-name {
+font-size: 1.6rem;
+font-weight: 700;
+color: #ffffff;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+/* Desktop Navigation */
+.lux-nav ul {
+display: flex;
+gap: 45px;
+list-style: none;
+}
+
+.lux-nav ul li a {
+text-decoration: none;
+font-size: 1rem;
+font-weight: 600;
+color: white;
+transition: 0.3s;
+}
+
+.lux-nav ul li a:hover,
+.lux-nav ul li a.active {
+color: #e8dbc8;
+}
+
+/* Desktop Right Icons */
+.lux-icons {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+
+.lux-search-icon,
+.lux-menu-icon {
+font-size: 1.8rem;
+color: white;
+cursor: pointer;
+display: none; /* search shown on desktop? menu only on mobile */
+}
+
+/* Search Bar */
+.lux-search-bar {
+width: 100%;
+background: white;
+padding: 15px;
+display: none;
+border-bottom: 1px solid #ddd;
+}
+
+.lux-search-bar input {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #ccc;
+border-radius: 8px;
+font-size: 1.1rem;
+}
+
+/* ======================
+MOBILE MENU
+====================== */
+.lux-mobile-menu {
+display: none;
+background: rgba(255,255,255,0.98);
+padding: 20px;
+text-align: center;
+}
+
+.lux-mobile-menu ul {
+list-style: none;
+padding: 0;
+}
+
+.lux-mobile-menu ul li {
+padding: 15px 0;
+border-bottom: 1px solid #eee;
+}
+
+.lux-mobile-menu ul li a {
+text-decoration: none;
+color: #333;
+font-size: 1.2rem;
+font-weight: 600;
+}
+
+/* ======================
+RESPONSIVE BEHAVIOR
+====================== */
+@media(max-width: 992px) {
+.lux-nav { display: none; }
+
+.lux-menu-icon {
+display: block;
+color: white;
+font-size: 2rem;
+}
+
+.lux-search-icon {
+display: block;
+color: white;
+font-size: 1.8rem;
+}
+}
+
+@media(max-width: 600px) {
+.lux-brand-name {
+font-size: 1.3rem;
+}
+
+.lux-logo {
+height: 45px;
+}
+}
