@@ -2338,7 +2338,7 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
-  background: #0b3d2e;       /* Dark green luxury */
+  background: #007B6A;       /* Dark green luxury */
   box-shadow: 0 4px 25px rgba(0,0,0,0.15);
 }
 
@@ -2399,7 +2399,7 @@ body {
   margin-left: 20px;
 }
 
-/* SEARCH BAR DROPDOWN */
+/* SEARCH BAR DROPDOWNn */
 .header-search-bar {
   background: #124f3c;
   padding: 0;
@@ -2437,7 +2437,7 @@ body {
 /* MOBILE MENU */
 .mobile-menu {
   display: none;
-  background: #0b3d2e;
+  background: #007B6A;
   padding: 20px;
 }
 
