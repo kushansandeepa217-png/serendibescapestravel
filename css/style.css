@@ -2465,23 +2465,23 @@ body {
   .brand-name { font-size: 1.4rem; }
 }
 
-/* ===========================
-   SOCIAL CONNECT SECTION
-=========================== */
 
+/* ===========================
+   SOCIAL MEDIA CONNECT
+=========================== */
 .social-connect {
-  background: #007B6A;
-  padding: 50px 0 60px;
+  padding: 70px 20px;
   text-align: center;
-  border-top: 1px solid #e5ddcf;
+  background: #f4f9f8;
 }
 
 .social-title {
-  font-size: 1.9rem;
-  color: #3b3a2f;
+  font-size: 2rem;
   font-weight: 700;
+  color: #007b6a;
   margin-bottom: 35px;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .social-icons {
@@ -2491,19 +2491,41 @@ body {
   flex-wrap: wrap;
 }
 
-/* Icon images */
+/* Icon Style */
 .social-icons a img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: 0.3s ease-in-out;
-  filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15));
-  opacity: 0.9;
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15));
+  border-radius: 16px;
+  transition: all 0.35s ease;
+  background: white;
+  padding: 10px;
 }
 
-/* Hover effects */
+/* Hover Effect */
 .social-icons a img:hover {
-  transform: translateY(-6px) scale(1.08);
-  filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.25));
-  opacity: 1;
+  transform: translateY(-8px) scale(1.12);
+  box-shadow: 0px 12px 25px rgba(0, 123, 106, 0.35);
+  filter: brightness(1.15);
+}
+
+/* Soft floating animation */
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.social-icons a:nth-child(1) img { animation: floatIcon 3.5s ease-in-out infinite; }
+.social-icons a:nth-child(2) img { animation: floatIcon 4s ease-in-out infinite; }
+.social-icons a:nth-child(3) img { animation: floatIcon 3.2s ease-in-out infinite; }
+.social-icons a:nth-child(4) img { animation: floatIcon 3.8s ease-in-out infinite; }
+.social-icons a:nth-child(5) img { animation: floatIcon 4.2s ease-in-out infinite; }
+
+/* Small screens */
+@media (max-width: 600px) {
+  .social-icons a img {
+    width: 52px;
+    height: 52px;
+  }
 }
