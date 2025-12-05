@@ -2328,171 +2328,155 @@ body {
   }
 }
 
-/* ================================
-LUXURY HEADER
-================================ */
+/* ===========================
+   LUXURY STICKY HEADER
+=========================== */
 
 .lux-header {
-position: absolute; /* transparent header over hero */
-top: 0;
-left: 0;
-width: 100%;
-z-index: 9999;
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(10px);
-padding: 20px 0;
-}
-
-.lux-container {
-max-width: 1400px;
-margin: auto;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0 25px;
-}
-
-/* Logo Area */
-.lux-logo-area {
-display: flex;
-align-items: center;
-gap: 12px;
-}
-
-.lux-logo {
-height: 55px;
-}
-
-.lux-brand-name {
-font-size: 1.6rem;
-font-weight: 700;
-color: #ffffff;
-letter-spacing: 1px;
-text-transform: uppercase;
-}
-
-/* Desktop Navigation */
-.lux-nav ul {
-display: flex;
-gap: 45px;
-list-style: none;
-}
-
-.lux-nav ul li a {
-text-decoration: none;
-font-size: 1rem;
-font-weight: 600;
-color: white;
-transition: 0.3s;
-}
-
-.lux-nav ul li a:hover,
-.lux-nav ul li a.active {
-color: #e8dbc8;
-}
-
-/* Desktop Right Icons */
-.lux-icons {
-display: flex;
-align-items: center;
-gap: 25px;
-}
-
-.lux-search-icon,
-.lux-menu-icon {
-font-size: 1.8rem;
-color: white;
-cursor: pointer;
-display: none; /* search shown on desktop? menu only on mobile */
-}
-
-/* Search Bar */
-.lux-search-bar {
-width: 100%;
-background: white;
-padding: 15px;
-display: none;
-border-bottom: 1px solid #ddd;
-}
-
-.lux-search-bar input {
-width: 100%;
-padding: 12px 15px;
-border: 1px solid #ccc;
-border-radius: 8px;
-font-size: 1.1rem;
-}
-
-/* ======================
-MOBILE MENU
-====================== */
-.lux-mobile-menu {
-display: none;
-background: rgba(255,255,255,0.98);
-padding: 20px;
-text-align: center;
-}
-
-.lux-mobile-menu ul {
-list-style: none;
-padding: 0;
-}
-
-.lux-mobile-menu ul li {
-padding: 15px 0;
-border-bottom: 1px solid #eee;
-}
-
-.lux-mobile-menu ul li a {
-text-decoration: none;
-color: #333;
-font-size: 1.2rem;
-font-weight: 600;
-}
-
-/* ======================
-RESPONSIVE BEHAVIOR
-====================== */
-@media(max-width: 992px) {
-.lux-nav { display: none; }
-
-.lux-menu-icon {
-display: block;
-color: white;
-font-size: 2rem;
-}
-
-.lux-search-icon {
-display: block;
-color: white;
-font-size: 1.8rem;
-}
-}
-
-@media(max-width: 600px) {
-.lux-brand-name {
-font-size: 1.3rem;
-}
-
-.lux-logo {
-height: 45px;
-}
-}
-
-/* ===== Sticky Header ===== */
-.site-header {
+  width: 100%;
+  background: #0a2e22; /* Dark luxury green */
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 9999;
-  background: rgba(255, 255, 255, 0.85); /* slight transparency */
-  backdrop-filter: blur(10px);
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
-  padding: 15px 0;
+  padding: 12px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
-/* Prevent page content from going under header */
-body {
-  padding-top: 90px; /* adjust to match header height */
+.header-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+/* Logo */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.header-logo img {
+  height: 48px;
+}
+
+.header-logo span {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Desktop Navigation */
+.nav-desktop ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-desktop ul li a {
+  color: #e8f5ed;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-desktop ul li a:hover,
+.nav-desktop ul li a.active {
+  color: #c1ffdd;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #ffffff20;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+}
+
+/* ===========================
+   MOBILE MENU
+=========================== */
+
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 260px;
+  height: 100%;
+  background: #0a2e22;
+  padding: 20px;
+  transition: 0.4s ease;
+  z-index: 99999;
+}
+
+.nav-mobile ul {
+  list-style: none;
+  margin-top: 60px;
+}
+
+.nav-mobile ul li {
+  margin-bottom: 25px;
+}
+
+.nav-mobile ul li a {
+  text-decoration: none;
+  color: #e8f5ed;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-mobile-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width: 900px) {
+  .nav-desktop,
+  .search-box {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+

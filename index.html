@@ -9,52 +9,54 @@
 <body>
 
 <header class="lux-header">
-<div class="lux-container">
+  <div class="header-container">
 
-<!-- Logo + Name -->
-<div class="lux-logo-area">
-<img src="images/logo.png" alt="Serendib Escapes Logo" class="lux-logo">
-<span class="lux-brand-name">Serendib Escapes</span>
-</div>
+    <!-- Logo + Name -->
+    <a href="index.html" class="header-logo">
+      <img src="images/logo.png" alt="Serendib Escapes Logo">
+      <span>Serendib Escapes</span>
+    </a>
 
-<!-- Desktop Navigation -->
-<nav class="lux-nav">
-<ul>
-<li><a href="index.html" class="active">Home</a></li>
-<li><a href="tours.html">Tours</a></li>
-<li><a href="destinations-1.html">Destinations</a></li>
-<li><a href="plan-your-trip.html">Plan Your Trip</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</nav>
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop">
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="tours.html">TOURS</a></li>
+        <li><a href="destinations-1.html">DESTINATIONS</a></li>
+        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
 
-<!-- Right Icons -->
-<div class="lux-icons">
-<div class="lux-search-icon" onclick="toggleSearch()">🔍</div>
-<div class="lux-menu-icon" onclick="toggleMobileMenu()">☰</div>
-</div>
+    <!-- Search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
 
-</div>
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
 
-<!-- Search Bar -->
-<div class="lux-search-bar" id="searchBar">
-<input type="text" placeholder="Search...">
-</div>
+  </div>
 
-<!-- Mobile Menu -->
-<div class="lux-mobile-menu" id="mobileMenu">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="tours.html">Tours</a></li>
-<li><a href="destinations-1.html">Destinations</a></li>
-<li><a href="plan-your-trip.html">Plan Your Trip</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <!-- Mobile Slide Menu -->
+  <nav class="nav-mobile">
+    <button class="close-mobile-menu"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="tours.html">TOURS</a></li>
+      <li><a href="destinations-1.html">DESTINATIONS</a></li>
+      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+  </nav>
 
 </header>
+
 
 <!-- HERO -->
 <section class="hero" style="background:url('images/hero.jpg') center/cover no-repeat;">
@@ -496,6 +498,21 @@ const menu = document.getElementById("mobileMenu");
 menu.style.display = menu.style.display === "block" ? "none" : "block";
 }
 </script>
+
+<script>
+  const openMenu = document.querySelector(".mobile-menu-btn");
+  const closeMenu = document.querySelector(".close-mobile-menu");
+  const navMobile = document.querySelector(".nav-mobile");
+
+  openMenu.addEventListener("click", () => {
+    navMobile.style.right = "0";
+  });
+
+  closeMenu.addEventListener("click", () => {
+    navMobile.style.right = "-300px";
+  });
+</script>
+
 
 
 </body>
