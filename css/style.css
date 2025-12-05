@@ -2498,7 +2498,7 @@ body {
   filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15));
   border-radius: 16px;
   transition: all 0.35s ease;
-  background: white;
+  background: #010706 ;
   padding: 10px;
 }
 
@@ -2527,5 +2527,6 @@ body {
   .social-icons a img {
     width: 52px;
     height: 52px;
+   
   }
 }
