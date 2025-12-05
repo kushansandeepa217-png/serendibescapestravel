@@ -2472,13 +2472,13 @@ body {
 .social-connect {
   padding: 70px 20px;
   text-align: center;
-  background: #f4efe5;
+  background: #007b6a;
 }
 
 .social-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #007b6a;
+  color: #f4efe5;
   margin-bottom: 35px;
   letter-spacing: 1px;
   text-transform: uppercase;
