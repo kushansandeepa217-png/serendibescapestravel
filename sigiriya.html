@@ -8,17 +8,54 @@
 </head>
 <body>
 
-<header class="site-header container">
-  <div class="logo">Serendib Escapes</div>
-  <nav class="main-nav">
+<header class="lux-header">
+  <div class="header-container">
+
+    <!-- Logo + Brand -->
+    <div class="header-left">
+      <img src="images/logo.png" alt="Serendib Escapes" class="header-logo">
+      <span class="brand-name">Serendib Escapes</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav">
+      <ul>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="tours.html">TOURS</a></li>
+        <li><a href="destinations-1.html">DESTINATIONS</a></li>
+        <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+
+    <!-- Search Icon -->
+    <div class="search-icon" id="searchToggle">🔍</div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="hamburger" id="mobileMenuToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="header-search-bar" id="searchBar">
+    <input type="text" placeholder="Search destinations, tours...">
+  </div>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="tours.html">Tours</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html" class="active">HOME</a></li>
+      <li><a href="tours.html">TOURS</a></li>
+      <li><a href="destinations-1.html">DESTINATIONS</a></li>
+      <li><a href="plan-your-trip.html">PLAN YOUR TRIP</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
     </ul>
-  </nav>
+  </div>
 </header>
+
 
 <section class="hero" style="background:url('images/destinations/sigiriya-hero.jpg') center/cover no-repeat;">
   <div class="hero-overlay">
@@ -147,6 +184,19 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+/* SEARCH BAR TOGGLE */
+document.getElementById("searchToggle").addEventListener("click", function () {
+  let bar = document.getElementById("searchBar");
+  bar.style.maxHeight = bar.style.maxHeight ? null : "80px";
+});
+
+/* MOBILE MENU TOGGLE */
+document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+  let menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+</script>
 
 </body>
 </html>
