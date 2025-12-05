@@ -2493,8 +2493,9 @@ body {
 
 /* Icon Style */
 .social-icons a img {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  max-width: 60px;
+  height: auto;
   filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15));
   border-radius: 16px;
   transition: all 0.35s ease;
@@ -2523,10 +2524,10 @@ body {
 .social-icons a:nth-child(5) img { animation: floatIcon 4.2s ease-in-out infinite; }
 
 /* Small screens */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .social-icons a img {
-    width: 52px;
-    height: 52px;
+    max-width: 48px;
+   
    
   }
 }
