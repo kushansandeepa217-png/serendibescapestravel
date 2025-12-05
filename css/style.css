@@ -2466,36 +2466,44 @@ body {
 }
 
 /* ===========================
-   LUXURY SOCIAL MEDIA BAR
+   SOCIAL CONNECT SECTION
 =========================== */
-.lux-social-bar {
-  width: 100%;
+
+.social-connect {
+  background: #faf7f2;
+  padding: 50px 0 60px;
   text-align: center;
-  background: #f2eee8;
-  padding: 25px 0;
-  margin-top: 0;
-  border-top: 1px solid #d6cfc5;
+  border-top: 1px solid #e5ddcf;
 }
 
-.lux-social-icon {
-  display: inline-flex;
+.social-title {
+  font-size: 1.9rem;
+  color: #3b3a2f;
+  font-weight: 700;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+/* Icon images */
+.social-icons a img {
   width: 48px;
   height: 48px;
-  margin: 0 10px;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #2d4b3c; /* Luxury green */
-  font-size: 20px;
-  text-decoration: none;
-  transition: 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  border: 1px solid #e1d9cf;
+  object-fit: contain;
+  transition: 0.3s ease-in-out;
+  filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.15));
+  opacity: 0.9;
 }
 
-.lux-social-icon:hover {
-  background: #2d4b3c;
-  color: #ffffff;
-  transform: translateY(-4px);
+/* Hover effects */
+.social-icons a img:hover {
+  transform: translateY(-6px) scale(1.08);
+  filter: drop-shadow(0px 6px 16px rgba(0,0,0,0.25));
+  opacity: 1;
 }
