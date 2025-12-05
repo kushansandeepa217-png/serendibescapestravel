@@ -11,14 +11,14 @@
 <header class="lux-header">
   <div class="header-container">
 
-    <!-- Logo + Name -->
-    <a href="index.html" class="header-logo">
-      <img src="images/logo.png" alt="Serendib Escapes Logo">
-      <span>Serendib Escapes</span>
-    </a>
+    <!-- Logo + Brand -->
+    <div class="header-left">
+      <img src="images/logo.png" alt="Serendib Escapes" class="header-logo">
+      <span class="brand-name">Serendib Escapes</span>
+    </div>
 
     <!-- Desktop Navigation -->
-    <nav class="nav-desktop">
+    <nav class="header-nav">
       <ul>
         <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="tours.html">TOURS</a></li>
@@ -29,22 +29,22 @@
       </ul>
     </nav>
 
-    <!-- Search -->
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <button><i class="fas fa-search"></i></button>
+    <!-- Search Icon -->
+    <div class="search-icon" id="searchToggle">🔍</div>
+
+    <!-- Mobile Menu Toggle -->
+    <div class="hamburger" id="mobileMenuToggle">
+      <span></span><span></span><span></span>
     </div>
+  </div>
 
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-btn">
-      <i class="fas fa-bars"></i>
-    </button>
-
+  <!-- Search Bar -->
+  <div class="header-search-bar" id="searchBar">
+    <input type="text" placeholder="Search destinations, tours...">
   </div>
 
   <!-- Mobile Slide Menu -->
-  <nav class="nav-mobile">
-    <button class="close-mobile-menu"><i class="fas fa-times"></i></button>
+  <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html" class="active">HOME</a></li>
       <li><a href="tours.html">TOURS</a></li>
@@ -53,8 +53,7 @@
       <li><a href="about.html">ABOUT US</a></li>
       <li><a href="contact.html">CONTACT US</a></li>
     </ul>
-  </nav>
-
+  </div>
 </header>
 
 
@@ -488,30 +487,21 @@ setInterval(showTestimonial, 6000);
 </script>
 
 <script>
-function toggleSearch() {
-const bar = document.getElementById("searchBar");
-bar.style.display = bar.style.display === "block" ? "none" : "block";
-}
+/* SEARCH BAR TOGGLE */
+document.getElementById("searchToggle").addEventListener("click", function () {
+  let bar = document.getElementById("searchBar");
+  bar.style.maxHeight = bar.style.maxHeight ? null : "80px";
+});
 
-function toggleMobileMenu() {
-const menu = document.getElementById("mobileMenu");
-menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
+/* MOBILE MENU TOGGLE */
+document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+  let menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
 </script>
 
-<script>
-  const openMenu = document.querySelector(".mobile-menu-btn");
-  const closeMenu = document.querySelector(".close-mobile-menu");
-  const navMobile = document.querySelector(".nav-mobile");
 
-  openMenu.addEventListener("click", () => {
-    navMobile.style.right = "0";
-  });
 
-  closeMenu.addEventListener("click", () => {
-    navMobile.style.right = "-300px";
-  });
-</script>
 
 
 
