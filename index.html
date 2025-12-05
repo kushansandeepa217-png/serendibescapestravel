@@ -500,6 +500,19 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
 });
 </script>
 
+<script>
+/* SEARCH BAR TOGGLE */
+document.getElementById("searchToggle").addEventListener("click", function () {
+  let bar = document.getElementById("searchBar");
+  bar.style.maxHeight = bar.style.maxHeight ? null : "80px";
+});
+
+/* MOBILE MENU TOGGLE */
+document.getElementById("mobileMenuToggle").addEventListener("click", function () {
+  let menu = document.getElementById("mobileMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+</script>
 
 
 
