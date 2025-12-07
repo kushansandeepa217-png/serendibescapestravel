@@ -2532,24 +2532,12 @@ body {
   }
 }
 
-/* Bigger, premium-style social icons */
-.social-connect .social-icons img {
-  width: 70px;          /* increased size */
-  height: 70px;         /* keeps perfect square */
-  object-fit: contain;  /* keeps high quality */
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
 
-/* Hover effect (premium smooth lift) */
-.social-connect .social-icons img:hover {
-  transform: translateY(-6px) scale(1.08);
-  opacity: 0.9;
-}
 
 /* Fix Social Icon Size (PNG) — Larger & Even */
 .social-icons img {
-  width: 55px;        /* Increased icon size */
-  height: 55px;       /* Make all equal size */
+  width: 75px;        /* Increased icon size */
+  height: 75px;       /* Make all equal size */
   object-fit: contain;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
