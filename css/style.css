@@ -2545,3 +2545,17 @@ body {
   transform: translateY(-6px) scale(1.08);
   opacity: 0.9;
 }
+
+/* Fix Social Icon Size (PNG) — Larger & Even */
+.social-icons img {
+  width: 55px;        /* Increased icon size */
+  height: 55px;       /* Make all equal size */
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover Luxury Effect */
+.social-icons img:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0px 4px 10px rgba(0, 123, 106, 0.4));
+}
