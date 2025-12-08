@@ -2472,13 +2472,13 @@ body {
 .social-connect {
   padding: 70px 20px;
   text-align: center;
-  background: #f4f9f8;
+  background: #004d43;
 }
 
 .social-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #007b6a;
+  color: #e9e5db;
   margin-bottom: 35px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -2498,7 +2498,7 @@ body {
   filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.18));
   border-radius: 18px;
   transition: all 0.35s ease;
-  background: white;
+  background: #02231f;
   padding: 12px;        /* Adjusted padding for sharper look */
 }
 
