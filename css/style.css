@@ -2569,7 +2569,7 @@ body {
 }
 
 /* ===========================
-   ACTIVE CATEGORY HIGHLIGHT
+   ACTIVE CATEGORY HIGHLIGHT (TRANSPARENT EFFECT)
 =========================== */
 
 /* Active category box */
@@ -2577,6 +2577,17 @@ body {
   border: 3px solid #007b6a;
   transform: scale(1.06);
   box-shadow: 0px 8px 18px rgba(0, 123, 106, 0.35);
+}
+
+/* Modern transparent highlight for active category label */
+.cat-item.active span {
+  background: rgba(0, 123, 106, 0.18);   /* soft transparent green */
+  padding: 6px 12px;
+  border-radius: 10px;
+  color: #00483f;                        /* deep green text */
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
 }
 
 /* Highlight active markers on the map */
@@ -2587,14 +2598,9 @@ body {
 }
 
 .map-marker.active .marker-label {
-  background: #007b6a;
-  color: white;
+  background: rgba(0, 123, 106, 0.18);   /* transparent effect */
+  color: #00483f;                        /* matching deep green */
   padding: 3px 8px;
   border-radius: 6px;
-}
-
-.cat-item.active {
-  transform: scale(1.1);
-  border: 3px solid #007b6a;
-  box-shadow: 0 6px 18px rgba(0,123,106,0.35);
+  backdrop-filter: blur(4px);
 }
