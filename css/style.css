@@ -2592,3 +2592,9 @@ body {
   padding: 3px 8px;
   border-radius: 6px;
 }
+
+.cat-item.active {
+  transform: scale(1.1);
+  border: 3px solid #007b6a;
+  box-shadow: 0 6px 18px rgba(0,123,106,0.35);
+}
