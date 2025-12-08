@@ -2472,13 +2472,13 @@ body {
 .social-connect {
   padding: 70px 20px;
   text-align: center;
-  background: #007b6a;
+  background: #f4f9f8;
 }
 
 .social-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #f4efe5;
+  color: #007b6a;
   margin-bottom: 35px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -2487,25 +2487,25 @@ body {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 35px; /* Increased spacing for cleaner premium layout */
   flex-wrap: wrap;
 }
 
 /* Icon Style */
 .social-icons a img {
-  width: 80px;
-  height: 80px;
-  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.15));
+  width: 80px;          /* 🔥 Increased icon size */
+  height: 80px;         /* 🔥 Increased icon size */
+  filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.18));
   border-radius: 18px;
   transition: all 0.35s ease;
-  background: #083d34 ;
-  padding: 14px;
+  background: white;
+  padding: 12px;        /* Adjusted padding for sharper look */
 }
 
 /* Hover Effect */
 .social-icons a img:hover {
   transform: translateY(-10px) scale(1.15);
-  box-shadow: 0px 14px 39px rgba(0, 123, 106, 0.35);
+  box-shadow: 0px 14px 28px rgba(0, 123, 106, 0.40);
   filter: brightness(1.18);
 }
 
@@ -2522,16 +2522,26 @@ body {
 .social-icons a:nth-child(4) img { animation: floatIcon 3.8s ease-in-out infinite; }
 .social-icons a:nth-child(5) img { animation: floatIcon 4.2s ease-in-out infinite; }
 
-/* Small screens */
+/* ===========================
+   MOBILE RESPONSIVENESS
+=========================== */
 @media (max-width: 600px) {
+  .social-connect {
+    padding: 60px 15px;
+  }
+
+  .social-title {
+    font-size: 1.7rem;
+  }
+
+  .social-icons {
+    gap: 26px; /* tighter gap for small screens */
+  }
+
   .social-icons a img {
-    width: 70px;
-    height: 70px;
-    padding: 12px;
-   
-   
+    width: 65px;    /* Perfect mobile size */
+    height: 65px;
+    padding: 10px;
+    border-radius: 16px;
   }
 }
-
-
-
