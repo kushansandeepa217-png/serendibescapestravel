@@ -573,6 +573,39 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const categoryItems = document.querySelectorAll(".cat-item");
+  const markers = document.querySelectorAll(".map-marker");
+
+  categoryItems.forEach(item => {
+    item.addEventListener("click", () => {
+
+      // Reset previous active states
+      categoryItems.forEach(c => c.classList.remove("active"));
+      markers.forEach(m => m.classList.remove("active"));
+
+      // Activate clicked category
+      item.classList.add("active");
+
+      const category = item.getAttribute("data-cat");
+
+      // Activate corresponding markers
+      document.querySelectorAll("." + category).forEach(m => {
+        m.classList.add("active");
+      });
+    });
+  });
+
+  // AUTO-ACTIVATE Wildlife & Nature on page load
+  const defaultCategory = document.querySelector('.cat-item[data-cat="nature"]');
+  if (defaultCategory) {
+    defaultCategory.click();
+  }
+
+});
+</script>
 
 
 </body>

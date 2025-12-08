@@ -2555,3 +2555,40 @@ body {
   color: #007b6a;
   font-weight: 700;
 }
+
+/* Selected Card Effect */
+.select-card.active {
+  border: 3px solid #007b6a;
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 123, 106, 0.25);
+}
+
+.select-card {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* ===========================
+   ACTIVE CATEGORY HIGHLIGHT
+=========================== */
+
+/* Active category box */
+.cat-item.active {
+  border: 3px solid #007b6a;
+  transform: scale(1.06);
+  box-shadow: 0px 8px 18px rgba(0, 123, 106, 0.35);
+}
+
+/* Highlight active markers on the map */
+.map-marker.active .marker-dot {
+  background: #007b6a !important;
+  transform: scale(1.4);
+  box-shadow: 0 0 12px #007b6a;
+}
+
+.map-marker.active .marker-label {
+  background: #007b6a;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+}

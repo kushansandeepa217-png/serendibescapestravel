@@ -569,6 +569,27 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
 });
 </script>
 
+<script>
+// MULTI-SELECT CARDS (Regions + Experiences)
+document.querySelectorAll(".select-grid .select-card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
+
+// SINGLE SELECT (Travel Style)
+document.querySelectorAll(".single-select .select-card").forEach(card => {
+  card.addEventListener("click", () => {
+    // Remove active from all
+    document.querySelectorAll(".single-select .select-card")
+      .forEach(c => c.classList.remove("active"));
+    
+    // Add active only to selected one
+    card.classList.add("active");
+  });
+});
+</script>
+
 </body>
 </html>
 
