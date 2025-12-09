@@ -2598,9 +2598,9 @@ body {
 }
 
 .map-marker.active .marker-label {
-  background: rgba(0, 123, 106, 0.18);   /* transparent effect */
-  color: #00483f;                        /* matching deep green */
+  background:#007b6a ;   /* transparent effect */
+  color: white;                        /* matching deep green */
   padding: 3px 8px;
   border-radius: 6px;
-  backdrop-filter: blur(4px);
+  
 }
