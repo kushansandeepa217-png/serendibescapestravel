@@ -2624,3 +2624,45 @@ body {
   background: #007b6a;
   color: white;
 }
+
+/* =========================================
+SELECT CARDS: TICK BOX UI
+========================================= */
+
+/* Basic positioning so the checkbox appears correctly */
+.select-card {
+position: relative;
+cursor: pointer;
+transition: 0.25s ease;
+}
+
+/* Unselected state: empty box */
+.select-card::after {
+content: "☐";
+position: absolute;
+top: 12px;
+right: 12px;
+font-size: 22px;
+font-weight: bold;
+color: #007b6a;
+background: rgba(255, 255, 255, 0.85);
+padding: 4px 8px;
+border-radius: 6px;
+transition: 0.25s ease;
+pointer-events: none;
+}
+
+/* Selected state (active) = checked box */
+.select-card.active::after {
+content: "☑";
+background: #007b6a;
+color: white;
+}
+
+/* Optional: add a subtle glow or border highlight on selection */
+.select-card.active {
+box-shadow: 0 0 12px rgba(0, 123, 106, 0.4);
+transform: translateY(-3px);
+}
+
+
