@@ -408,6 +408,10 @@
     <textarea id="info" name="info" rows="4"></textarea>
 
     <button type="submit" class="btn">Send Enquiry</button>
+    <p class="form-success-message" style="display:none; color:#007b6a; font-weight:bold; margin-top:15px;">
+  Your enquiry has been sent successfully! We will contact you soon.
+</p>
+
   </form>
 </section>
 
@@ -541,6 +545,11 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
 });
 </script>
 
+<script>
+document.querySelector(".booking-form").addEventListener("submit", function() {
+  document.querySelector(".form-success-message").style.display = "block";
+});
+</script>
 
 
 </body>
