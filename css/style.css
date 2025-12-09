@@ -2625,3 +2625,61 @@ body {
   color: white;
 }
 
+/* ======================================================
+   UNIVERSAL SELECT-CARD CHECK SYSTEM (Works Everywhere)
+====================================================== */
+
+/* Base Card */
+.select-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: 0.25s ease;
+}
+
+/* Hover effect (desktop only) */
+@media (hover: hover) {
+  .select-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Checkbox UI */
+.select-card::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 2px solid #007b6a;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  transition: 0.25s ease;
+}
+
+/* Tick when active */
+.select-card.active::after {
+  background: #007b6a url('images/icons/tick-white.png') center/16px no-repeat;
+  border-color: #007b6a;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0,123,106,0.4);
+}
+
+/* Active highlight */
+.select-card.active {
+  box-shadow: 0 0 18px rgba(0,123,106,0.35);
+  transform: scale(1.03);
+}
+
+/* Mobile optimization (bigger tap area) */
+@media (max-width: 768px) {
+  .select-card::after {
+    width: 32px;
+    height: 32px;
+    top: 10px;
+    right: 10px;
+  }
+}
