@@ -156,7 +156,7 @@
 <!-- Booking Form -->
 <section class="container tour-section">
   <h2 class="section-title">Book Your Cycling Sri Lanka Experience</h2>
-  <form class="booking-form" method="POST" action="send-booking.php">
+  <form id="travelForm" action="mailto:inquiries@serendibeescapestravel.com" method="POST" enctype="text/plain">
 
     <label for="title">Title*</label>
     <select id="title" name="title" required>
@@ -538,6 +538,28 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 });
 </script>
+
+<script>
+document.getElementById("travelForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let form = event.target;
+    let formData = new FormData(form);
+    let message = "";
+
+    for (let pair of formData.entries()) {
+        message += pair[0] + ": " + pair[1] + "\n";
+    }
+
+    let mailtoLink =
+        "mailto:YOUR_EMAIL_HERE"
+        + "?subject=New Travel Inquiry"
+        + "&body=" + encodeURIComponent(message);
+
+    window.location.href = mailtoLink;
+});
+</script>
+
 
 </body>
 </html>
