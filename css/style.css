@@ -2604,3 +2604,34 @@ body {
   border-radius: 6px;
   
 }
+
+/* ===========================
+   SELECT CARD CHECKBOX STYLE
+=========================== */
+
+/* Container for tick */
+.select-card {
+  position: relative;
+}
+
+/* Hidden checkbox icon (default: invisible) */
+.select-card::after {
+  content: "☐";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #007b6a;
+  background: rgba(255,255,255,0.85);
+  padding: 3px 6px;
+  border-radius: 6px;
+  transition: 0.25s ease;
+}
+
+/* When card is active = show tick */
+.select-card.active::after {
+  content: "☑️";
+  background: #007b6a;
+  color: white;
+}
