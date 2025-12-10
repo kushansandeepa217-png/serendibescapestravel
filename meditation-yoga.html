@@ -148,19 +148,23 @@
   <form class="booking-form" method="POST" action="https://formspree.io/f/xvgewojr">
     <input type="hidden" name="_subject" value="Meditation yoga Tour Booking Enquiry">
     <label for="title">Title*</label>
-    <select id="title" required>
+    <select id="title" name="title" required>
       <option>Mr</option>
       <option>Mrs</option>
       <option>Miss</option>
     </select>
+
     <label for="fname">First Name*</label>
-    <input type="text" id="fname" required>
+    <input type="text" id="fname" name="fname" required>
+
     <label for="lname">Last Name*</label>
-    <input type="text" id="lname" required>
+    <input type="text" id="lname" name="lname" required>
+
     <label for="email">Email*</label>
-    <input type="email" id="email" required>
+    <input type="email" id="email" name="email" required>
+
     <label for="country">Country</label>
-    <select id="country">
+    <select id="country" name="country">
       <option value="Afghanistan">Afghanistan</option>
   <option value="Albania">Albania</option>
   <option value="Algeria">Algeria</option>
@@ -357,30 +361,38 @@
   <option value="Zambia">Zambia</option>
   <option value="Zimbabwe">Zimbabwe</option>
     </select>
+
     <label for="contact">Contact No*</label>
-    <input type="text" id="contact" required>
+    <input type="text" id="contact" name="contact" required>
+
     <label for="accommodation">Accommodation Type</label>
-    <select id="accommodation">
+    <select id="accommodation" name="accommodation">
       <option>Luxury / High End</option>
       <option>Five Star</option>
       <option>Four Star & Lower</option>
     </select>
+
     <label for="start">Start Date*</label>
-    <input type="date" id="start" required>
+    <input type="date" id="start" name="start" required>
+
     <label for="end">End Date*</label>
-    <input type="date" id="end" required>
+    <input type="date" id="end" name="end" required>
+
     <label for="adults">No. Adults</label>
-    <input type="number" id="adults" min="1" value="1">
+    <input type="number" id="adults" name="adults" min="1" value="1">
+
     <label for="kids">No. Kids (0-11)</label>
-    <input type="number" id="kids" min="0" value="0">
+    <input type="number" id="kids" name="kids" min="0" value="0">
+
     <label for="budget">Budget (USD)</label>
-    <select id="budget">
+    <select id="budget" name="budget">
       <option>1000 - 2500</option>
       <option>2500 - 5000</option>
       <option>5000+</option>
     </select>
+
     <label for="info">Additional Info</label>
-    <textarea id="info" rows="4"></textarea>
+    <textarea id="info" name="info" rows="4"></textarea>
     <button type="submit" class="btn">Send Enquiry</button>
     <p class="form-success-message" style="display:none; color:#007b6a; font-weight:bold; margin-top:15px;">
   Your enquiry has been sent successfully! We will contact you soon.
