@@ -142,7 +142,7 @@
 
       <ul class="offer-details">
         <li>📍 Negombo</li>
-        <li>🌙 8 Nights</li>
+        <li>🌙 5 Nights</li>
         <li>🍽️ Full Board + Ayurveda Treatments</li>
         <li>👩‍💼 Private Guided</li>
         <li>👥 Per Person Sharing a Double Room</li>
@@ -329,7 +329,7 @@
       <img src="images/love-songs-of-ceylon.jpg" class="offer-img" alt="">
       <h3 class="offer-name">Elite Jungle Escape</h3>
       <p class="offer-desc">
-        Step into a world where nature reigns supreme with our Elite Jungle Escape. Embrace the thrill of spotting rare wildlife, surrounded by pristine landscapes and high-end eco-luxury retreats. With personalized excursions, private guides, and immersive nature activities, this journey offers a perfect balance of adventure, serenity, and refined comfort.
+        Experience the essence of the wild with our Luxury Wilderness Retreat, where untouched nature meets uncompromised elegance. Traverse scenic parks, marvel at iconic wildlife, and return to tranquil, upscale accommodations designed for ultimate relaxation. This is your chance to explore the wilderness in style—an unforgettable escape crafted for discerning nature lovers.
       </p>
 
        <p class="offer-desc">
@@ -538,28 +538,50 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
 
 
 <script>
-const popup = document.getElementById("bookingPopup");
-const closePopup = document.getElementById("closePopup");
-const selectedOfferName = document.getElementById("selectedOfferName");
-const offerHiddenField = document.getElementById("offerHiddenField");
+document.addEventListener("DOMContentLoaded", () => {
 
-// Open popup
-document.querySelectorAll(".offer-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const offerName = btn.dataset.offer;
+  const popup = document.getElementById("bookingPopup");
+  const closePopup = document.getElementById("closePopup");
+  const overlay = popup.querySelector(".popup-overlay");
+  const selectedOfferName = document.getElementById("selectedOfferName");
+  const offerHiddenField = document.getElementById("offerHiddenField");
+  const firstInput = popup.querySelector("input[name='name']");
+
+  // OPEN POPUP
+  function openPopup(offerName) {
     selectedOfferName.textContent = offerName;
     offerHiddenField.value = offerName;
+
     popup.classList.add("active");
+    document.body.classList.add("no-scroll");
+
+    setTimeout(() => firstInput.focus(), 250);
+  }
+
+  // CLOSE POPUP
+  function closePopupFunc() {
+    popup.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
+
+  // BUTTON CLICK → open popup
+  document.querySelectorAll(".offer-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      openPopup(btn.dataset.offer);
+    });
   });
-});
 
-// Close popup
-closePopup.addEventListener("click", () => {
-  popup.classList.remove("active");
-});
+  // Close actions
+  closePopup.addEventListener("click", closePopupFunc);
+  overlay.addEventListener("click", closePopupFunc);
 
-popup.querySelector(".popup-overlay").addEventListener("click", () => {
-  popup.classList.remove("active");
+  // ESC key close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && popup.classList.contains("active")) {
+      closePopupFunc();
+    }
+  });
+
 });
 </script>
 
