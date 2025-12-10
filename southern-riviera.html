@@ -147,7 +147,8 @@
 <!-- Booking Form -->
 <section class="container tour-section">
   <h2 class="section-title">Book Your Southern Riviera Experience</h2>
-  <form class="booking-form">
+  <form class="booking-form" method="POST" action="https://formspree.io/f/xvgewojr">
+    <input type="hidden" name="_subject" value="Southern Riveria Tour Booking Enquiry">
     <label for="title">Title*</label>
     <select id="title" required>
       <option>Mr</option>
@@ -397,6 +398,9 @@
     <form class="lux-news-form">
       <input type="email" placeholder="Enter your email here" required>
       <button type="submit">SUBMIT</button>
+      <p class="form-success-message" style="display:none; color:#007b6a; font-weight:bold; margin-top:15px;">
+  Your enquiry has been sent successfully! We will contact you soon.
+</p>
     </form>
   </div>
 </section>
@@ -513,6 +517,11 @@ document.getElementById("searchToggle").addEventListener("click", function () {
 document.getElementById("mobileMenuToggle").addEventListener("click", function () {
   let menu = document.getElementById("mobileMenu");
   menu.style.display = menu.style.display === "block" ? "none" : "block";
+});
+</script>
+<script>
+document.querySelector(".booking-form").addEventListener("submit", function() {
+  document.querySelector(".form-success-message").style.display = "block";
 });
 </script>
 

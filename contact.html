@@ -70,7 +70,8 @@
 <section class="container tour-section">
   <h2 class="section-title">Get in Touch With Us</h2>
       <p>Our travel experts are here to answer your questions and help you plan the perfect Sri Lankan journey.</p>
-  <form class="booking-form">
+  <form class="booking-form" method="POST" action="https://formspree.io/f/xvgewojr">
+    <input type="hidden" name="_subject" value="Contact US Booking Enquiry">
     <label for="title">Title*</label>
     <select id="title" required>
       <option>Mr</option>
@@ -316,6 +317,9 @@
     <label for="info">Message</label>
     <textarea id="info" rows="4"></textarea>
     <button type="submit" class="btn">Send Enquiry</button>
+    <p class="form-success-message" style="display:none; color:#007b6a; font-weight:bold; margin-top:15px;">
+  Your enquiry has been sent successfully! We will contact you soon.
+</p>
   </form>
 </section>
 
@@ -468,6 +472,13 @@ document.getElementById("mobileMenuToggle").addEventListener("click", function (
   menu.style.display = menu.style.display === "block" ? "none" : "block";
 });
 </script>
+
+<script>
+document.querySelector(".booking-form").addEventListener("submit", function() {
+  document.querySelector(".form-success-message").style.display = "block";
+});
+</script>
+
 
 </body>
 </html>
