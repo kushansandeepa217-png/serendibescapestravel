@@ -2707,7 +2707,8 @@ body {
 .offers-title {
   font-size: 2.7rem;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
-  -moz-box-pack: text;
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
   letter-spacing: -1px;
@@ -2833,7 +2834,8 @@ body {
 .offer-price strong {
   font-size: 1.8rem;
   background: linear-gradient(to right, var(--primary), var(--primary-light));
-  -ms-flex-order: text;
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
   display: block;
