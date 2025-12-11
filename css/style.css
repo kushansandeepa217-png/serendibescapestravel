@@ -2982,3 +2982,17 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+
+/* BALANCED PARAGRAPH STYLING */
+.hospitality-section {
+  text-align: center;
+}
+
+.hospitality-text {
+  max-width: 750px;   /* keeps paragraph perfectly balanced */
+  margin: 18px auto;  /* centers & adds equal spacing */
+  font-size: 1.05rem;
+  line-height: 1.75;  /* smooth readable line height */
+  text-align: justify;       /* balanced left & right edges */
+  text-justify: inter-word;  /* clean word spacing */
+}
