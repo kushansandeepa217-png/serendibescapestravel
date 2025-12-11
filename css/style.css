@@ -2993,6 +2993,7 @@ body {
   margin: 18px auto;  /* centers & adds equal spacing */
   font-size: 1.05rem;
   line-height: 1.75;  /* smooth readable line height */
+  color: #444;
   text-align: justify;       /* balanced left & right edges */
   text-justify: inter-word;  /* clean word spacing */
 }
