@@ -2999,48 +2999,38 @@ body {
 }
 
 /* ===========================
-   FLOATING WHATSAPP + MESSAGE BUTTONS
+   FLOATING BUTTONS
 =========================== */
-
-.floating-contact {
+.floating-buttons {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 22px;
+  right: 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   z-index: 5000;
 }
 
 .float-btn {
-  width: 54px;
-  height: 54px;
-  background: #007b6a;
+  width: 52px;
+  height: 52px;
+  background: #ffffff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.18);
   transition: 0.3s ease;
 }
 
 .float-btn img {
-  width: 50px;
-  height: 50px;
-  filter: brightness(0) invert(1);
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
 }
 
 .float-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 12px 28px rgba(0, 0, 0, 0.35);
-}
-
-/* WhatsApp green branding */
-.whatsapp-btn {
-  background: #25D366;
-}
-
-/* Message button custom color */
-.message-btn {
-  background: #007bff; /* You can change this */
+  transform: scale(1.12);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
 }
