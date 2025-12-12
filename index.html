@@ -604,39 +604,24 @@ document.querySelectorAll('.cat-item').forEach(item => {
 </script>
 
 <!-- ===========================
-   LUXURY FLOATING CONTACT MENU
+   LUXURY FLOATING CONTACT WIDGET
 =========================== -->
-<div class="lux-contact">
-  
-  <!-- EXPANDABLE MENU -->
-  <div class="lux-menu" id="luxMenu">
-    <a href="https://wa.me/1234567890" target="_blank" class="lux-item">
-      <img src="images/wh.png" alt="">
-      <span>WhatsApp</span>
-    </a>
+<div class="lux-contact-widget">
 
-    <a href="contact.html" class="lux-item">
-      <img src="images/ms.png" alt="">
-      <span>Message</span>
-    </a>
-  </div>
+  <a href="https://wa.me/1234567890" target="_blank" class="lux-item whatsapp">
+    <img src="images/wh.png" alt="WhatsApp">
+    <span>WhatsApp</span>
+  </a>
 
-  <!-- LAUNCHER BUTTON -->
-  <div class="lux-launcher" id="luxLauncher">
-    <span>✉️</span>
-  </div>
+  <a href="contact.html" class="lux-item message">
+    <img src="images/ms.png" alt="Message">
+    <span>Message</span>
+  </a>
 
 </div>
 
 
-<script>
-const launcher = document.getElementById("luxLauncher");
-const menu = document.getElementById("luxMenu");
 
-launcher.addEventListener("click", () => {
-  menu.classList.toggle("active");
-});
-</script>
 
 
 

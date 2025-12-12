@@ -2999,93 +2999,87 @@ body {
 }
 
 /* ===========================
-   LUXURY FLOATING CONTACT MENU
+   LUXURY FLOATING CONTACT WIDGET
 =========================== */
 
-.lux-contact {
+.lux-contact-widget {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 9999;
-}
-
-/* Launcher Button */
-.lux-launcher {
-  width: 60px;
-  height: 60px;
-  background: #007B6A;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-  transition: 0.35s ease;
-}
-
-.lux-launcher:hover {
-  background: #005f50;
-  transform: translateY(-3px);
-}
-
-/* Hidden Menu Container */
-.lux-menu {
-  position: absolute;
-  bottom: 75px;
-  right: 4px;
-  width: 220px;
-  padding: 14px;
+  bottom: 28px;
+  right: 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 123, 106, 0.25);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px);
-  transition: 0.35s ease;
+  gap: 14px;
+  z-index: 6000;
 }
 
-/* Active state */
-.lux-menu.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* Menu Items */
+/* Base Button Styling */
 .lux-item {
   display: flex;
   align-items: center;
   gap: 12px;
+  
+  width: 54px;                     /* Collapsed size */
+  padding: 10px;
+  
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  transition: 0.35s ease;
   text-decoration: none;
-  padding: 10px 14px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  color: #333;
-  font-weight: 600;
-  transition: 0.3s ease;
 }
 
+/* Icon Styling */
 .lux-item img {
   width: 24px;
   height: 24px;
 }
 
-.lux-item:hover {
-  background: #007B6A;
+/* Label (hidden by default) */
+.lux-item span {
   color: #fff;
-  transform: translateX(-4px);
+  font-size: 0.92rem;
+  font-weight: 600;
+  opacity: 0;
+  white-space: nowrap;
+  transition: 0.3s ease;
 }
 
-.lux-item:hover img {
-  filter: brightness(1000%); /* clean white icons */
+/* Expand on Hover */
+.lux-item:hover {
+  width: 170px;
+  background: #007B6A;                 /* Your brand color */
+  padding-left: 16px;
+}
+
+.lux-item:hover span {
+  opacity: 1;
+}
+
+/* WhatsApp Color Variation */
+.whatsapp {
+  background: #25d366;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.whatsapp:hover {
+  background: #1ebe59;
+}
+
+.whatsapp span {
+  color: #fff;
+}
+
+/* Message Button */
+.message {
+  background: #007B6A;
+}
+
+.message:hover {
+  background: #005f50;
 }
