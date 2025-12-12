@@ -2999,87 +2999,69 @@ body {
 }
 
 /* ===========================
-   LUXURY FLOATING CONTACT WIDGET
+   FLOATING WHATSAPP BUTTON (PROFESSIONAL)
 =========================== */
 
-.lux-contact-widget {
+.whatsapp-float {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 6000;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
 }
 
-/* Base Button Styling */
-.lux-item {
+.whatsapp-float a {
+  width: 62px;
+  height: 62px;
+  background: #007b6a;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  
-  width: 54px;                     /* Collapsed size */
-  padding: 10px;
-  
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  
-  border-radius: 50px;
-  cursor: pointer;
-  overflow: hidden;
+  justify-content: center;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-  transition: 0.35s ease;
-  text-decoration: none;
-}
+  /* Premium glass shadow */
+  box-shadow: 0 10px 22px rgba(0, 123, 106, 0.35),
+              0 4px 10px rgba(0,0,0,0.15);
 
-/* Icon Styling */
-.lux-item img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Label (hidden by default) */
-.lux-item span {
-  color: #fff;
-  font-size: 0.92rem;
-  font-weight: 600;
-  opacity: 0;
-  white-space: nowrap;
   transition: 0.3s ease;
+  animation: whatsappPulse 2.5s infinite ease-in-out;
 }
 
-/* Expand on Hover */
-.lux-item:hover {
-  width: 170px;
-  background: #007B6A;                 /* Your brand color */
-  padding-left: 16px;
+/* Hover effect for desktop */
+.whatsapp-float a:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 28px rgba(0, 123, 106, 0.45),
+              0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.lux-item:hover span {
-  opacity: 1;
+.whatsapp-float img {
+  width: 34px;
+  height: 34px;
+  filter: brightness(0) invert(1);  /* clean white icon */
+  pointer-events: none;
 }
 
-/* WhatsApp Color Variation */
-.whatsapp {
-  background: #25d366;
-  border-color: rgba(255,255,255,0.2);
+/* Soft pulse animation (professional subtle effect) */
+@keyframes whatsappPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
-.whatsapp:hover {
-  background: #1ebe59;
-}
+/* MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .whatsapp-float a {
+    width: 55px;
+    height: 55px;
+    animation: none;   /* disable pulse for battery saving */
+  }
 
-.whatsapp span {
-  color: #fff;
-}
+  .whatsapp-float img {
+    width: 30px;
+    height: 30px;
+  }
 
-/* Message Button */
-.message {
-  background: #007B6A;
-}
-
-.message:hover {
-  background: #005f50;
+  .whatsapp-float {
+    bottom: 18px;
+    right: 18px;
+  }
 }
